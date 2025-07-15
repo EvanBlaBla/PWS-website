@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center; /* horizontaal centreren */
+  align-items: center;     /* verticaal centreren */
+  background-image: url('EmptyMap.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Funky-Islands {
+  display: flex;
+  flex-direction: row;
+  width: 800px;
+  height: 500px;
+  position: relative;
+  background-color: transparent;
+}
+
+.Island1 {
+  width: 500px;
+  height: 500px;
+  display: flex; justify-content: center; align-items: center;
+}
+
+.Island2 {
+  width: 200px; 
+  height: 500px; 
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-left: 75px;
+}
+
+.Island3 {
+  position: absolute;
+  width: 350px;
+  height: 150px; 
+  bottom: -50px; 
+  right: 150px;
+}
+
+.Island4 {
+  position: absolute; 
+  width: 200px; 
+  height: 200px; 
+  top: -40px; 
+  left: -75px;
+}

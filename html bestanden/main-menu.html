@@ -1,72 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Funky Islands</title>
-  <style>
-     body {
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center; /* horizontaal centreren */
-      align-items: center;     /* verticaal centreren */
-      background-image: url('lege kaart.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-  </style>
-</head>
-<body>
-  <div class="Funky-Islands"    style="
-    display: flex;
-    flex-direction: row;
-    width: 800px;
-    height: 500px;
-    position: relative;
-    background-color: transparent;
-  ">    
-    <!-- Island 1 -->
-    <div style="
-      width: 500px;
-      height: 500px;
-      display: flex; justify-content: center; align-items: center;
-    ">
-      <img src="Island 1.png" alt="Island 1"> 
-    </div>
+  <head>
+    <title>Funky Islands</title>
+    <link rel="stylesheet" href="css/Islands.css">
+  </head>
+  <body class="menu">
+    <div class="Funky-Islands">    
+      <!-- Island 1 -->
+      <div class="Island1">
+        <img src="pictures/Island 1.png" alt="Island 1"> 
+      </div>
 
-    <!-- Island 2 -->
-    <div style="
-      width: 200px; 
-      height: 500px; 
-      display: flex;
-      justify-content: center; align-items: center;
-      margin-left: 75px;
-    ">
-      <img src="Island 2.png" alt="Island 2">
-    </div>
+      <!-- Island 2 -->
+      <div class="Island2">
+        <img src="pictures/Island 2.png" alt="Island 2">
+      </div>
 
-    <!-- Island 3 (absolute) -->
-    <div style="
-      position: absolute;
-      width: 350px;
-      height: 150px; 
-      bottom: -50px; 
-      right: 150px;
-    ">
-      <img src="Island 3.png" alt="Island 3">
-    </div>
+      <!-- Island 3 (absolute) -->
+      <div class="Island3">
+        <img src="pictures/Island 3.png" alt="Island 3">
+      </div>
 
-    <!-- Island 4 (absolute) -->
-    <div style="
-      position: absolute; 
-      width: 200px; 
-      height: 200px; 
-      top: -40px; 
-      left: -75px;
-    ">
-      <img src="Island 4.png" alt="Island 4">
+      <!-- Island 4 (absolute) -->
+      <div class="Island4">
+        <img src="pictures/Island 4.png" alt="Island 4">
+      </div>
     </div>
-  </div>
-</body>
+  </body>
 </html>
