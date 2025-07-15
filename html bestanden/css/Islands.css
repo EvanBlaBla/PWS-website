@@ -1,14 +1,28 @@
 body {
   margin: 0;
   padding: 0;
+  overflow: hidden;
   height: 100vh;
-  display: flex;
-  justify-content: center; /* horizontaal centreren */
-  align-items: center;     /* verticaal centreren */
   background-image: url('EmptyMap.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  font-family: caveat;
+}
+
+.Header {
+  display: flex;
+  position: fixed;
+  background-color: transparent;
+  left: 0;
+  right: 0;
+  top: -20px;
+  height: 75px;
+  z-index: 1;
+  font-size: 92px;
+  font-weight: bold;
+  justify-content: center;
+
 }
 
 .Funky-Islands {
@@ -18,12 +32,16 @@ body {
   height: 500px;
   position: relative;
   background-color: transparent;
+  margin: 0 auto; /* Horizontaal centreren */
+  margin-top: calc(50vh - 250px); /* Verticaal centreren */
 }
 
 .Island1 {
   width: 500px;
   height: 500px;
-  display: flex; justify-content: center; align-items: center;
+  display: flex; 
+  justify-content: center; 
+  align-items: center;
 }
 
 .Island2 {
@@ -49,4 +67,27 @@ body {
   height: 200px; 
   top: -40px; 
   left: -75px;
+}
+
+div.start-button > button {
+  position: absolute;
+  bottom: -50px;
+  right: -75px;
+  color: black;
+  background-color: rgba(151, 95, 11, 0.774);
+  border-color: rgba(177, 115, 21, 0.719);
+  border-style: solid;
+  border-radius: 20px;
+  font-family: caveat;
+  font-size: 28px;
+  transition: 0.5s;
+}
+
+div.start-button > button:hover {
+  background-color: rgba(151, 95, 11, 0.507);
+}
+
+div.start-button > button:active {
+  background-color: rgba(56, 34, 1, 0.493);
+  border-color: rgb(0, 0, 0);
 }

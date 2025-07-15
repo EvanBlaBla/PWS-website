@@ -3,8 +3,18 @@
   <head>
     <title>Funky Islands</title>
     <link rel="stylesheet" href="css/Islands.css">
+    <link rel="stylesheet" href="css/verteller.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
   </head>
   <body class="menu">
+    <div class="Header">
+      <head>
+        Funky Islands
+      </head>
+    </div>
+    
     <div class="Funky-Islands">    
       <!-- Island 1 -->
       <div class="Island1">
@@ -24,6 +34,27 @@
       <!-- Island 4 (absolute) -->
       <div class="Island4">
         <img src="pictures/Island 4.png" alt="Island 4">
+      </div>
+
+      <!--start knop (absolute)-->
+      <div class="start-button">
+        <button>
+          start het avontuur ->
+        </button>
+      </div>
+    </div>
+
+    <div id="overlay" class="hidden"> <!--tijdelijk hidden-->
+      <div id="overlay" class="verteller1" style="color: white; font-size: 32px;" >
+        <div class="verteller-content">
+          <div class="persoon">
+          
+          </div>
+          <div class="tekst">
+            <button class="next-text"></button>
+          </div>
+        </div>
+        
       </div>
     </div>
   </body>
