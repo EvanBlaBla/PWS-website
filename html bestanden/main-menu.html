@@ -38,7 +38,7 @@
 
       <!--start knop (absolute)-->
       <div class="start-button">
-        <button>
+        <button onclick="showTekst()">
           start het avontuur ->
         </button>
       </div>
@@ -51,11 +51,25 @@
             <img src="pictures/piraatx2-removebg-preview.png" alt="piraatx2">
           </div>
           <div class="tekst">
-            <button class="next-text"></button>
+            <div class="speech-bubble">
+              hello
+              <button class="next-tekst-button" onclick="hideTekst()">next...</button>
+            </div>
+            
           </div>
         </div>
         
       </div>
     </div>
+
+    <script>
+      function showTekst() {
+        document.getElementById('overlay').style.   display = 'flex';
+      }
+
+      function hideTekst() {
+        document.getElementById('overlay').style.   display = 'none';
+      }
+    </script>
   </body>
 </html>

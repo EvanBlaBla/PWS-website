@@ -3,7 +3,7 @@ body {
   padding: 0;
   overflow: hidden;
   height: 100vh;
-  background-image: url('EmptyMap.png');
+  background-image: url('EmptyMap1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@ body {
   position: relative;
   background-color: transparent;
   margin: 0 auto; /* Horizontaal centreren */
-  margin-top: calc(50vh - 250px); /* Verticaal centreren */
+  margin-top: 100px;
 }
 
 .Island1 {
@@ -77,10 +77,14 @@ div.start-button > button {
   background-color: rgba(151, 95, 11, 0.774);
   border-color: rgba(177, 115, 21, 0.719);
   border-style: solid;
-  border-radius: 20px;
+  border-radius: 30px;
   font-family: caveat;
   font-size: 28px;
   transition: 0.5s;
+  padding-left: 8px;
+  padding-right: 10px;
+  padding-bottom: 3px;
+  padding-top: 1px;
 }
 
 div.start-button > button:hover {
