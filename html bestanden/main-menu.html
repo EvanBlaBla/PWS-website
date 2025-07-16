@@ -9,58 +9,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
   </head>
   <body class="menu">
-    <div class="Header">
-      <head>
-        Funky Islands
-      </head>
-    </div>
-    
-    <div class="Funky-Islands">    
-      <!-- Island 1 -->
-      <div class="Island1">
-        <img src="pictures/Island 1.png" alt="Island 1"> 
+    <div id="frontPage" class="frontPage">
+      <div class="Header">
+        <head>
+          Funky Islands
+        </head>
       </div>
-
-      <!-- Island 2 -->
-      <div class="Island2">
-        <img src="pictures/Island 2.png" alt="Island 2">
-      </div>
-
-      <!-- Island 3 (absolute) -->
-      <div class="Island3">
-        <img src="pictures/Island 3.png" alt="Island 3">
-      </div>
-
-      <!-- Island 4 (absolute) -->
-      <div class="Island4">
-        <img src="pictures/Island 4.png" alt="Island 4">
-      </div>
-
-      <!--start knop (absolute)-->
-      <div class="start-button">
-        <button onclick="showTekst()">
-          start het avontuur ->
-        </button>
-      </div>
-    </div>
-
-    <div id="overlay" class="hidden"> <!--tijdelijk hidden-->
-      <div class="verteller1" style="color: white; font-size: 32px;" >
-        <div class="verteller-content">
-          <div class="persoon">
-            <img src="pictures/piraatx2-removebg-preview.png" alt="piraatx2">
-          </div>
-          <div class="tekst">
-            <div class="speech-bubble">
-              hello
-              <button class="next-tekst-button" onclick="hideTekst()">next...</button>
-            </div>
-            
-          </div>
+      
+      <div class="Funky-Islands">    
+        <!-- Island 1 -->
+        <div class="Island1">
+          <img src="pictures/Island 1.png" alt="Island 1"> 
         </div>
-        
+
+        <!-- Island 2 -->
+        <div class="Island2">
+          <img src="pictures/Island 2.png" alt="Island 2">
+        </div>
+
+        <!-- Island 3 (absolute) -->
+        <div class="Island3">
+          <img src="pictures/Island 3.png" alt="Island 3">
+        </div>
+
+        <!-- Island 4 (absolute) -->
+        <div class="Island4">
+          <img src="pictures/Island 4.png" alt="Island 4">
+        </div>
+
+        <!--start knop (absolute)-->
+        <div class="start-button">
+          <button onclick="showTekst()">
+            start het avontuur ->
+          </button>
+        </div>
       </div>
     </div>
+
+    <div id="secondPage" style="width: 100px; height: 100px; background-color: red;">
+
+    </div>
+
+      <div id="overlay" class="hidden"> <!--tijdelijk hidden-->
+        <div class="verteller1" style="color: white; font-size: 32px;" >
+          <div class="verteller-content">
+            <div class="persoon">
+              <img src="pictures/piraatx2-removebg-preview.png" alt="piraatx2">
+            </div>
+            <div class="tekst">
+              <div class="speech-bubble">
+                hello
+                <button class="next-tekst-button" onclick="
+                  hideTekst();
+                  page2();
+                ">next...</button>
+              </div>
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    
 
     <script>
       function showTekst() {
@@ -69,6 +79,11 @@
 
       function hideTekst() {
         document.getElementById('overlay').style.   display = 'none';
+      }
+
+      function page2() {
+        document.getElementById('frontPage').style.display = 'none';
+        document.getElementById('secondPage')
       }
     </script>
   </body>

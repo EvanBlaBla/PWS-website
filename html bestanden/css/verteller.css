@@ -59,8 +59,8 @@
 }
 
 .next-tekst-button:active {
-  color: rgb(255, 114, 114);
-  text-decoration: underline rgb(255, 114, 114) 2px;
+  color: rgb(155, 0, 0);
+  text-decoration: underline rgb(155, 0, 0) 2px;
 }
 
 .speech-bubble {
