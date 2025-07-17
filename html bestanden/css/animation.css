@@ -1,22 +1,42 @@
 @keyframes zoomIsland1 {
   from {
-    /*transform: scale(1, 1);*/
-    transform: translateX(0px);
+    transform: translateY(-600px) translateX(20%);
   }
-
   to {
-    /*transform: scale(3, 3);*/
-    transform: translateX(700px);
+    transform: translateY(-165px) translateX(20%);
   }
 }
 
-.Funky-Islands {
+@keyframes varendBootje {
+  from {
+    transform: translate(400px, 300px);
+  }
+  to {
+    transform: translate(300px, 2630px);
+  }
+}
+
+.secondPage {
   animation-name: zoomIsland1;
   animation-duration: 10s;
-  animation-timing-function: ease-in;
-  animation-delay: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
   animation-iteration-count: 1;
   animation-direction: normal;
-  animation-fill-mode: none;
+  animation-fill-mode: forwards;
+  transform-origin: center center;
+}
+
+.bootje {
+  position: absolute;
+  left: 520px;
+  bottom: 0px;
+  animation-name: varendBootje;
+  animation-duration: 10s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0s;
+  animation-iteration-count: 1;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
   transform-origin: center center;
 }
