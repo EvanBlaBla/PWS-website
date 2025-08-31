@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Funky Islands</title>
+  <link rel="stylesheet" href="css/Islands.css">
+  <link rel="stylesheet" href="css/verteller.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/test-map.css"> <!-- nieuwe css -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+
+<body class="menu">
+
+  <!-- Visuele "koptekst" -->
+  <div id="frontPage" class="frontPage">
+    <div id="header" class="Header">
+      <head>Funky Islands</head>
+    </div>
+
+    <div class="Funky-Islands">
+      <div class="Island1"><img src="pictures/Island 1.png" alt="Island 1"></div>
+      <div class="Island2"><img src="pictures/Island 2.png" alt="Island 2"></div>
+      <div class="Island3"><img src="pictures/Island 3.png" alt="Island 3"></div>
+      <div class="Island4"><img src="pictures/Island 4.png" alt="Island 4"></div>
+
+      <div class="start-button">
+        <button onclick="startAvontuur()">start het avontuur -></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tweede pagina (kaart met pan/zoom) -->
+  <div id="secondPage" style="width: 100%; height: 100%; display: none;">
+    <div id="map-container">
+      <div id="map-content">
+        <img id="map" src="pictures/Naamloos2.png" alt="map" draggable="false">
+
+        <!-- BOOTJE: geen .map-button class, zodat animatie ongestoord draait -->
+        <!-- Plaatsing in kaartpixels (past mee met zoom/pan). Top/left kun je vrij animeren in animation.css -->
+        <div class="bootje">
+          <div class="bootje-anim">
+            <img src="pictures/bootje.png" alt="bootje">
+          </div>
+        </div>
+
+        <!-- Markers/knoppen die meebewegen met de kaart -->
+        <button class="map-button" id="btn1" style="top: 120px; left: 220px;">1</button>
+        <button class="map-button" id="btn2" style="top: 360px; left: 460px;">2</button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Overlay -->
+  <div id="overlay" class="hidden">
+    <div class="verteller1" style="color: white; font-size: 32px;">
+      <div class="verteller-content">
+        <div class="persoon">
+          <img id="plaatjePersoon" src="pictures/piraatx2-removebg-preview.png" alt="piraatx2">
+        </div>
+        <div class="tekst">
+          <div class="speech-bubble">
+            <span id="tekstInSpeechbubble"></span>
+            <button class="next-tekst-button" onclick="volgendeStap()">next...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scripts/test-map.js"></script> <!-- nieuwe js -->
+  <script>
+    function showTekst() {
+      document.getElementById('overlay').style.display = 'flex';
+    }
+
+    function hideTekst() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+
+    function page2() {
+      document.getElementById('frontPage').style.display = 'none';
+      document.getElementById('secondPage').style.display = 'block';
+    }
+
+    function startAvontuur() {
+      showTekst();
+      document.getElementById('tekstInSpeechbubble').textContent = 'hello';
+      document.getElementById('plaatjePersoon').src = 'pictures/piraatx2-removebg-preview.png';
+    }
+
+    function volgendeStap() {
+      hideTekst();
+      page2();
+      setTimeout(function () {
+        showTekst();
+        document.getElementById('tekstInSpeechbubble').textContent = 'hello again';
+        document.getElementById('plaatjePersoon').src = 'pictures/piraatx2-removebg-preview.png';
+      }, 11000);
+    }
+  </script>
+
+</body>
+</html>

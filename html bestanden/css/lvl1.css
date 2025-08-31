@@ -1,0 +1,42 @@
+.buttonLvl1{
+  position: absolute; 
+  top:80%; 
+  left: 40%;
+}
+
+#lvl1{
+  position: relative;
+  font-size: 180%;
+  display: none;
+}
+
+#uitlegLvl1{
+  background-color: green;
+  padding: 2% 4% 8% 10%;
+  position: absolute;
+  margin: 0;
+  
+  display: none;
+  flex-direction: column;
+}
+
+#opdrachtLvl1{
+  position: absolute;
+  display: none;
+}
+
+.js-head{
+
+}
+
+.js-opdracht{
+
+}
+
+.js-nakijken{
+
+}
+
+.js-resultaat{
+
+}
