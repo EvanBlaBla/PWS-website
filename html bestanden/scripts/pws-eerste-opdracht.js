@@ -8,6 +8,11 @@ document.querySelector('.js-opdracht').innerHTML = `x^2 + ${b} = ${c}`;
 let resultaat = '';
 
 function checken (){
+  if (document.querySelector('.js-antwoord').value.trim() === '') {
+    alert("Vul eerst een antwoord in voordat je nakijkt!");
+    return;
+  }
+
   const leerlingElement = document.querySelector('.js-antwoord');
   let leerlingAntwoord = leerlingElement.value;
   
