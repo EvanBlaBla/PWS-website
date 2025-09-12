@@ -44,8 +44,8 @@ function checken (){
   ${leerlingAntwoord} <br>
   Jouw antwoord is ${resultaat} <br><br>
   Uitwerkingen: <br>
-  x^2 + ${b} = ${c} <br>
-  x^2 = ${a*a} <br>
+  x² + ${b} = ${c} <br>
+  x² = ${a*a} <br>
   x = \u221A${a*a} V x = -\u221A${a*a} <br> 
   ${computerAntwoord} <br>
   `

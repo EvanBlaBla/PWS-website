@@ -1,25 +1,49 @@
-.buttonLvl1{
-  position: absolute; 
-  top:80%; 
-  left: 40%;
-}
-
-.papegaaiInKooi {
-  height: 45vh;
-  object-fit: contain;
+/* ===== Second page ===== */
+#secondPage {
+  background-color: rgb(57, 65, 185);
+  width: 100%;
+  height: 100%;
+  display: block;
   position: absolute;
-  display: flex;
-  bottom: 1.5%;
 }
 
-#lvl1{
+.secondPage {
+  width: 100%;
+  height: 100%;
   position: relative;
-  font-size: 4.2vh;
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: inline-block;
+}
+
+.map-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ===== To-do list ===== */
+#toDoList {
+  display: none;
+  font-family: Arial;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+/* ===== Level 1 ===== */
+#lvl1 {
+  position: relative;
+  font-size: 25px;
   display: none;
   flex-direction: column;
 }
 
-#uitlegLvl1{
+#uitlegLvl1 {
   background-color: green;
   position: absolute;
   margin: 0;
@@ -29,38 +53,114 @@
   flex-direction: column;
 }
 
-#uitlegLvl10{
-  background-color:rgb(73, 230, 73); 
-  padding: 1%; 
-  border-radius: 3%; 
-  margin: 2% 4% 0% 15%; 
+#uitlegLvl10,
+#opdrachtLvl1 {
+  background-color: rgb(73, 230, 73);
+  padding: 1%;
+  border-radius: 3%;
+  margin: 2% 4% 0% 30%;
   height: 90vh;
   flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
 }
 
-#opdrachtLvl1{
+#opdrachtLvl1 {
   display: none;
-  background-color:rgb(73, 230, 73); 
-  padding: 1%; 
-  border-radius: 3%; 
-  margin: 2% 4% 0% 15%; 
-  height: 90vh;
-  flex-direction: column; 
+  margin: 2% 4% 0% 15%;
   align-self: flex-start;
 }
 
-.js-head{
-
+/* ===== Text fixes ===== */
+.speech-bubble p {
+  margin: 0;
 }
 
-.js-opdracht{
-
+#uitlegLvl10 p,
+#opdrachtLvl1 p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
-.js-nakijken{
-
+/* ===== Buttons in lvl1 ===== */
+.buttonNaarUitleg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  width: 11%;
+  height: 13%;
+  margin: 2% 0% 2% 2%;
+  background-color: transparent;
+  background-image: url('../pictures/sign.png'); /* let op pad! */
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  padding: 0;
 }
 
-.js-resultaat{
-
+.buttonNaarOpdracht,
+.buttonNaarHome,
+.buttonNaarNext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 14%;
+  width: 11%;
+  height: 20%;
+  margin: 14% 0% 2% 2%;
+  position: absolute;
 }
+
+/* ===== Papegaai ===== */
+.papegaaiInKooi {
+  max-width: 12vw;
+  max-height: 35vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 10%;
+  left: 16%;
+}
+
+/* ===== Level buttons ===== */
+.lvlButtons {
+  position: absolute;
+  background-color: #fdf5d4;
+  color: #4e4525;
+  border: 4px solid #d4b56a;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bolder;
+  font-size: larger;
+  cursor: pointer;
+  box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.lvlButtons:hover {
+  background-color: #fff2b0;
+  transform: scale(1.05);
+}
+
+.lvlButtons:active {
+  transform: scale(0.97);
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+
+#btn-1 { top: 80vh; left: 39.5vw; }
+#btn-2 { top: 66vh; left: 43vw; }
+#btn-3 { top: 52vh; left: 34vw; }
+#btn-4 { top: 20vh; left: 50vh; }
+#btn-5 { top: 30vh; left: 50vw; }
+#btn-6 { top: 40vh; left: 58vw; }
+#btn-7 { top: 32vh; right: 43vh; }
+
+/* ===== JS hooks ===== */
+.js-head {}
+.js-opdracht {}
+.js-nakijken {}
+.js-resultaat {}
