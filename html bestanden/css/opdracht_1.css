@@ -1,0 +1,91 @@
+/* ===== Papegaai ===== */
+.papegaaiInKooi {
+  max-width: 12vw;
+  max-height: 35vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 22vh;
+  left: 16vw;
+  z-index: 1;
+}
+
+/* ===== Uitleg + Opdracht container ===== */
+#uitlegVDOpdracht,
+#opdracht {
+  background-color: rgb(73, 230, 73);
+  padding: 1%;
+  border-radius: 3%;
+  margin: 2% 4% 0% 30vw;
+  height: 90vh;
+  max-width: 70vw;
+  min-width: 60vw;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+#opdracht {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  font-family: "Caveat", Arial, sans-serif;
+  font-size: 20px;
+}
+
+#opdracht > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: rgba(79, 255, 79, 0.685);
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Input en button in opdrachten */
+#opdracht input,
+#opdracht button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  font-family: "Caveat", Arial, sans-serif;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #cfcfcf;
+}
+
+#opdracht button {
+  cursor: pointer;
+  background-color: #cfcfcf;
+  border: 2px solid #4e4e4e93;
+  transition: background 0.2s ease;
+}
+
+#opdracht button:hover {
+  background-color: #ffffff7e;
+}
+
+/* Kleine textfixes */
+#uitlegVDOpdracht p,
+#opdracht p {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  z-index: 1;
+}
+
+/* JS hooks */
+.js-head,
+.js-opdracht,
+.js-nakijken,
+.js-resultaat,
+.js-antwoord {
+  z-index: 1;
+  display: flex;
+}
+.js-antwoord,
+.js-nakijken { width: 1fr 1fr 1fr; }

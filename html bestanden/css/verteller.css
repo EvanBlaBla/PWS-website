@@ -63,16 +63,17 @@
   text-decoration: underline rgb(155, 0, 0) 2px;
 }
 
-.speech-bubble {
+#speech-bubble {
   padding: 10px 20px;
 	position: relative;
 	background: #eac643;
 	border-radius: .4em;
   width: 500px;
   color: black;
+  margin: 0;
 }
 
-.speech-bubble:after {
+#speech-bubble:after {
 	content: '';
 	position: absolute;
 	top: 0;

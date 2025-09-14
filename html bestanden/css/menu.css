@@ -43,13 +43,13 @@
 /* ===== Level 1 ===== */
 #lvl1 {
   position: relative;
-  font-size: 25px;
+  font-size: 26px;
   display: none;
   flex-direction: column;
   z-index: 1;
 }
 
-#uitlegLvl1 {
+#OpmaakOpdrachten {
   z-index: -2;
   background-color: green;
   position: absolute;
@@ -60,38 +60,11 @@
   flex-direction: column;
 }
 
-#uitlegLvl10,
-#opdrachtLvl1 {
-  background-color: rgb(73, 230, 73);
-  padding: 1%;
-  border-radius: 3%;
-  margin: 2% 4% 0% 30vw;
-  height: 90vh;
-  flex-direction: column;
-  overflow-y: auto;
-  overflow-x: hidden;
-  box-sizing: border-box;
-  z-index: 1;
-}
-
-#opdrachtLvl1 {
-  display: none;
-  margin: 2% 4% 0% 15%;
-  align-self: flex-start;
-  z-index: 1;
-}
-
-/* ===== Text fixes ===== */
-.speech-bubble p {
-  margin: 0;
-  z-index: 1;
-}
-
-#uitlegLvl10 p,
-#opdrachtLvl1 p {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  z-index: 1;
+#achtergrondOpdrachten {
+  z-index: -1;
+  display: flex;
+  position: absolute;
+  height: 100vh;
 }
 
 /* ===== Buttons in lvl1 ===== */
@@ -109,62 +82,21 @@
   object-fit: contain;
   position: absolute;
   font-size: large;
-  color:rgb(0, 0, 0);
-  background-image: url('../pictures/sign.png'); /* let op pad! */
+  color: rgb(0, 0, 0);
+  background-image: url('sign.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 2vh;
   background-color: transparent;
-  z-index: 1;
+  z-index: 2;
 }
 
-.buttonNaarUitleg {
-  margin-top: 60vh;
-  margin-left: 5.6vw;
-}
+.buttonNaarUitleg { margin-top: 60vh; margin-left: 5.6vw; }
+.buttonNaarOpdracht { margin-top: 70vh; margin-left: 5.6vw; }
+.buttonNaarHome { margin-top: 80vh; margin-left: 2vw; }
+.buttonNaarNext { margin-top: 80vh; margin-left: 9vw; }
 
-.buttonNaarOpdracht {
-  margin-top: 70vh;
-  margin-left: 5.6vw;
-}
-
-.buttonNaarHome {
-  margin-top: 80vh;
-  margin-left: 2vw;
-}
-
-.buttonNaarNext {
-  margin-top: 80vh;
-  margin-left: 9vw;
-}
-
-.achtergrondlvl1 {
-  z-index: -1;
-  display: flex;
-  position: absolute;
-  height: 100vh;
-}
-
-.boomlvl1{
-  height: 100vh;
-  display: flex;
-  position: absolute;
-}
-
-/* ===== Papegaai ===== */
-.papegaaiInKooi {
-  max-width: 12vw;
-  max-height: 35vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  position: absolute;
-  top: 22vh;
-  left: 16vw;
-  z-index: 1;
-}
-
-/* ===== Level buttons ===== */
+/* ===== Level buttons op de map ===== */
 .lvlButtons {
   position: absolute;
   background-color: #fdf5d4;
@@ -198,9 +130,3 @@
 #btn-5 { top: 30vh; left: 50vw; }
 #btn-6 { top: 40vh; left: 58vw; }
 #btn-7 { top: 32vh; right: 43vh; }
-
-/* ===== JS hooks ===== */
-.js-head { z-index: 1; }
-.js-opdracht { z-index: 1; }
-.js-nakijken { z-index: 1; }
-.js-resultaat { z-index: 1; }
