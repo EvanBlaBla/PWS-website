@@ -1,3 +1,7 @@
+  const a = Math.floor(Math.random() * 8) + 2;
+  const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+  const c = Math.floor(Math.random() * 8) + 2;
+  const computerAntwoord = `x = ${a}`;
 
 
 function tekstLvl1 () {
@@ -20,8 +24,6 @@ function tekstLvl1 () {
     </div>
     <div id="opdracht1C"></div>
   `;
-
-  
   const a = Math.floor(Math.random() * 8) + 2;
   const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
   const c = Math.floor(Math.random() * 8) + 2;
