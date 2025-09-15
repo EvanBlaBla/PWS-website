@@ -4,6 +4,29 @@ const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
 const c = Math.floor(Math.random() * 8) + 2;
 const computerAntwoord = `x = ${a}`;
 
+function tekstLvl1 () {
+    document.getElementById("opdracht").innerHTML = `
+    <div id="opdracht1A">
+      <p class="js-head">Opdracht 1</p>
+      <p class="js-opdracht"></p>
+      <input placeholder="Antwoord" class="js-antwoord">
+      <button class="js-nakijken" onclick="checken()">Nakijken</button>
+      <p class="js-resultaat"></p>
+    </div>
+    <div id="opdracht1B">
+      <p>Opdracht 2</p>
+      <p class="js-opdracht"></p>
+      <input placeholder="Antwoord" class="js-antwoord">
+      <button class="js-nakijken" 
+      onclick="checken()"
+      >Nakijken</button>
+      <p class="js-resultaat"></p>
+    </div>
+    <div id="opdracht1C"></div>
+  `;
+}
+
+
 document.querySelector('.js-opdracht').innerHTML = `${c}x - ${b} = ${c * a + b}`;
 let resultaat = '';
 

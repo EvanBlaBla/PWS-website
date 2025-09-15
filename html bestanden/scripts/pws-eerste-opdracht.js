@@ -51,7 +51,15 @@ function tekstLvl1() {
       <button class="js-nakijken" onclick="checken()">Nakijken</button>
       <p class="js-resultaat"></p>
     </div>
-    <div id="opdracht1B"></div>
+    <div id="opdracht1B">
+      <p>Opdracht 2</p>
+      <p class="js-opdracht"></p>
+      <input placeholder="Antwoord" class="js-antwoord">
+      <button class="js-nakijken" 
+      onclick="checken()"
+      >Nakijken</button>
+      <p class="js-resultaat"></p>
+    </div>
     <div id="opdracht1C"></div>
   `;
 
@@ -63,7 +71,6 @@ function tekstLvl1() {
     </div>
   `;
 
-  // ===== Som genereren =====
   a = Math.floor(Math.random() * 8) + 2;
   b = Math.floor(Math.random() * 8) + 2;
   c = a * a + b;
@@ -72,7 +79,6 @@ function tekstLvl1() {
   document.querySelector('.js-opdracht').innerHTML = `x² + ${b} = ${c}`;
 }
 
-// ===== Controleert het antwoord =====
 function checken() {
   const leerlingElement = document.querySelector('.js-antwoord');
   const uitwerkingen = document.querySelector('.js-resultaat');
@@ -84,7 +90,7 @@ function checken() {
 
   let leerlingAntwoord = leerlingElement.value;
 
-  // Normaliseer input
+
   let leerlingAntwoord2 = leerlingAntwoord
     .toLowerCase()
     .replace(/\s+/g, '')
@@ -108,7 +114,6 @@ function checken() {
   `;
 }
 
-// ===== Enter-toets activeert checken() =====
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     checken();
