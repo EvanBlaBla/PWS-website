@@ -1,8 +1,4 @@
 
-const a = Math.floor(Math.random() * 8) + 2;
-const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-const c = Math.floor(Math.random() * 8) + 2;
-const computerAntwoord = `x = ${a}`;
 
 function tekstLvl1 () {
     document.getElementById("opdracht").innerHTML = `
@@ -24,11 +20,19 @@ function tekstLvl1 () {
     </div>
     <div id="opdracht1C"></div>
   `;
+
+  
+  const a = Math.floor(Math.random() * 8) + 2;
+  const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+  const c = Math.floor(Math.random() * 8) + 2;
+  const computerAntwoord = `x = ${a}`;
+
+  document.querySelector('.js-opdracht').innerHTML = `${c}x - ${b} = ${c * a + b}`;
+  let resultaat = '';
 }
 
 
-document.querySelector('.js-opdracht').innerHTML = `${c}x - ${b} = ${c * a + b}`;
-let resultaat = '';
+
 
 function checken (){
   const leerlingElement = document.querySelector('.js-antwoord');
