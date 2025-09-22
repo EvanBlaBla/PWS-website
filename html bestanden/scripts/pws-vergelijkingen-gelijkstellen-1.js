@@ -213,7 +213,7 @@ function pwsVergelijkingenGelijkstellen1() {
     .addEventListener('click', uitwerkingen3);
   };
 };
-document.querySelector('.js-opnieuw').addEventListener('click', () => {
+document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     // eerst het oude wissen
     document.querySelector('.js-opdracht1').innerHTML = "";
     document.querySelector('.js-antwoord1').value = "";
