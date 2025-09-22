@@ -1,80 +1,57 @@
-  const a = Math.floor(Math.random() * 8) + 2;
-  const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-  const c = Math.floor(Math.random() * 8) + 2;
-  const computerAntwoord = `x = ${a}`;
-
-
-function tekstLvl1 () {
-    document.getElementById("opdracht").innerHTML = `
-    <div id="opdracht1A">
-      <p class="js-head">Opdracht 1</p>
-      <p class="js-opdracht"></p>
-      <input placeholder="Antwoord" class="js-antwoord">
-      <button class="js-nakijken" onclick="checken()">Nakijken</button>
-      <p class="js-resultaat"></p>
-    </div>
-    <div id="opdracht1B">
-      <p>Opdracht 2</p>
-      <p class="js-opdracht"></p>
-      <input placeholder="Antwoord" class="js-antwoord">
-      <button class="js-nakijken" 
-      onclick="checken()"
-      >Nakijken</button>
-      <p class="js-resultaat"></p>
-    </div>
-    <div id="opdracht1C"></div>
+function opdr1A() {
+  document.getElementById("opdracht1A").innerHTML = `
+      <p class="js-head-1A">Opdracht 1</p>
+      <p class="js-opdracht-1A"></p>
+      <input placeholder="Antwoord" class="js-antwoord-1A">
+      <button class="js-nakijken-1A" onclick="checken1A()">Nakijken</button>
+      <p class="js-resultaat-1A"></p>
   `;
-  const a = Math.floor(Math.random() * 8) + 2;
-  const b = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-  const c = Math.floor(Math.random() * 8) + 2;
-  const computerAntwoord = `x = ${a}`;
+  const a1A = Math.floor(Math.random() * 8) + 2;
+  const b1A = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
+  const c1A = Math.floor(Math.random() * 8) + 2;
+  computerAntwoord1A = `x = ${a1A}`;
 
-  document.querySelector('.js-opdracht').innerHTML = `${c}x - ${b} = ${c * a + b}`;
-  let resultaat = '';
+  document.querySelector('.js-opdracht-1A').innerHTML =
+    `${c1A}x - ${b1A} = ${c1A * a1A + b1A}`;
+  window.a1A = a1A;
+  window.b1A = b1A;
+  window.c1A = c1A;
 }
 
-
-document.querySelector('.js-opdracht').innerHTML = `${c}x - ${b} = ${c * a + b}`;
-let resultaat = '';
-
-function checken (){
-  const leerlingElement = document.querySelector('.js-antwoord');
-  let leerlingAntwoord = leerlingElement.value;
+function checken1A() {
+  const leerlingElement1A = document.querySelector('.js-antwoord-1A');
+  let leerlingAntwoord1A = leerlingElement1A.value;
   
-  let leerlingAntwoord2 = leerlingAntwoord
-  .toLowerCase()
-  .replace(/\s+/g, '');
+  let leerlingAntwoord2_1A = leerlingAntwoord1A
+    .toLowerCase()
+    .replace(/\s+/g, '');
 
-  let juistAntwoord = computerAntwoord
-  .toLowerCase();
-  //Dit maakt het antwoord niet fout met een spatie teveel/te weinig
-
-  const correcteAntwoorden = [
-    `x=${a}`
+  const correcteAntwoorden1A = [
+    `x=${a1A}`
   ];
 
-  let resultaat;
-  if (correcteAntwoorden.includes(leerlingAntwoord2)) {
-    resultaat = 'goed';
+  let resultaat1A;
+  if (correcteAntwoorden1A.includes(leerlingAntwoord2_1A)) {
+    resultaat1A = 'goed';
   } else {
-    resultaat = 'fout';
+    resultaat1A = 'fout';
   }
 
-  const uitwerkingen = document.querySelector('.js-resultaat')
+  const uitwerkingen1A = document.querySelector('.js-resultaat-1A');
 
-  uitwerkingen.innerHTML = `
-  ${leerlingAntwoord} <br>
-  Jouw antwoord is ${resultaat} <br><br>
-  Uitwerkingen: <br>
-  ${c}x - ${b} = ${a * c + b} <br>
-  ${c}x = ${a * c} <br>
-  x = ${a} <br> 
-  ${computerAntwoord} <br>
-  `
-
+  uitwerkingen1A.innerHTML = `
+    ${leerlingAntwoord1A} <br>
+    Jouw antwoord is ${resultaat1A} <br><br>
+    Uitwerkingen: <br>
+    ${c1A}x - ${b1A} = ${a1A * c1A + b1A} <br>
+    ${c1A}x = ${a1A * c1A} <br>
+    x = ${a1A} <br> 
+    ${computerAntwoord1A} <br>
+  `;
 }
 
 document.body.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-      checken();
-    }})
+  if (event.key === 'Enter') {
+    checken1A();
+  }
+});
