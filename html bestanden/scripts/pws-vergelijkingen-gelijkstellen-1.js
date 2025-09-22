@@ -24,6 +24,10 @@ function pwsVergelijkingenGelijkstellen1() {
     function checken1 () {
       let leerlingElement1 = document.querySelector('.js-antwoord1');
       let leerlingAntwoord1 = leerlingElement1.value;
+      if (!leerlingElement1.value.trim()) {
+        alert("Vul eerst een antwoord in voordat je nakijkt!");
+        return;
+      };
       let leerlingAntwoord1Correct = leerlingAntwoord1
       .toLowerCase()
       .replace(/\s+/g, '');
@@ -65,6 +69,7 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-nakijken2').hidden = false;
       };
     };
+    
     //de functies voor de uitwerkingen onzichtbaar maken
     function uitwerkingen1() {
     const r1 = document.querySelector('.js-resultaat1');
@@ -81,6 +86,7 @@ function pwsVergelijkingenGelijkstellen1() {
     .addEventListener('click', uitwerkingen1);
 
     vraag2Genereren();
+    
   }; 
 
   function vraag2Genereren() {
@@ -89,6 +95,10 @@ function pwsVergelijkingenGelijkstellen1() {
     function checken2 () {
       let leerlingElement2 = document.querySelector('.js-antwoord2');
       let leerlingAntwoord2 = leerlingElement2.value;
+      if (!leerlingElement2.value.trim()) {
+        alert("Vul eerst een antwoord in voordat je nakijkt!");
+        return;
+      };
       let leerlingAntwoord2Correct = leerlingAntwoord2
       .toLowerCase()
       .replace(/\s+/g, '');
@@ -152,6 +162,10 @@ function pwsVergelijkingenGelijkstellen1() {
     function checken3 () {
       let leerlingElement3 = document.querySelector('.js-antwoord3');
       let leerlingAntwoord3 = leerlingElement3.value;
+      if (!leerlingElement3.value.trim()) {
+        alert("Vul eerst een antwoord in voordat je nakijkt!");
+        return;
+      };
       let leerlingAntwoord3Correct = leerlingAntwoord3
       .toLowerCase()
       .replace(/\s+/g, ''); 
@@ -199,5 +213,30 @@ function pwsVergelijkingenGelijkstellen1() {
     .addEventListener('click', uitwerkingen3);
   };
 };
+document.querySelector('.js-opnieuw').addEventListener('click', () => {
+    // eerst het oude wissen
+    document.querySelector('.js-opdracht1').innerHTML = "";
+    document.querySelector('.js-antwoord1').value = "";
+    document.querySelector('.js-resultaat1').innerHTML = "";
+    document.querySelector('.js-uitwerkingen1').hidden = true;
 
+    document.querySelector('.js-opdracht2').innerHTML = "";
+    document.querySelector('.js-antwoord2').value = "";
+    document.querySelector('.js-resultaat2').innerHTML = "";
+    document.querySelector('.js-uitwerkingen2').hidden = true;
+    document.querySelector('.js-opdracht2').hidden = true;
+    document.querySelector('.js-antwoord2').hidden = true;
+    document.querySelector('.js-nakijken2').hidden = true;
+
+    document.querySelector('.js-opdracht3').innerHTML = "";
+    document.querySelector('.js-antwoord3').value = "";
+    document.querySelector('.js-resultaat3').innerHTML = "";
+    document.querySelector('.js-uitwerkingen3').hidden = true;
+    document.querySelector('.js-opdracht3').hidden = true;
+    document.querySelector('.js-antwoord3').hidden = true;
+    document.querySelector('.js-nakijken3').hidden = true;
+
+    // en dan de functie opnieuw draaien
+    pwsVergelijkingenGelijkstellen1();
+  });
 pwsVergelijkingenGelijkstellen1();
