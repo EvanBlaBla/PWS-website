@@ -22,7 +22,7 @@ document.querySelector('.js-opdracht2').innerHTML = `1b <br> Stel een ongelijkhe
 document.querySelector('.js-opdracht3').innerHTML = ` 1c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?`;
 
 let resultaat = '';
- 
+ []
 function checken1 () {
   let leerlingElement1 = document.querySelector('.js-antwoord1');
   let leerlingAntwoord1 = leerlingElement1.value;
