@@ -1,4 +1,5 @@
 let allesGoed1 = false;
+let geenFout1 = false;
 
 function pwsVergelijkingenGelijkstellen1() {
 
@@ -13,10 +14,10 @@ function pwsVergelijkingenGelijkstellen1() {
       b: { goed: 0, fout: 0 },
       c: { goed: 0, fout: 0 }
     };
-  }
+  };
   function saveScores(scores) {
     localStorage.setItem('scores', JSON.stringify(scores));
-  }
+  };
 
   // update alleen score-tekst in de DOM
   function updateScoreSpans() {
@@ -27,7 +28,11 @@ function pwsVergelijkingenGelijkstellen1() {
     if (sp1) sp1.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
     if (sp2) sp2.textContent = `Score: ${s.b.goed} goed, ${s.b.fout} fout`;
     if (sp3) sp3.textContent = `Score: ${s.c.goed} goed, ${s.c.fout} fout`;
-  }
+    if (!geenFout1 && s.a.goed > 0 && s.b.goed > 0 && s.c.goed > 0) {
+      geenFout1 = true;
+      localStorage.setItem('geenFout1', JSON.stringify(true));
+    };
+  };
 
   let a, b, c, d, e, f, g;
   do {
@@ -43,7 +48,7 @@ function pwsVergelijkingenGelijkstellen1() {
   const computerAntwoord2 = `-${d}t + ${b} > -${c}t + ${a+b}`;
   const computerAntwoord3 = `t > ${a/e}`;
   
-  console.log(a, b, c, d, e, f, g, computerAntwoord1, computerAntwoord2, computerAntwoord3);
+  console.log(a, b, c, d, e, f, g, computerAntwoord1, computerAntwoord2, computerAntwoord3, geenFout1);
   //dit waren alle variabelen
 
   vraag1Genereren();
@@ -116,6 +121,17 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-nakijken2').hidden = false;
       };
       vraag1Beantwoord = true;
+
+      if (leerlingElement1.value.trim().toLowerCase() === 'cleanScore') {
+        const scores = {
+          a: { goed: 0, fout: 0 },
+          b: { goed: 0, fout: 0 },
+          c: { goed: 0, fout: 0 }
+        };
+        saveScores(scores);
+        updateScoreSpans();
+        return; 
+      };
     };
     
     //de functies voor de uitwerkingen onzichtbaar maken
@@ -292,6 +308,10 @@ function pwsVergelijkingenGelijkstellen1() {
     document.querySelector('.js-uitwerkingen3').onclick = uitwerkingen3;
     
   };
+
+  if (geenFout1 === true) {
+    alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+  } return;
 };
 
 document.querySelector('.js-opnieuw1').addEventListener('click', () => {
