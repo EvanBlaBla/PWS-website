@@ -1,9 +1,170 @@
-/* ===== Second page ===== */
+/* ===== Bovenste balk ===== */
+.top-bar {
+  position: fixed;
+  background-color: rgb(230, 186, 106);
+  border-bottom-left-radius: 30px;
+  top: 0;
+  left: 36%;
+  right: 0;
+  height: 80px;
+  z-index: 999;
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  align-items: center;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+/* Speler */
+.player-box {
+  border-radius: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(255, 234, 202, 0.45);
+  padding: 5px 0 5px 15px;
+  font-size: 30px;
+}
+
+#editInput {
+  display: none;
+  font-size: 18px;
+  margin-right: 0;
+  margin-left: 0;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+
+.edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+.edit-btn:hover{
+  background-color: rgba(255, 234, 202, 0.65);
+}
+.edit-btn:active{
+  background-color: rgba(255, 234, 202, 0.95);
+}
+
+.edit-btn img {
+  width: 30px;
+  height: 30px;
+}
+
+/* Punten */
+.punten-container {
+  text-align: center;
+  font-size: 30px;
+  margin-top: -8px;
+}
+
+#punten {
+  margin-top: 5px;
+  width: 70px;
+  height: 30px;
+  background-color: rgba(0, 255, 255, 0.65);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Coins */
+.coins-container {
+  text-align: center;
+  font-size: 30px;
+  margin-top: -8px;
+}
+
+#coins {
+  margin-top: 5px;
+  width: 70px;
+  height: 30px;
+  background-color: rgba(255, 217, 0, 0.65);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Linker sidebar */
+.leftSidebar {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0);
+  top: 0;
+  left: 0;
+  width: 12%;
+  height: 100vh;
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebarItem {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sidebarItem img {
+  width: 100%;
+}
+
+.sidebar-item-bar {
+  width: 100%;
+  height: 10px;
+  background-color: brown;
+}
+
+.sidebar-item-hints{
+  
+}
+
+#hints{
+  width: 100%;
+  height: 20vh;
+  background-color: teal;
+  border: none;
+}
+
+#shop{
+  width: 100%;
+  height: 20vh;
+  background-color: teal;
+  border: none;
+}
+
+#skin{
+  width: 100%;
+  height: 20vh;
+  background-color: teal;
+  border: none;
+}
+
+/* Second page */
 #secondPage {
   background-color: rgb(57, 65, 185);
   width: 100%;
   height: 100%;
-  display: block;
+                                        display: fixed;
   position: absolute;
   z-index: 1;
 }
@@ -16,31 +177,24 @@
 }
 
 .map-container {
-  width: 100%;
-  height: 100%;
   position: relative;
   display: inline-block;
   z-index: 1;
+  max-width: 100%;
+  max-height: 100vh;
 }
 
 .map-container img {
   width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100vh;
   object-fit: contain;
   z-index: 1;
+  position: static;
+  display: block;
 }
 
-/* ===== To-do list ===== */
-#toDoList {
-  display: none;
-  font-family: Arial;
-  flex-direction: column;
-  margin-left: 30px;
-  margin-top: 10px;
-  z-index: 1;
-}
-
-/* ===== Level 1 ===== */
+/* Level 1 */
 #lvl1 {
   position: relative;
   font-size: 26px;
@@ -67,7 +221,7 @@
   height: 100vh;
 }
 
-/* ===== Buttons in lvl1 ===== */
+/* Buttons in lvl1 */
 .buttonNaarUitleg,
 .buttonNaarOpdracht,
 .buttonNaarHome,
@@ -96,7 +250,7 @@
 .buttonNaarHome { margin-top: 80vh; margin-left: 2vw; }
 .buttonNaarNext { margin-top: 80vh; margin-left: 9vw; }
 
-/* ===== Level buttons op de map ===== */
+/* Level buttons op de map */
 .lvlButtons {
   position: absolute;
   background-color: #fdf5d4;
@@ -123,10 +277,10 @@
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
-#btn-1 { top: 80vh; left: 39.5vw; }
-#btn-2 { top: 66vh; left: 43vw; }
-#btn-3 { top: 52vh; left: 34vw; }
-#btn-4 { top: 20vh; left: 50vh; }
-#btn-5 { top: 30vh; left: 50vw; }
-#btn-6 { top: 40vh; left: 58vw; }
-#btn-7 { top: 32vh; right: 43vh; }
+#btn-1 { top: 79%; left: 38%; }
+#btn-2 { top: 66%; left: 40%; }
+#btn-3 { top: 52%; left: 34%; }
+#btn-4 { top: 20%; left: 20%; }
+#btn-5 { top: 30%; left: 50%; }
+#btn-6 { top: 40%; left: 58%; }
+#btn-7 { top: 32%; right: 16%; }

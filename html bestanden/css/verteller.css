@@ -66,11 +66,12 @@
 #speech-bubble {
   padding: 10px 20px;
 	position: relative;
-	background: #eac643;
+	background-color: #eac643;
 	border-radius: .4em;
   width: 500px;
   color: black;
   margin: 0;
+  z-index: 999;
 }
 
 #speech-bubble:after {
