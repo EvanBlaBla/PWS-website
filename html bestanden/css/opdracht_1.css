@@ -28,6 +28,22 @@
   z-index: 1;
 }
 
+.voorbeeld-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;  
+}
+
+.voorbeeld-links,
+.voorbeeld-rechts {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
 #opdracht {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

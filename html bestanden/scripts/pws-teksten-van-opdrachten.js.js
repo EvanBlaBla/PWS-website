@@ -39,9 +39,9 @@ function tekstLvl1() {
   `;
   // Achtergrond
   document.getElementById('achtergrondOpdrachten').innerHTML = `
-    <img src="pictures/boomlvl1.png" alt="">
+    <img src="pictures/boomlvl1AI.png" alt="">
     <div>
-      <img src="pictures/papegaaiInKooi.png" alt="" class="papegaaiInKooi">
+      <img src="pictures/papegaaiInKooiAI.png" alt="" class="papegaaiInKooi">
     </div>
   `;
 }
@@ -78,7 +78,7 @@ function tekstLvl3() {
   `;
 
   document.getElementById('achtergrondOpdrachten').innerHTML = `
-    <img src="pictures/achtergrondLvl22.png" alt="">
+    <img src="pictures/achtergrondLvl22AI.png" alt="">
     <div>`;
 
       document.getElementById('speech-bubble').innerHTML = `

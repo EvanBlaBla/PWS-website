@@ -1,0 +1,48 @@
+/* ===== Animations ===== */
+.leftSidebar {
+  animation-name: background;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+.sidebarItem {
+  animation-name: slide;
+  animation-duration: 3s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+#hints{
+  animation-name: buttons;
+  animation-duration: 3s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
+@keyframes background {
+  0% {
+    width: 12%;
+    background-color: rgba(0,0,0,0);
+  }
+  1% { 
+    width: 100%; 
+  }
+  75% {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+  100% {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+@keyframes slide {
+  0% {}
+  1% { width: 12%; }
+  100% { width: 80%; }
+}
+
+
