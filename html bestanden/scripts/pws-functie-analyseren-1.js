@@ -1,31 +1,31 @@
 function pwsFunctieAnalyseren1() {
-  function vraag1Genereren() {
+  function vraag1AGenereren() {
     const a = Math.floor(Math.random() * (25 - 1 + 1)) + 1
     const b = Math.floor(Math.random() * (100 - 1 + 1)) + 1
     const c = Math.floor(Math.random() * (3 - 1 + 1)) + 1
     const d = Math.floor(Math.random() * (25 - 1 + 1)) + 1
     let computerAntwoord1 = '';
-    let vraag1 = '';
+    let vraag1A = '';
 
     if (c === 1) {
       computerAntwoord1 = `lineair`  
-      vraag1 = `f(x) = ${a + b}x + ${d}`;
+      vraag1A = `f(x) = ${a + b}x + ${d}`;
     } else if (c === 2) {
       computerAntwoord1 = `kwadratisch` 
-      vraag1 = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
+      vraag1A = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
     } else {
       computerAntwoord1 = `niet kwadratisch en niet lineair` 
-      vraag1 = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
+      vraag1A = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
     }
 
-    document.querySelector('.js-opdracht1').innerHTML = `Gegeven de functie ${vraag1}. Wat voor soort functie is dit? <br>
+    document.querySelector('.js-opdracht1A').innerHTML = `Gegeven de functie ${vraag1A}. Wat voor soort functie is dit? <br>
     Je kan kiezen uit de volgende antwoorden: lineair, kwadratisch, niet kwadratisch en niet lineair.`;
 
     let resultaat1 = '';
 
 
     function checken1() {
-      let leerlingElement1 = document.querySelector('.js-antwoord1');
+      let leerlingElement1 = document.querySelector('.js-antwoord1A');
       let leerlingAntwoord1 = leerlingElement1.value;
       let leerlingAntwoord1Correct = leerlingAntwoord1
       .toLowerCase()
@@ -55,33 +55,33 @@ function pwsFunctieAnalyseren1() {
         resultaat1 = 'fout';
       }
 
-      const uitwerkingen1 = document.querySelector('.js-resultaat1');
+      const uitwerkingen1 = document.querySelector('.js-resultaat1A');
       uitwerkingen1.innerHTML = `
       ${leerlingAntwoord1} <br>
       Jouw antwoord is ${resultaat1} <br><br>
       Uitwerkingen: <br>
-      De functie ${vraag1} is een ${computerAntwoord1} functie. De hoogste macht van x is ${c}<br><br>`
+      De functie ${vraag1A} is een ${computerAntwoord1} functie. De hoogste macht van x is ${c}<br><br>`
     }
-    document.querySelector('.js-nakijken1')
+    document.querySelector('.js-nakijken1A')
     .addEventListener('click', checken1);
-    document.querySelector('.js-uitwerkingen1')
+    document.querySelector('.js-uitwerkingen1A')
     .addEventListener('click', uitwerkingen1);
 
   };
 };
-document.querySelector('.js-opnieuw1').addEventListener('click', () => {
+document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
     // eerst het oude wissen
-    document.querySelector('.js-opdracht1').innerHTML = "";
-    document.querySelector('.js-antwoord1').value = "";
-    document.querySelector('.js-resultaat1').innerHTML = "";
-    document.querySelector('.js-uitwerkingen1').hidden = true;
+    document.querySelector('.js-opdracht1A').innerHTML = "";
+    document.querySelector('.js-antwoord1A').value = "";
+    document.querySelector('.js-resultaat1A').innerHTML = "";
+    document.querySelector('.js-uitwerkingen1A').hidden = true;
 });
-  vraag1Genereren();
+  vraag1AGenereren();
   
-  document.querySelector('.js-nakijken1').addEventListener('click', function() { 
+  document.querySelector('.js-nakijken1A').addEventListener('click', function() { 
     checken1();
     if (resultaat1 === 'goed') {
-      document.querySelector('.js-uitwerkingen1').hidden = false;
+      document.querySelector('.js-uitwerkingen1A').hidden = false;
       document.querySelector('.js-opdracht2').hidden = false;
       document.querySelector('.js-antwoord2').hidden = false;
       document.querySelector('.js-nakijken2').hidden = false;
