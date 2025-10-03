@@ -1,25 +1,36 @@
 /* ===== Animations ===== */
 .leftSidebar {
   animation-name: background;
-  animation-duration: 3s;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 
-.sidebarItem {
+
+.sidebarItemBar,
+.sidebarItemBar2,
+.sidebarItemBar3,
+.hints-container {
   animation-name: slide;
-  animation-duration: 3s;
-  animation-timing-function: ease-in-out;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
 
-#hints{
-  animation-name: buttons;
-  animation-duration: 3s;
+.shop-container {
+  animation-name: slide;
+  animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-play-state: paused;
 }
+
+.piraatInShop {
+  animation-name: slidepiraat;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+}
+
 
 @keyframes background {
   0% {
@@ -40,9 +51,11 @@
 }
 
 @keyframes slide {
-  0% {}
-  1% { width: 12%; }
-  100% { width: 80%; }
+  0% {transform: translateX(-68vw);}
+  100% { transform: translateX(0); }
 }
 
-
+@keyframes slidepiraat {
+  0% {transform: translateX(100vw);}
+  100% { transform: translateX(0); }
+}

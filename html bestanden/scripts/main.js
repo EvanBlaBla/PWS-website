@@ -1,11 +1,98 @@
 // Sidebar animatie
-const sidebarItem = document.getElementsByClassName('sidebarItem')[0];
-const leftSidebar = document.getElementsByClassName('leftSidebar')[0];
+const sidebarItemBar = document.querySelector('.sidebarItemBar');
+const sidebarItemBar2 = document.querySelector('.sidebarItemBar2');
+const sidebarItemBar3 = document.querySelector('.sidebarItemBar3');
+const leftSidebar = document.querySelector('.leftSidebar');
+const hintsContainer = document.querySelector('.hints-container');
 const hints = document.getElementById('hints');
+const hint1 = document.getElementsByClassName('hint1')[0];
+const hint2 = document.getElementsByClassName('hint2')[0];
+const hint3 = document.getElementsByClassName('hint3')[0];
+const sidebarToggle = document.getElementById('sidebarToggle');
+const shopContainer = document.querySelector('.shop-container');
+const shopButton = document.getElementById('shop');
+const piraatInShop = document.querySelector('.piraatInShop');
+
+// Hulpfunctie om animatie opnieuw af te spelen
+function restartAnimation(element, animationName) {
+  element.style.animation = 'none';
+  // Forceer browser om style opnieuw toe te passen
+  void element.offsetWidth;
+  element.style.animation = `${animationName} 3s forwards`;
+}
+
+// Open sidebar animatie
 hints.addEventListener('click', () => {
-  sidebarItem.style.animationPlayState = "running";
-  leftSidebar.style.animationPlayState = "running";
+  if (document.getElementById('shopON').style.display === 'block') {
+    shopContainer.style.animation = 'none';
+    shopContainer.style.transform = 'translateX(-68vw)';
+    piraatInShop.style.animation = 'none';
+    piraatInShop.style.transform = 'translateX(100vw)';
+    document.getElementById('shopON').style.display = 'none';
+  }
+  //if (document.getElementById('parrotsON').style.display === 'block') {}
+  else {restartAnimation(leftSidebar, 'background');}
+  restartAnimation(sidebarItemBar, 'slide');
+  restartAnimation(sidebarItemBar2, 'slide');
+  restartAnimation(sidebarItemBar3, 'slide');
+  restartAnimation(hintsContainer, 'slide');
+
+  document.getElementById('hintsON').style.display = 'block';
+
+  sidebarToggle.style.display = 'block';
 });
+
+// Sidebar toggle (sluiten/terugzetten)
+sidebarToggle.addEventListener('click', () => {
+  if (document.getElementById('shopON').style.display === 'block') {
+    shopContainer.style.animation = 'none';
+    shopContainer.style.transform = 'translateX(-68vw)';
+    piraatInShop.style.animation = 'none';
+    piraatInShop.style.transform = 'translateX(100vw)';
+    
+    document.getElementById('shopON').style.display = 'none';
+
+  }
+  if (document.getElementById('hintsON').style.display === 'block') {
+    hintsContainer.style.animation = 'none';
+    hintsContainer.style.transform = 'translateX(-68vw)';
+    document.getElementById('hintsON').style.display = 'none';
+  }
+  
+
+
+  leftSidebar.style.animation = 'none';
+  sidebarItemBar.style.animation = 'none';
+  sidebarItemBar.style.transform = 'translateX(-68vw)';
+  sidebarItemBar2.style.animation = 'none';
+  sidebarItemBar2.style.transform = 'translateX(-68vw)';
+  sidebarItemBar3.style.animation = 'none';
+  sidebarItemBar3.style.transform = 'translateX(-68vw)';
+
+  sidebarToggle.style.display = 'none';
+
+});
+
+shopButton.addEventListener('click', () => {
+  // Logica voor de shop-knop
+  if (document.getElementById('hintsON').style.display === 'block') {
+      hintsContainer.style.animation = 'none';
+      hintsContainer.style.transform = 'translateX(-68vw)';
+      document.getElementById('hintsON').style.display = 'none';
+  }
+  //if (document.getElementById('parrotsON').style.display === 'block') {}
+  else {restartAnimation(leftSidebar, 'background');}
+
+  restartAnimation(shopContainer, 'slide');
+  restartAnimation(sidebarItemBar, 'slide');
+  restartAnimation(sidebarItemBar2, 'slide');
+  restartAnimation(sidebarItemBar3, 'slide');
+  restartAnimation(piraatInShop, 'slidepiraat');
+
+  document.getElementById('shopON').style.display = 'block';
+  sidebarToggle.style.display = 'block';
+});
+
 
 // Naam + opslag
 let playerName = localStorage.getItem("playerName") || "Onbekende Piraat";
