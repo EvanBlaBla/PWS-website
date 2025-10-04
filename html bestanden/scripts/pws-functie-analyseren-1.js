@@ -1,90 +1,161 @@
-function pwsFunctieAnalyseren1() {
-  function vraag1AGenereren() {
-    const a = Math.floor(Math.random() * (25 - 1 + 1)) + 1
-    const b = Math.floor(Math.random() * (100 - 1 + 1)) + 1
-    const c = Math.floor(Math.random() * (3 - 1 + 1)) + 1
-    const d = Math.floor(Math.random() * (25 - 1 + 1)) + 1
-    let computerAntwoord1 = '';
+let allesGoed1 = false;
+let functieAnalyseren1Goed = false;
+
+
+function functieAnalyseren1() {
+
+  let vraag1ABeantwoord = false;
+
+  let scores1 = getScores1();
+  function getScores1() {
+    return JSON.parse(localStorage.getItem('scores1')) || {
+      a: { goed: 0, fout: 0 },
+    };
+  };
+  function saveScores1(scores1) {
+    localStorage.setItem('scores1', JSON.stringify(scores1));
+  };
+  // update alleen score-tekst in de DOM
+  function updateScoreSpans1() {
+    const s = getScores1();
+    const sp1A = document.querySelector('.js-score1A');
+    if (sp1A) sp1A.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
+    if (!functieAnalyseren1Goed && s.a.goed > 0 ){
+      functieAnalyseren1Goed = true;
+      localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
+    };
+  };
+
+    const a1 = Math.floor(Math.random() * (25 - 1 + 1)) + 1
+    const b1 = Math.floor(Math.random() * (100 - 1 + 1)) + 1
+    const c1 = Math.floor(Math.random() * (3 - 1 + 1)) + 1
+    const d1 = Math.floor(Math.random() * (25 - 1 + 1)) + 1
+    let computerAntwoord1A = '';
     let vraag1A = '';
 
-    if (c === 1) {
-      computerAntwoord1 = `lineair`  
-      vraag1A = `f(x) = ${a + b}x + ${d}`;
-    } else if (c === 2) {
-      computerAntwoord1 = `kwadratisch` 
-      vraag1A = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
+    if (c1 === 1) {
+      computerAntwoord1A = `lineair`  
+      vraag1A = `f(x) = ${a1 + b1}x + ${d1}`;
+    } else if (c1 === 2) {
+      computerAntwoord1A = `kwadratisch` 
+      vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
     } else {
-      computerAntwoord1 = `niet kwadratisch en niet lineair` 
-      vraag1A = `f(x) = ${a}x^${c} + ${b}x + ${d}`;
-    }
+      computerAntwoord1A = `niet kwadratisch en niet lineair` 
+      vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
+    };
 
+    vraag1AGenereren();
+  function vraag1AGenereren() {
     document.querySelector('.js-opdracht1A').innerHTML = `Gegeven de functie ${vraag1A}. Wat voor soort functie is dit? <br>
     Je kan kiezen uit de volgende antwoorden: lineair, kwadratisch, niet kwadratisch en niet lineair.`;
 
-    let resultaat1 = '';
+    //let resultaat1A = '';
 
 
-    function checken1() {
-      let leerlingElement1 = document.querySelector('.js-antwoord1A');
-      let leerlingAntwoord1 = leerlingElement1.value;
-      let leerlingAntwoord1Correct = leerlingAntwoord1
+    window.checken1A = function () {
+      const leerlingElement1A = document.querySelector('.js-antwoord1A');
+      let leerlingAntwoord1A = leerlingElement1A.value;
+      if (!leerlingElement1A.value.trim()) {
+        alert("Vul eerst een antwoord in voordat je nakijkt!");
+      return};
+
+      let leerlingAntwoord1ACorrect = leerlingAntwoord1A
       .toLowerCase()
       .replace(/\s+/g, '');
-      let juistAntwoord1 = computerAntwoord1
+      let juistAntwoord1A = computerAntwoord1A
       .toLowerCase()
       .replace(/\s+/g, '');
 
-      if (!leerlingElement1.value.trim()) {
-      alert("Vul eerst een antwoord in voordat je nakijkt!");
-      return;
-    }
+     
 
-      let correcteAntwoorden1;
-      if (c === 1) {
-        correcteAntwoorden1 = [`lineair`, '§']
-      } else if (c === 2) {
-        correcteAntwoorden1 = [`kwadratisch`, '§']
+      let correcteAntwoorden1A;
+      if (c1 === 1) {
+        correcteAntwoorden1A = [`lineair`, '§', '#']
+      } else if (c1 === 2) {
+        correcteAntwoorden1A = [`kwadratisch`, '§', '#']
       } else {
-        correcteAntwoorden1 = [`niet kwadratisch en niet lineair`, 'Niet lineair en niet kwadratisch', '§']
+        correcteAntwoorden1A = [`niet kwadratisch en niet lineair`, 'Niet lineair en niet kwadratisch', '§', '#']
       }
 
-      let resultaat1;
-      if (correcteAntwoorden1.includes(leerlingAntwoord1Correct)) {
-        resultaat1 = 'goed';
+      let resultaat1A;
+      if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
+        resultaat1A = 'goed';
       } else {
-        resultaat1 = 'fout';
+        resultaat1A = 'fout';
       }
 
-      const uitwerkingen1 = document.querySelector('.js-resultaat1A');
-      uitwerkingen1.innerHTML = `
-      ${leerlingAntwoord1} <br>
-      Jouw antwoord is ${resultaat1} <br><br>
+      if (!vraag1ABeantwoord) {
+          let scores1 = getScores1();
+          if (resultaat1A === 'goed') scores1.a.goed++; else scores1.a.fout++;
+          saveScores1(scores1);
+          updateScoreSpans1();
+          //saveScores1(scores1);
+          vraag1ABeantwoord = true;
+      };
+
+      if (resultaat1A === 'goed') {
+        allesGoed1 = true;
+        document.querySelector('.js-uitwerkingen1A').hidden = false;
+        document.querySelector('.js-opnieuw1').hidden = false;
+      } else {
+        allesGoed1 = false;
+      };
+
+      const uitwerkingen1A = document.querySelector('.js-resultaat1A');
+      uitwerkingen1A.innerHTML = `
+      ${leerlingAntwoord1A} <br>
+      Jouw antwoord is ${resultaat1A} <br><br>
       Uitwerkingen: <br>
-      De functie ${vraag1A} is een ${computerAntwoord1} functie. De hoogste macht van x is ${c}<br><br>`
-    }
-    document.querySelector('.js-nakijken1A')
-    .addEventListener('click', checken1);
-    document.querySelector('.js-uitwerkingen1A')
-    .addEventListener('click', uitwerkingen1);
+      De functie ${vraag1A} is een ${computerAntwoord1A} functie. De hoogste macht van x is ${c1}<br><br>`
+
+      if (leerlingAntwoord1A.trim().toLowerCase() === 'koningloek') {
+        const scores1 = {
+          a: { goed: 0, fout: 0 },          
+          b: { goed: 0, fout: 0 },
+          c: { goed: 0, fout: 0}
+        };
+        saveScores1(scores1);
+        updateScoreSpans1();
+        return; 
+      };
+    };
+
+    window.uitwerkingen1A = function () {
+        const r1A = document.querySelector('.js-resultaat1A');
+
+        if (r1A.hidden === true) {
+          r1A.hidden = false;
+        } else {
+          r1A.hidden = true;
+        }
+        };
+
+
+       document.querySelector('.js-nakijken1A').onclick = checken1A;
+       document.querySelector('.js-uitwerkingen1A').onclick = uitwerkingen1A;
 
   };
 };
-document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
+functieAnalyseren1();
+document.body.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    checken1A();
+  }});
+
+document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     // eerst het oude wissen
+    if (allesGoed1 === true) {
     document.querySelector('.js-opdracht1A').innerHTML = "";
     document.querySelector('.js-antwoord1A').value = "";
     document.querySelector('.js-resultaat1A').innerHTML = "";
     document.querySelector('.js-uitwerkingen1A').hidden = true;
+
+    vraag1ABeantwoord = false;
+    allesGoed1 = false;
+    functieAnalyseren1();
+    } else if (allesGoed1 === false) {
+      alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
+    } return;
 });
-  vraag1AGenereren();
-  
-  document.querySelector('.js-nakijken1A').addEventListener('click', function() { 
-    checken1();
-    if (resultaat1 === 'goed') {
-      document.querySelector('.js-uitwerkingen1A').hidden = false;
-      document.querySelector('.js-opdracht2').hidden = false;
-      document.querySelector('.js-antwoord2').hidden = false;
-      document.querySelector('.js-nakijken2').hidden = false;
-    };
-  });
+ 
 
