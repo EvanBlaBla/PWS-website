@@ -94,6 +94,36 @@ shopButton.addEventListener('click', () => {
 });
 
 
+//shopItems
+document.getElementById("shop1").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/defaulthoedAI.png";
+});
+document.getElementById("shop2").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/cheaphoedAI.png";
+});
+document.getElementById("shop3").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/durehoedAI.png";
+});
+document.getElementById("shop4").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/defaultooglapjeAI.png";
+});
+document.getElementById("shop5").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/cheapooglapjeAI.png";
+});
+document.getElementById("shop6").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/duurooglapjeAI.png";
+});
+document.getElementById("shop7").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/defaultzwaardAI.png";
+});
+document.getElementById("shop8").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/cheapzwaardAI.png";
+});
+document.getElementById("shop9").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/duurzwaardAI.png";
+});
+
+
 // Naam + opslag
 let playerName = localStorage.getItem("playerName") || "Onbekende Piraat";
 document.getElementById("player").textContent = playerName;

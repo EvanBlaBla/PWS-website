@@ -124,16 +124,50 @@
     <div class="sidebarItem sidebar-item-hints">
       <div class="shop-container">
         <div class="divFiller" style="width: 0px;"></div>
-        <div class="shop shop-main"><button id="shop"><img src="pictures/shop.png" alt=""></button></div>
-        <div class="shopItem shopItem1"><button id="shop1"><img src="pictures/piraatx2/shopdefaulthoedAI.png" alt=""></button></div>
-        <div class="shopItem shopItem2"><button id="shop2"><img src="pictures/piraatx2/shopcheaphoedAI.png" alt=""></button></div>
-        <div class="shopItem shopItem3"><button id="shop3"><img src="pictures/piraatx2/shopdurehoedAI.png" alt=""></button></div>
-        <div class="shopItem shopItem4"><button id="shop4"><img src="pictures/piraatx2/shopdefaultooglapjeAI.png" alt=""></button></div>
-        <div class="shopItem shopItem5"><button id="shop5"><img src="pictures/piraatx2/shopcheapooglapjeAI.png" alt=""></button></div>
-        <div class="shopItem shopItem6"><button id="shop6"><img src="pictures/piraatx2/shopduurooglapjeAI.png" alt=""></button></div>
-        <div class="shopItem shopItem7"><button id="shop7"><img src="pictures/piraatx2/shopdefaultzwaardAI.png" alt=""></button></div>
-        <div class="shopItem shopItem8"><button id="shop8"><img src="pictures/piraatx2/shopcheapzwaardAI.png" alt=""></button></div>
-        <div class="shopItem shopItem9"><button id="shop9"><img src="pictures/piraatx2/shopduurzwaardAI.png" alt=""></button></div>
+        <div class="shop shop-main">
+          <button id="shop">
+            <img src="pictures/shop.png" alt="">
+          </button>
+        </div>
+
+        <div class="shopItem shopItem1">
+          <button id="shop1"><img src="pictures/piraatx2/shopdefaulthoedAI.png" alt=""></button>
+          <button class="Equip" id="Equip1"><span class="EquipTxt" id="EquipTxt1">Equip</span></button>
+        </div>
+
+        <div class="shopItem shopItem2">
+          <button id="shop2"><img src="pictures/piraatx2/shopcheaphoedAI.png" alt=""></button>
+          <button class="Equip" id="Equip2"><span class="EquipTxt" id="EquipTxt2">Equip</span></button>
+        </div>
+
+        <div class="shopItem shopItem3">
+          <button id="shop3"><img src="pictures/piraatx2/shopdurehoedAI.png" alt=""></button>
+          <button class="Equip" id="Equip3"><span class="EquipTxt" id="EquipTxt3">Equip</span></button>
+          <button style="display: flex; position: absolute; z-index: 10; background-color: red; width: 100%;height: 32%;"><div></div>div </button>
+        </div>
+        <div class="shopItem shopItem4">
+          <button id="shop4"><img src="pictures/piraatx2/shopdefaultooglapjeAI.png" alt=""></button>
+          <button class="Equip" id="Equip4"><span class="EquipTxt" id="EquipTxt4">Equip</span></button>
+        </div>
+        <div class="shopItem shopItem5">
+          <button id="shop5"><img src="pictures/piraatx2/shopcheapooglapjeAI.png" alt=""></button>
+          <button class="Equip" id="Equip5"><span class="EquipTxt" id="EquipTxt5">Equip</span></button>
+        </div>
+        <div class="shopItem shopItem6">
+          <button id="shop6"><img src="pictures/piraatx2/shopduurooglapjeAI.png" alt=""></button>
+          <button class="Equip" id="Equip6"><span class="EquipTxt" id="EquipTxt6">Equip</span></button>
+        </div>
+        <div class="shopItem shopItem7">
+          <button id="shop7"><img src="pictures/piraatx2/shopdefaultzwaardAI.png" alt=""></button>
+          <button class="Equip" id="Equip7"><span class="EquipTxt" id="EquipTxt7">Equip</span></button>
+        </div>
+        <div class="shopItem shopItem8">
+          <button id="shop8"><img src="pictures/piraatx2/shopcheapzwaardAI.png" alt=""></button>
+          <button class="Equip" id="Equip8"><span class="EquipTxt" id="EquipTxt8">Equip</span></button>
+        </div>
+        <div class="shopItem shopItem9"><button id="shop9"><img src="pictures/piraatx2/shopduurzwaardAI.png" alt=""></button>
+          <button class="Equip" id="Equip9"><span class="EquipTxt" id="EquipTxt9">Equip</span></button>
+        </div>
       </div>
 
       <div id="shopON" style="margin-right: -20000px; display: none;"></div>
@@ -146,7 +180,11 @@
     </div>
   </div>
 
-  <div class="piraatInShop" style="display: flex; align-items: center; position: fixed; left: 80vw; top: 0; width: 20vw; height: 100vh;  z-index: 10;"><img src="pictures/piraatx2/piraatX2bodyAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 10;"><img src="pictures/piraatx2/cheaphoedAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;"><img src="pictures/piraatx2/cheapzwaardAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;"><img src="pictures/piraatx2/cheapooglapjeAI.png" alt="" style="z-index: 9; position: absolute; width: 20vw; object-fit: contain;">
+  <div class="piraatInShop" style="display: flex; align-items: center; position: fixed; left: 80vw; top: 0; width: 20vw; height: 100vh;  z-index: 10;">
+    <img src="pictures/piraatx2/piraatX2bodyAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 10;">
+    <img src="pictures/piraatx2/defaulthoedAI.png" alt="" id="hoedEquipped" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;">
+    <img src="pictures/piraatx2/defaultzwaardAI.png" alt="" id="zwaardEquipped" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;">
+    <img src="pictures/piraatx2/defaultooglapjeAI.png" alt="" id="ooglapjeEquipped" style="z-index: 9; position: absolute; width: 20vw; object-fit: contain;">
   </div>
 </div>
 
