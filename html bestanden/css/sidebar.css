@@ -1,0 +1,206 @@
+/* ===== Sidebar toggle knop ===== */
+.sidebar-toggle {
+  display: none;            
+  position: fixed;              
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: rgb(173, 0, 0);
+  border: white 2px solid;
+  border-radius: 8px;
+  cursor: pointer;
+  z-index: 20;
+}
+
+.sidebar-toggle::before,
+.sidebar-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;    
+  height: 2px;   
+  background-color: white;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.sidebar-toggle::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ===== Linker sidebar ===== */
+.leftSidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 12%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 10;
+}
+
+/* Sidebar items */
+.sidebarItem {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.sidebarItem img {
+  width: 100%;
+}
+
+/* Balk onder de items */
+.sidebarItemBar,
+.sidebarItemBar2,
+.sidebarItemBar3{
+  width: 80vw;
+  margin-left: 0;
+  height: 10px;
+  background-color: brown;
+  position: relative;
+  z-index: 5;
+}
+
+/* ===== Hints ===== */
+.hints-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.hint {
+  position: absolute;
+  width: 12vw;
+  height: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 4; /* altijd boven de bar */
+}
+
+.hintLock {
+  width: 13vw;
+  height: 20vh;
+  background-color: blue;
+  cursor: default;
+  position: absolute;
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+                                                    display: flex;
+}
+
+
+/* Specifieke posities */
+.hint-main { margin-left: 68vw;}
+.hint3 { margin-left: 50vw;}
+.hint2 { margin-left: 32vw;}
+.hint1 { margin-left: 14vw;}
+.hint4 { margin-left: 14vw; margin-bottom: -50vh; }
+.hint5 { margin-left: 32vw; margin-bottom: -50vh; }
+.hint6 { margin-left: 50vw; margin-bottom: -50vh;}
+.hint7 { margin-left: 14vw; margin-bottom: -100vh; }
+/* Knoppen binnen hints */
+.hint button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.hint button img {
+  width: 100%;
+  height: 70%;
+  border-radius: 10px;
+  border: 4px solid wheat;
+}
+
+.hint-main button img {
+  border: none;
+  
+}
+
+.hint button div {
+  width: 100%;
+  height: 30%;
+  font-size: larger;
+  color: wheat;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+
+
+.shop-container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  z-index: 4;
+}
+
+.shop,
+.shopItem {
+  position: absolute;
+  width: 12vw;
+  height: 20vh;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 68vw;
+}
+.shopItem {
+  background-color: rgba(50, 50, 50, 0.5);
+  border: 2px solid ;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+.shopItem1{ margin-left: 14vw;}
+.shopItem2{ margin-left: 32vw;}
+.shopItem3{ margin-left: 50vw;}
+.shopItem4{ margin-left: 14vw; margin-bottom: -50vh;}
+.shopItem5{ margin-left: 32vw; margin-bottom: -50vh;}
+.shopItem6{ margin-left: 50vw; margin-bottom: -50vh;}
+.shopItem7{ margin-left: 14vw; margin-top: -50vh;}
+.shopItem8{ margin-left: 32vw; margin-top: -50vh;}
+.shopItem9{ margin-left: 50vw; margin-top: -50vh;}
+
+.shopItem button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+#shop {
+  width: 12vw;
+  height: 20vh;
+  background-color: transparent;
+  border: none;
+}
+
+/* Opvullingselementen */
+.divFiller {
+  width: 12vw;
+  height: 20vh;
+  background-color: transparent;
+  cursor: default;
+  margin-left: 0;
+}
+
+/* Shop en skin buttons */
+
+#parrots {
+  width: 12vw;
+  height: 20vh;
+  background-color: teal;
+  border: none;
+}

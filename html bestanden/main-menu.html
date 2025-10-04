@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/menu.css">
   <link rel="stylesheet" href="css/opdracht_1.css">
   <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/sidebar.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
@@ -91,25 +92,63 @@
     </div>
   </div>
 
+
+  <button id="sidebarToggle" class="sidebar-toggle">
+
+  </button>
   <!-- LEFT SIDEBAR -->
   <div class="leftSidebar">
     <div class="sidebarItem sidebar-item-hints">
-      <button id="hints"> </button>
-      <div class="sidebar-item-bar"></div>
+      <div class ="hints-container">
+        <div class="hint hint-main" ><button id="hints"><img src="pictures/hints.png" alt="" ></button></div>
+        <div class="divFiller" style="width: 0px;"></div>
+        <div class="hint hint7"><button id="hint7"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 7</div> </button></div>
+        <div class="hint7 hintLock" id="lock7">locked</div>
+        <div class="hint hint4"><button id="hint4"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 4</div></button></div>
+        <div class="hint4 hintLock" id="lock4">locked</div>
+        <div class="hint hint1"><button id="hint1"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 1</div></button></div>
+        <div class="hint1 hintLock" id="lock1">locked</div>
+        <div class="hint hint5"><button id="hint5"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 5</div></button></div>
+        <div class="hint5 hintLock" id="lock5">locked</div>
+        <div class="hint hint2"><button id="hint2"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 2</div></button></div>
+        <div class="hint2 hintLock" id="lock2">locked</div>
+        <div class="hint hint6"><button id="hint6"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 6</div></button></div>
+        <div class="hint6 hintLock" id="lock6">locked</div>
+        <div class="hint hint3"><button id="hint3"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 3</div></button></div>
+        <div class="hint3 hintLock" id="lock3">locked</div>
+        <div id="hintsON" style="margin-top: -20000px; display: none;"></div>
+      </div>
+      <div class="sidebarItemBar"></div>
+    </div>
+
+    <div class="sidebarItem sidebar-item-hints">
+      <div class="shop-container">
+        <div class="divFiller" style="width: 0px;"></div>
+        <div class="shop shop-main"><button id="shop"><img src="pictures/shop.png" alt=""></button></div>
+        <div class="shopItem shopItem1"><button id="shop1"><img src="pictures/piraatx2/shopdefaulthoedAI.png" alt=""></button></div>
+        <div class="shopItem shopItem2"><button id="shop2"><img src="pictures/piraatx2/shopcheaphoedAI.png" alt=""></button></div>
+        <div class="shopItem shopItem3"><button id="shop3"><img src="pictures/piraatx2/shopdurehoedAI.png" alt=""></button></div>
+        <div class="shopItem shopItem4"><button id="shop4"><img src="pictures/piraatx2/shopdefaultooglapjeAI.png" alt=""></button></div>
+        <div class="shopItem shopItem5"><button id="shop5"><img src="pictures/piraatx2/shopcheapooglapjeAI.png" alt=""></button></div>
+        <div class="shopItem shopItem6"><button id="shop6"><img src="pictures/piraatx2/shopduurooglapjeAI.png" alt=""></button></div>
+        <div class="shopItem shopItem7"><button id="shop7"><img src="pictures/piraatx2/shopdefaultzwaardAI.png" alt=""></button></div>
+        <div class="shopItem shopItem8"><button id="shop8"><img src="pictures/piraatx2/shopcheapzwaardAI.png" alt=""></button></div>
+        <div class="shopItem shopItem9"><button id="shop9"><img src="pictures/piraatx2/shopduurzwaardAI.png" alt=""></button></div>
+      </div>
+
+      <div id="shopON" style="margin-right: -20000px; display: none;"></div>
+      <div class="sidebarItemBar2"></div>
     </div>
 
     <div class="sidebarItem">
-      <button id="shop"></button>
-      <div class="sidebar-item-bar"></div>
-    </div>
-
-    <div class="sidebarItem">
-      <button id="skin"></button>
-      <div class="sidebar-item-bar"></div>
+      <button id="parrots"></button>
+      <div class="sidebarItemBar3"></div>
     </div>
   </div>
-</div>
 
+  <div class="piraatInShop" style="display: flex; align-items: center; position: fixed; left: 80vw; top: 0; width: 20vw; height: 100vh;  z-index: 10;"><img src="pictures/piraatx2/piraatX2bodyAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 10;"><img src="pictures/piraatx2/cheaphoedAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;"><img src="pictures/piraatx2/cheapzwaardAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;"><img src="pictures/piraatx2/cheapooglapjeAI.png" alt="" style="z-index: 9; position: absolute; width: 20vw; object-fit: contain;">
+  </div>
+</div>
 
 
 <!-- Level 1 -->
@@ -188,133 +227,10 @@
     </div>
   </div>
   
-
-
 <!--script lvl 1-->
   <script src="scripts/main.js"></script>
   <script src="scripts/0test.js"></script>
   <script src="scripts/1test.js"></script>
   <script src="scripts/pws-vergelijkingen-gelijkstellen-1.js"></script>
-  
-  <!-- Scripts -->
-  <!--script>
-    const sidebarItem = document.getElementsByClassName('sidebarItem')[0];
-    const leftSidebar = document.getElementsByClassName('leftSidebar')[0];
-    const hints = document.getElementById('hints');
-    const shop = document.getElementById('shop');
-    const skin = document.getElementById('skin');
-
-    hints.addEventListener('click', () => {
-      sidebarItem.style.animationPlayState = "running";
-      leftSidebar.style.animationPlayState = "running";
-    });
-
-
-    // Naam
-    let playerName = localStorage.getItem("playerName") || "Onbekende Piraat";
-    document.getElementById("player").textContent = playerName;
-
-    // Score en coins ophalen of defaults zetten
-    let score = parseInt(localStorage.getItem("score")) || 20;
-    let coins = parseInt(localStorage.getItem("coins")) || 5;
-
-    // Toon in UI
-    document.getElementById("punten").textContent = score;
-    document.getElementById("coins").textContent = coins;
-
-    // --- Opslaan & helpers --- //
-    function saveScore(newScore) {
-      score = newScore;
-      localStorage.setItem("score", score);
-      document.getElementById("punten").textContent = score;
-    }
-
-    function saveCoins(newCoins) {
-      coins = newCoins;
-      localStorage.setItem("coins", coins);
-      document.getElementById("coins").textContent = coins;
-    }
-
-    // Helpers om toe te voegen of af te trekken
-    function addScore(amount) {
-      saveScore(score + amount);
-    }
-
-    function addCoins(amount) {
-      saveCoins(coins + amount);
-    }
-
-    // Naam-edit functie
-    function editName() {
-      const span = document.getElementById("player");
-      const input = document.getElementById("editInput");
-
-      span.style.display = "none";
-      input.style.display = "inline";
-      input.value = playerName;
-      input.focus();
-
-      input.onblur = function() {
-        saveName(input, span);
-      };
-
-      input.addEventListener("keypress", function(e) {
-        if (e.key === "Enter") {
-          input.blur();
-        }
-      });
-    }
-
-    function saveName(input, span) {
-      if (input.value.trim() !== "") {
-        playerName = input.value.trim();
-        localStorage.setItem("playerName", playerName);
-        span.textContent = playerName;
-      }
-      input.style.display = "none";
-      span.style.display = "inline";
-    }
-
-
-    function startAvontuur() {
-      document.getElementById('overlayFP').style.display = 'flex';
-    }
-
-    function goToMenu() {
-      const inputElement = document.getElementById('nameInput');
-      const inputValue = inputElement.value.trim();
-
-      if (inputValue === '') {
-        alert("Vul eerst je naam in!");
-        return; // stopt hier
-      }
-
-      // naam opslaan en in UI zetten
-      playerName = inputValue;
-      localStorage.setItem("playerName", playerName);
-
-      // update zowel de naam in top-bar (player span) als optioneel naamSpan
-      document.getElementById("player").textContent = playerName;
-      const naamSpan = document.getElementById('naamSpan');
-      if (naamSpan) {
-        naamSpan.textContent = playerName;
-      }
-
-      // overlays en schermwissel
-      document.getElementById('overlayFP').style.display = 'none';
-      document.getElementById('frontPage').style.display = 'none';
-      document.getElementById('secondPage').style.display = 'block';
-    }
-
-    function showLvlLayout() {
-      document.getElementById('secondPage').style.display = 'none'
-      document.getElementById('lvl1').style.display = 'flex'
-      document.getElementById('opmaakOpdrachten').style.display = 'flex'
-      document.getElementById('overlayLvl1').style.display = 'flex'
-      document.getElementById('opdracht').style.display = 'none'
-    }
-    
-  </script-->
-
 </body>
 </html>
