@@ -85,14 +85,16 @@
 }
 
 .hintLock {
-  width: 13vw;
-  height: 20vh;
-  background-color: blue;
+  width: 12vw;
+  height: 19vh;
+  background-color: rgba(0, 0, 0, 0.5);
   cursor: default;
   position: absolute;
   z-index: 10;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  border: 4px solid rgb(0, 0, 0);
                                                     display: flex;
 }
 

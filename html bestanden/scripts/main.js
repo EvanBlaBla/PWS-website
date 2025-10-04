@@ -42,8 +42,7 @@ hints.addEventListener('click', () => {
   sidebarToggle.style.display = 'block';
 });
 
-// Sidebar toggle (sluiten/terugzetten)
-sidebarToggle.addEventListener('click', () => {
+function closeSidebar(){
   if (document.getElementById('shopON').style.display === 'block') {
     shopContainer.style.animation = 'none';
     shopContainer.style.transform = 'translateX(-68vw)';
@@ -71,6 +70,14 @@ sidebarToggle.addEventListener('click', () => {
 
   sidebarToggle.style.display = 'none';
 
+}
+// Sidebar toggle (sluiten/terugzetten)
+sidebarToggle.addEventListener('click', closeSidebar);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && sidebarToggle.style.display === 'block') {
+    closeSidebar();
+  }
 });
 
 shopButton.addEventListener('click', () => {
@@ -162,8 +169,8 @@ let playerName = localStorage.getItem("playerName") || "Onbekende Piraat";
 document.getElementById("player").textContent = playerName;
 
 // Score en coins
-let score = parseInt(localStorage.getItem("score")) || 20;
-let coins = parseInt(localStorage.getItem("coins")) || 5;
+let score = parseInt(localStorage.getItem("score")) || 0;
+let coins = parseInt(localStorage.getItem("coins")) || 0;
 document.getElementById("punten").textContent = score;
 document.getElementById("coins").textContent = coins;
 
@@ -281,10 +288,13 @@ if (playerName === "KoningLoek") {
   specialDiv.textContent = "👑 KoningLoek Zone";
   specialDiv.classList.add("koningLoekDiv");
   document.body.appendChild(specialDiv);
-}
+  specialDiv.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+  });
 
-    // Score Div
-    const scoreDiv = document.createElement("div");
+  // Score Div
+  const scoreDiv = document.createElement("div");
     scoreDiv.textContent = "👑 AddScore";
     scoreDiv.classList.add("devDiv");
     scoreDiv.style.bottom = "80px"; // Onder de KoningLoek-div
@@ -303,4 +313,9 @@ if (playerName === "KoningLoek") {
     });
     document.body.appendChild(coinsDiv);
   }
+  else {
+    document.querySelectorAll(".devDiv").forEach(el => el.remove());
+    document.querySelectorAll(".koningLoekDiv").forEach(el => el.remove());
+  }
+}
 
