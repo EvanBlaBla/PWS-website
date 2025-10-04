@@ -58,7 +58,7 @@ function pwsVergelijkingenGelijkstellen1() {
     <span class="js-score1A"></span>
     1a <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>
     Stel de functies van Loek en Jonas op.`;
-    let resultaat1A = '';
+    //let resultaat1A = '';
     window.checken1A = function () {
       //let scores = getScores();
 
@@ -156,7 +156,7 @@ function pwsVergelijkingenGelijkstellen1() {
     document.querySelector('.js-opdracht1B').innerHTML = `
       <span class="js-score1B"></span>
     1b <br> Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.`;
-    let resultaat1B = '';
+    //let resultaat1B = '';
     window.checken1B = function () {
      
       //let scores = getScores();
@@ -239,7 +239,7 @@ function pwsVergelijkingenGelijkstellen1() {
       <span class="js-score1C"></span>
       c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?
       `;
-    let resultaat1C = '';
+    //let resultaat1C = '';
 
     window.checken1C = function () {
 

@@ -1,59 +1,146 @@
-function opdr1B() {
-  document.getElementById("opdracht1B").innerHTML = `
-      <p>Opdracht 2</p>
-      <p class="js-opdracht-1B"></p>
-      <input placeholder="Antwoord" class="js-antwoord-1B">
-      <button class="js-nakijken-1B" onclick="checken1B()">Nakijken</button>
-      <p class="js-resultaat-1B"></p>
-  `;
-  const a1B = Math.floor(Math.random() * 8) + 2;
-  const b1B = Math.floor(Math.random() * 8) + 2;
-  const c1B = a1B * a1B + b1B;
-  computerAntwoord1B = `x = ${a1B} V x = -${a1B}`;
+let allesGoed2 = false;
+let balansMethode2Goed = false;
 
-  document.querySelector('.js-opdracht-1B').innerHTML =
-    `x² + ${b1B} = ${c1B}`;
-  window.a1B = a1B;
-  window.b1B = b1B;
-  window.c1B = c1B;
-}
+function balansMethode2() {
+  let vraag2ABeantwoord = false;
 
-function checken1B() {
-  const leerlingElement1B = document.querySelector('.js-antwoord-1B');
-  const uitwerkingen1B = document.querySelector('.js-resultaat-1B');
+  let scores2 = getScores2();
+  function getScores2() {
+    return JSON.parse(localStorage.getItem('scores2')) || {
+      a: { goed: 0, fout: 0 },
+    };
+  };
+  function saveScores2(scores2) {
+    localStorage.setItem('scores2', JSON.stringify(scores2));
+  };
+  // update alleen score-tekst in de DOM
+  function updateScoreSpans2() {
+    const s2 = getScores2();
+    const sp2A = document.querySelector('.js-score2A');
+    if (sp2A) sp2A.textContent = `Score: ${s2.a.goed} goed, ${s2.a.fout} fout`;
+    if (!balansMethode2Goed && s2.a.goed > 0 ){
+      balansMethode2Goed = true;
+      localStorage.setItem('balansMethode2Goed', JSON.stringify(true));
+    };
+  };
 
-  if (!leerlingElement1B.value.trim()) {
-    alert("Vul eerst een antwoord in voordat je nakijkt!");
-    return;
+  const a2 = Math.floor(Math.random() * 8) + 2;
+  const b2 = Math.floor(Math.random() * 8) + 2;
+  const c2 = a2*a2 + b2;
+  const computerAntwoord2A = `x = ${a2} V x = -${a2}`;
+  vraag2AGenereren();
+
+  function vraag2AGenereren() {
+    document.querySelector('.js-opdracht2A').innerHTML = `x^2 + ${b2} = ${c2}`;
+    //let resultaat2A = '';
+
+    window.checken2A = function () {
+      const leerlingElement2A = document.querySelector('.js-antwoord2A');
+      let leerlingAntwoord2A = leerlingElement2A.value;
+      if (!leerlingElement2A.value.trim()) {
+        alert("Vul eerst een antwoord in voordat je nakijkt!");
+      return};
+      
+      let leerlingAntwoord2ACorrect = leerlingAntwoord2A
+      .toLowerCase()
+      .replace(/\s+/g, '')
+      .replace('of', 'v');
+
+      //let juistAntwoord2A = computerAntwoord2A
+      //.toLowerCase()
+      //.replace(/\s+/g, '');
+      //Dit maakt het antwoord niet fout met een spatie teveel/te weinig
+
+      const correcteAntwoorden2A = [
+        `x=${a2}vx=-${a2}`,
+        `x=-${a2}vx=${a2}`, 
+        '§', '#'
+      ];
+
+      let resultaat2A; 
+      if (correcteAntwoorden2A.includes(leerlingAntwoord2ACorrect)) {
+        resultaat2A = 'goed';
+      } else {
+        resultaat2A = 'fout';
+      }
+
+      if (!vraag2ABeantwoord) {
+          let scores2 = getScores2();
+          if (resultaat2A === 'goed') scores2.a.goed++; else scores2.a.fout++;
+          saveScores2(scores2);
+          updateScoreSpans2();
+          //saveScores2(scores2);
+          vraag2ABeantwoord = true;
+      };
+
+      if (resultaat2A === 'goed') {
+        allesGoed2 = true;
+        document.querySelector('.js-uitwerkingen2A').hidden = false;
+        document.querySelector('.js-opnieuw2').hidden = false;
+      } else {
+        allesGoed2 = false;
+      };
+
+      const uitwerkingen2A = document.querySelector('.js-resultaat2A')
+      uitwerkingen2A.innerHTML = `
+      ${leerlingAntwoord2A} <br>
+      Jouw antwoord is ${resultaat2A} <br><br>
+      uitwerkingen: <br>
+      x^2 + ${b2} = ${c2} <br>
+      x^2 = ${a2*a2} <br>
+      x = \u222A${a2*a2} V x = -\u222A${a2*a2} <br> 
+      ${computerAntwoord2A} <br>
+      `
+      // \u222A is het wortelteken
+
+      if (leerlingAntwoord2A.trim().toLowerCase() === 'koningloek') {
+        const scores2 = {
+          a: { goed: 0, fout: 0 },          
+          b: { goed: 0, fout: 0 },
+          c: { goed: 0, fout: 0}
+        };
+        saveScores2(scores2);
+        updateScoreSpans2();
+        return;
+      };
+    };
+
+    window.uitwerkingen2A = function () {
+        const r2A = document.querySelector('.js-resultaat2A');
+
+        if (r2A.hidden === true) {
+          r2A.hidden = false;
+        } else {
+          r2A.hidden = true;
+        }
+        };
+        
+        document.querySelector('.js-nakijken2A').onclick = checken2A;
+        document.querySelector('.js-uitwerkingen2A').onclick = uitwerkingen2A;
   }
-
-  let leerlingAntwoord1B = leerlingElement1B.value;
-
-  let leerlingAntwoord2_1B = leerlingAntwoord1B
-    .toLowerCase()
-    .replace(/\s+/g, '')
-    .replace('of', 'v');
-
-  let juisteAntwoorden1B = [
-    `x=${a1B}vx=-${a1B}`,
-    `x=-${a1B}vx=${a1B}`
-  ];
-
-  let resultaat1B = juisteAntwoorden1B.includes(leerlingAntwoord2_1B) ? 'goed' : 'fout';
-
-  uitwerkingen1B.innerHTML = `
-    Jouw antwoord: ${leerlingAntwoord1B} <br>
-    Resultaat: <strong>${resultaat1B}</strong> <br><br>
-    Uitwerkingen: <br>
-    x² + ${b1B} = ${c1B} <br>
-    x² = ${a1B*a1B} <br>
-    x = √${a1B*a1B} V x = -√${a1B*a1B} <br> 
-    ${computerAntwoord1B} <br>
-  `;
 }
 
+
+balansMethode2();
 document.body.addEventListener('keydown', (event) => {
-  if (event.key === 'Enter') {
-    checken1B();
-  }
+    if (event.key === 'Enter') {
+      checken2A();
+    }});
+
+document.querySelector('.js-opnieuw2').addEventListener('click', () => {
+  if (allesGoed2 === true) {
+    // eerst het oude wissen
+   // document.querySelector('.js-opdracht1').innerHTML = "";
+    document.querySelector('.js-antwoord2A').value = "";
+    document.querySelector('.js-resultaat2A').innerHTML = "";
+    document.querySelector('.js-uitwerkingen2A').hidden = true;
+    document.querySelector('.js-resultaat2A').hidden = false;;
+
+    vraag2ABeantwoord = false;
+    // en dan de functie opnieuw draaien
+    balansMethode2();
+    allesGoed2 = false;
+  } else if (allesGoed2 === false) {
+    alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
+  } return;
 });
