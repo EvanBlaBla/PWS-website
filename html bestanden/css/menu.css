@@ -228,3 +228,62 @@
 #btn-5 { top: 30%; left: 50%; }
 #btn-6 { top: 40%; left: 58%; }
 #btn-7 { top: 32%; right: 16%; }
+
+
+
+.koningLoekDiv {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to top, gold, transparent);
+  color: #222;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: floatUp 1s ease-out;
+  z-index: 9999;
+  cursor: pointer;
+}
+
+.koningLoekDiv:hover {
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.9);
+  transition: 0.1s;
+  
+}
+
+.koningLoekDiv:active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  transition: 0.05s;
+}
+
+/* Zelfde stijl als KoningLoek div */
+.devDiv {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(to top, gold, transparent);
+  color: #222;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+  animation: floatUp 1s ease-out;
+  z-index: 9999;
+  margin-top: 60px; /* Zorgt dat de divs niet exact op elkaar zitten */
+  cursor: pointer;
+  text-align: center;
+  user-select: none;
+}
+
+.devDiv:hover {
+  box-shadow: 0 0 14px rgba(255, 215, 0, 0.9);
+  transition: 0.1s;
+}
+
+.devDiv:active {
+  transform: translateY(-2px);
+  box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+  transition: 0.05s;
+}

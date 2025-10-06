@@ -42,8 +42,7 @@ hints.addEventListener('click', () => {
   sidebarToggle.style.display = 'block';
 });
 
-// Sidebar toggle (sluiten/terugzetten)
-sidebarToggle.addEventListener('click', () => {
+function closeSidebar(){
   if (document.getElementById('shopON').style.display === 'block') {
     shopContainer.style.animation = 'none';
     shopContainer.style.transform = 'translateX(-68vw)';
@@ -71,6 +70,14 @@ sidebarToggle.addEventListener('click', () => {
 
   sidebarToggle.style.display = 'none';
 
+}
+// Sidebar toggle (sluiten/terugzetten)
+sidebarToggle.addEventListener('click', closeSidebar);
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && sidebarToggle.style.display === 'block') {
+    closeSidebar();
+  }
 });
 
 shopButton.addEventListener('click', () => {
@@ -94,13 +101,76 @@ shopButton.addEventListener('click', () => {
 });
 
 
+//shopItems
+document.getElementById("shop1").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/defaulthoedAI.png";
+});
+document.getElementById("shop2").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/cheaphoedAI.png";
+});
+document.getElementById("shop3").addEventListener("click", () => {
+  document.getElementById("hoedEquipped").src = "pictures/piraatx2/durehoedAI.png";
+});
+document.getElementById("shop4").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/defaultooglapjeAI.png";
+});
+document.getElementById("shop5").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/cheapooglapjeAI.png";
+});
+document.getElementById("shop6").addEventListener("click", () => {
+  document.getElementById("ooglapjeEquipped").src = "pictures/piraatx2/duurooglapjeAI.png";
+});
+document.getElementById("shop7").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/defaultzwaardAI.png";
+});
+document.getElementById("shop8").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/cheapzwaardAI.png";
+});
+document.getElementById("shop9").addEventListener("click", () => {
+  document.getElementById("zwaardEquipped").src = "pictures/piraatx2/duurzwaardAI.png";
+});
+
+// Maak een lijst van alle items en hun kosten
+const items = [
+  { id: "buyItem2", cost: 50 },
+  { id: "buyItem3", cost: 10 },
+  { id: "buyItem5", cost: 5 },
+  { id: "buyItem6", cost: 20 },
+  { id: "buyItem8", cost: 20 },
+  { id: "buyItem9", cost: 50 },
+];
+
+// 💾 1. Check bij het laden van de pagina of items al gekocht zijn
+items.forEach(item => {
+  const el = document.getElementById(item.id);
+  if (!el) return; // Veiligheid: als element niet bestaat
+
+  // Als het item eerder gekocht is, verberg het
+  if (localStorage.getItem(item.id + "_bought") === "true") {
+    el.style.display = "none";
+  }
+
+  // 🎯 2. Voeg click event toe
+  el.addEventListener("click", () => {
+    if (coins >= item.cost) {
+      addCoins(-item.cost);
+      el.style.display = "none";
+      localStorage.setItem(item.id + "_bought", "true"); // Opslaan in localStorage
+    } else {
+      alert("Niet genoeg coins!");
+    }
+  });
+});
+
+
+
 // Naam + opslag
 let playerName = localStorage.getItem("playerName") || "Onbekende Piraat";
 document.getElementById("player").textContent = playerName;
 
 // Score en coins
-let score = parseInt(localStorage.getItem("score")) || 20;
-let coins = parseInt(localStorage.getItem("coins")) || 5;
+let score = parseInt(localStorage.getItem("score")) || 0;
+let coins = parseInt(localStorage.getItem("coins")) || 0;
 document.getElementById("punten").textContent = score;
 document.getElementById("coins").textContent = coins;
 
@@ -140,6 +210,7 @@ function saveName(input, span) {
   }
   input.style.display = "none";
   span.style.display = "inline";
+  showdevbutton();
 }
 
 // Startscherm → overlay
@@ -207,3 +278,44 @@ document.getElementById("closeOverlayLvl1").addEventListener("click", () => {
 function tekstLvl1() {
   // TODO: Voeg hier de uitleg/tekst voor level 1 toe
 }
+
+//leegt localStorage behulp van chatgtp gedaan
+//button voor toevoegen van score en coins voor koning loek
+function showdevbutton() {
+// Speciale Div
+if (playerName === "KoningLoek") {
+  const specialDiv = document.createElement("div");
+  specialDiv.textContent = "👑 KoningLoek Zone";
+  specialDiv.classList.add("koningLoekDiv");
+  document.body.appendChild(specialDiv);
+  specialDiv.addEventListener("click", function() {
+    localStorage.clear();
+    location.reload();
+  });
+
+  // Score Div
+  const scoreDiv = document.createElement("div");
+    scoreDiv.textContent = "👑 AddScore";
+    scoreDiv.classList.add("devDiv");
+    scoreDiv.style.bottom = "80px"; // Onder de KoningLoek-div
+    scoreDiv.addEventListener("click", function() {
+      addScore(100);
+    });
+    document.body.appendChild(scoreDiv);
+
+    // Coins Div
+    const coinsDiv = document.createElement("div");
+    coinsDiv.textContent = "👑 AddCoins";
+    coinsDiv.classList.add("devDiv");
+    coinsDiv.style.bottom = "140px"; // Onder de Score-div
+    coinsDiv.addEventListener("click", function() {
+      addCoins(100);
+    });
+    document.body.appendChild(coinsDiv);
+  }
+  else {
+    document.querySelectorAll(".devDiv").forEach(el => el.remove());
+    document.querySelectorAll(".koningLoekDiv").forEach(el => el.remove());
+  }
+}
+
