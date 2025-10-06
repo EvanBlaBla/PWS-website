@@ -57,9 +57,9 @@
       <div class="map-container">
         <img src="pictures/funky islands.png" alt="">
 
-        <button class="lvlButtons" id="btn-1" onclick="showLvlLayout(); tekstLvl1(); opdr1A(); opdr1B();">1</button>
+        <button class="lvlButtons" id="btn-1">1</button>
 
-        <button class="lvlButtons" id="btn-2" onclick="showLvlLayout(); tekstLvl3(); opdr2();">2</button>
+        <button class="lvlButtons" id="btn-2">2</button>
         <button class="lvlButtons" id="btn-3">3</button>
         <button class="lvlButtons" id="btn-4">4</button>
         <button class="lvlButtons" id="btn-5">5</button>
@@ -289,6 +289,88 @@
           <input placeholder="Antwoord" class="js-antwoord-1B">
           <button class="js-nakijken-1B">Nakijken</button>
           <p class="js-resultaat-1B"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="lvl2">
+    <!-- Overlay bij start -->
+    <div id="overlayLvl1" class="verteller1">
+      <div class="verteller-content">
+        <div class="persoon">
+          <img src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
+        </div>
+        <div class="tekst">
+          <div id="speech-bubble">
+            <p style="margin: 0;">
+              Je moet de papegaai bevrijden door opdrachten op te lossen met de balansmethode. 
+              Geen zorgen, de papegaai heeft uitleg voor je om jou te helpen!
+            </p>
+            <button id="closeOverlayLvl1" class="next-tekst-button">next...</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout opdrachten -->
+    <div id="opmaakOpdrachten">
+      <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
+      <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
+      <button id="toHomeBtn" class="buttonNaarHome">home</button>
+
+      <div id="achtergrondOpdrachten">
+        <img src="pictures/achtergrondLvl2AI.png" alt="">
+      </div>
+
+      <!-- Uitlegtekst staat direct in HTML -->
+      <div id="uitlegVDOpdracht">
+        <p>Vergelijkingen aan elkaar gelijk stellen is zeer makkelijk, maar het wordt door vragen met context of te veel informatie te vaag gemaakt. Het gelijkstellen aan elkaar zorgt ervoor dat door de balansmethode het gemakkelijk oplosbaar is. Dit kan alleen als ze met elkaar snijden, of op een punt gelijk zijn. Hoe dit moet is dan ook simpel; gewoon de y-waardes door elkaar vervangen.</p>
+        <div class="voorbeeld-row">
+          <div class="voorbeeld-links">
+            <p><strong>Voorbeeld </strong></p>
+            <p>Stap 1: Je hebt twee lijnen</p>
+            <p>Stap 2: Stel de vergelijkingen aan elkaar gelijk</p>
+            <p>Stap 3: Nu kan je het gewoon oplossen met de balansmethode</p>
+            <p>Stap 4: Dit is het x-coordinaat van het snijpunt tussen lijn 1 en lijn 2</p>
+          </div>
+          <div class="voorbeeld-rechts">
+            <p><strong>:</strong></p>
+            <p>Lijn 1: Y = 2x en lijn 2: y = 2</p>
+            <p>Lijn 1 = lijn 2</p>
+            <p>2x = 2 -> x = 1</p>
+            <p>x = 1</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opdrachten staan ook in HTML -->
+      <div id="opdracht">
+        <div id="opdracht1A">
+          <p class="js-opdracht1A"></p>
+          <input placeholder="Antwoord" class="js-antwoord1A">
+          <button class="js-nakijken1A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen1A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1A"></p>
+        </div>
+        <div id="opdracht1B">
+          <p class="js-opdracht1B" hidden></p>
+          <input placeholder="Antwoord" class="js-antwoord1B" hidden>
+          <button class="js-nakijken1B" hidden
+          >Nakijken</button>
+          <button class="js-uitwerkingen1B"hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1B"></p>
+        </div>
+        <div>
+          <p class="js-opdracht1C" hidden></p>
+          <input placeholder="Antwoord" class="js-antwoord1C" hidden>
+          <button class="js-nakijken1C" hidden
+          >Nakijken</button>
+          <button class="js-uitwerkingen1C"hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1C"></p>
         </div>
       </div>
     </div>

@@ -283,9 +283,9 @@ function tekstLvl1() {
 //button voor toevoegen van score en coins voor koning loek
 function showdevbutton() {
 // Speciale Div
-if (playerName === "KoningLoek") {
+if (playerName === "KoningLoek" || playerName === "Funkydev~" || playerName === "Stanleyboot" || playerName === "Koenraad") {
   const specialDiv = document.createElement("div");
-  specialDiv.textContent = "👑 KoningLoek Zone";
+  specialDiv.textContent = "👑 Clear localstorage";
   specialDiv.classList.add("koningLoekDiv");
   document.body.appendChild(specialDiv);
   specialDiv.addEventListener("click", function() {
