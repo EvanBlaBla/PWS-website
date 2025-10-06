@@ -1,13 +1,15 @@
 let allesGoed1 = false;
-let vergelijkingenGelijkstellen1Goed = false;
+let vergelijkingenGelijkstellen1Goed = JSON.parse(localStorage.getItem('vergelijkingenGelijkstellen1Goed')) || false;
 
 function pwsVergelijkingenGelijkstellen1() {
-
+  let resultaat1A = '';
+  let resultaat1B = '';
+  let resultaat1C = '';
   let vraag1ABeantwoord = false;
   let vraag1BBeantwoord = false;
   let vraag1CBeantwoord = false;
 
-  let scores = getScores();
+  //let s = getScores1();
   function getScores() {
     return JSON.parse(localStorage.getItem('scores')) || {
       a: { goed: 0, fout: 0 },
@@ -21,17 +23,19 @@ function pwsVergelijkingenGelijkstellen1() {
 
   // update alleen score-tekst in de DOM
   function updateScoreSpans() {
-    const s = getScores();
+    const s1 = getScores();
     const sp1A = document.querySelector('.js-score1A');
     const sp1B = document.querySelector('.js-score1B');
     const sp1C = document.querySelector('.js-score1C');
-    if (sp1A) sp1A.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
-    if (sp1B) sp1B.textContent = `Score: ${s.b.goed} goed, ${s.b.fout} fout`;
-    if (sp1C) sp1C.textContent = `Score: ${s.c.goed} goed, ${s.c.fout} fout`;
-    if (!vergelijkingenGelijkstellen1Goed && s.a.goed > 0 && s.b.goed > 0 && s.c.goed > 0) {
+    if (sp1A) sp1A.textContent = `Score: ${s1.a.goed} goed, ${s1.a.fout} fout`;
+    if (sp1B) sp1B.textContent = `Score: ${s1.b.goed} goed, ${s1.b.fout} fout`;
+    if (sp1C) sp1C.textContent = `Score: ${s1.c.goed} goed, ${s1.c.fout} fout`;
+    /*
+    if (!vergelijkingenGelijkstellen1Goed && s1.a.goed > 0 && s1.b.goed > 0 && s1.c.goed > 0) {
       vergelijkingenGelijkstellen1Goed = true;
       localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
     };
+    */
   };
 
   let a, b, c, d, e, f, g;
@@ -48,7 +52,7 @@ function pwsVergelijkingenGelijkstellen1() {
   const computerAntwoord1B = `-${d}t + ${b} > -${c}t + ${a+b}`;
   const computerAntwoord1C = `t > ${a/e}`;
   
-  console.log(a, b, c, d, e, f, g, computerAntwoord1A, computerAntwoord1B, computerAntwoord1C, vergelijkingenGelijkstellen1Goed);
+  //console.log(a, b, c, d, e, f, g, computerAntwoord1A, computerAntwoord1B, computerAntwoord1C, vergelijkingenGelijkstellen1Goed);
   //dit waren alle variabelen
 
   vraag1AGenereren();
@@ -56,11 +60,13 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1AGenereren() {
     document.querySelector('.js-opdracht1A').innerHTML = `
     <span class="js-score1A"></span>
-    1a <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>
+     - 1a <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>
     Stel de functies van Loek en Jonas op.`;
     //let resultaat1A = '';
     window.checken1A = function () {
-      //let scores = getScores();
+      console.log("checken1A draait");
+      //console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
+      //let s = getScores1();
 
       let leerlingElement1A = document.querySelector('.js-antwoord1A');
       let leerlingAntwoord1A = leerlingElement1A.value;
@@ -74,7 +80,7 @@ function pwsVergelijkingenGelijkstellen1() {
       let juistAntwoord1A = computerAntwoord1A
       .toLowerCase()
       .replace(/\s+/g, '');
-      const correcteAntwoorden1 = [
+      const correcteAntwoorden1A = [
         `yloek=-${c}t+${a+b},yjonas=-${d}t+${b}`,
         `yloek=-${c}t+${a+b},yjonas=${b}-${d}t`,
         `yloek=${a+b}-${c}t,yjonas=-${d}t+${b}`,
@@ -85,19 +91,19 @@ function pwsVergelijkingenGelijkstellen1() {
         `yjonas=${b}-${d}t,yloek=${a+b}-${c}t`, '§', `#`
       ];
 
-      let resultaat1A;
-      if (correcteAntwoorden1.includes(leerlingAntwoord1ACorrect)) {
+      //let resultaat1A;
+      if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
         resultaat1A = 'goed';
       } else {
         resultaat1A = 'fout';
       }
 
       if (!vraag1ABeantwoord) {
-        let scores = getScores();
-        if (resultaat1A === 'goed') scores.a.goed++; else scores.a.fout++;
-        saveScores(scores);
+        let s1 = getScores();
+        if (resultaat1A === 'goed') s1.a.goed++; else s1.a.fout++;
+        saveScores(s1);
         updateScoreSpans();
-        //saveScores(scores);
+        //saveScores1(scores1);
         window.vraag1ABeantwoord = true;
       };
 
@@ -122,16 +128,70 @@ function pwsVergelijkingenGelijkstellen1() {
       };
       vraag1ABeantwoord = true;
 
-      if (leerlingElement1A.value.trim().toLowerCase() === 'koningloek') {
-        const scores = {
+      if (leerlingElement1A.value.trim().toLowerCase() === 'clean') {
+        const resetScores = {
           a: { goed: 0, fout: 0 },
           b: { goed: 0, fout: 0 },
           c: { goed: 0, fout: 0 }
         };
-        saveScores(scores);
-        updateScoreSpans();
-        return; 
+        saveScores(resetScores);
+        localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(false));
+        vergelijkingenGelijkstellen1Goed = false;
+        alert("Scores en voortgang gereset 👑");
+        updateScoreSpans(); 
+        //localStorage.clear();
+        //console.log('waarde = '+ vergelijkingenGelijkstellen1Goed)
+        localStorage.removeItem('scores');
+        localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(false));
+        vergelijkingenGelijkstellen1Goed = false;
+        allesGoed1 = false;
+
+        console.log('waarde is nu gereset naar:', vergelijkingenGelijkstellen1Goed);
+
+
+        document.querySelector('.js-antwoord1A').value = "";
+        document.querySelector('.js-resultaat1A').innerHTML = "";
+        document.querySelector('.js-uitwerkingen1A').hidden = true;
+        document.querySelector('.js-resultaat1A').hidden = false;
+
+    //   document.querySelector('.js-opdracht1B').innerHTML = "";
+        document.querySelector('.js-antwoord1B').value = "";
+        document.querySelector('.js-resultaat1B').innerHTML = "";
+        document.querySelector('.js-uitwerkingen1B').hidden = true;
+        document.querySelector('.js-opdracht1B').hidden = true;
+        document.querySelector('.js-antwoord1B').hidden = true;
+        document.querySelector('.js-nakijken1B').hidden = true;
+        document.querySelector('.js-resultaat1B').hidden = false;
+
+        //document.querySelector('.js-opdracht1C').innerHTML = "";
+        document.querySelector('.js-antwoord1C').value = "";
+        document.querySelector('.js-resultaat1C').innerHTML = "";
+        document.querySelector('.js-uitwerkingen1C').hidden = true;
+        document.querySelector('.js-opdracht1C').hidden = true;
+        document.querySelector('.js-antwoord1C').hidden = true;
+        document.querySelector('.js-nakijken1C').hidden = true;
+        document.querySelector('.js-resultaat1C').hidden = false;
+
+        //oude eventlisteners verwijderen
+        const nakijk1A = document.querySelector('.js-nakijken1A');
+        const nakijk1B = document.querySelector('.js-nakijken1B');
+        const nakijk1C = document.querySelector('.js-nakijken1C');
+        nakijk1A.replaceWith(nakijk1A.cloneNode(true));
+        nakijk1B.replaceWith(nakijk1B.cloneNode(true));
+        nakijk1C.replaceWith(nakijk1C.cloneNode(true));
+
+
+        vraag1ABeantwoord = false;
+        vraag1BBeantwoord = false;
+        vraag1CBeantwoord = false;
+        // en dan de functie opnieuw draaien
+        pwsVergelijkingenGelijkstellen1();
+        allesGoed1 = false;
+        return;
       };
+      
+      updateScoreSpans();
+      console.log ('1:' + resultaat1A, '2:' + resultaat1B, '3:' + resultaat1C, 'waarde = '+ vergelijkingenGelijkstellen1Goed);
     };
     
     //de functies voor de uitwerkingen onzichtbaar maken
@@ -155,11 +215,12 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1BGenereren() {
     document.querySelector('.js-opdracht1B').innerHTML = `
       <span class="js-score1B"></span>
-    1b <br> Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.`;
+     - 1b <br> Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.`;
     //let resultaat1B = '';
     window.checken1B = function () {
-     
-      //let scores = getScores();
+      console.log("checken1B draait");
+     //console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
+      //let s1 = getScores1();
 
       let leerlingElement1B = document.querySelector('.js-antwoord1B');
       let leerlingAntwoord1B = leerlingElement1B.value;
@@ -173,7 +234,7 @@ function pwsVergelijkingenGelijkstellen1() {
       let juistAntwoord1B = computerAntwoord1B
       .toLowerCase()
       .replace(/\s+/g, '');
-      const correcteAntwoorden2 = [
+      const correcteAntwoorden1B = [
         `-${d}t+${b}>-${c}t+${a+b}`,
         `${b}-${d}t>-${c}t+${a+b}`,
         `-${d}t+${b}>${a+b}-${c}t`,
@@ -184,8 +245,8 @@ function pwsVergelijkingenGelijkstellen1() {
         `-${c}t+${a+b}>-${d}t+${b}`, '§', '#'
       ];
 
-      let resultaat1B;
-      if (correcteAntwoorden2.includes(leerlingAntwoord1BCorrect)) {
+      //let resultaat1B;
+      if (correcteAntwoorden1B.includes(leerlingAntwoord1BCorrect)) {
         resultaat1B = 'goed';
       } else {
         resultaat1B = 'fout';
@@ -193,11 +254,11 @@ function pwsVergelijkingenGelijkstellen1() {
 
      
       if (!window.vraag1BBeantwoord) {
-        let scores = getScores();
-        if (resultaat1B === 'goed') scores.b.goed++; else scores.b.fout++;
-        saveScores(scores);
+        let s1 = getScores();
+        if (resultaat1B === 'goed') s1.b.goed++; else s1.b.fout++;
+        saveScores(s1);
         updateScoreSpans();
-        //saveScores(scores);
+        //saveScores1(scores1);
         window.vraag1BBeantwoord = true;
       };
 
@@ -217,6 +278,8 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-nakijken1C').hidden = false;
       }
       vraag1BBeantwoord = true;
+      updateScoreSpans();
+      console.log ('1:' + resultaat1A, '2:' + resultaat1B, '3:' + resultaat1C, 'waarde = '+ vergelijkingenGelijkstellen1Goed);
     };
     window.uitwerkingen1B = function () {
       const r1B = document.querySelector('.js-resultaat1B');
@@ -237,11 +300,17 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1CGenereren() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
-      c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?
+       - 1c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?
       `;
     //let resultaat1C = '';
 
     window.checken1C = function () {
+      console.log("checken1C draait");
+      setTimeout(() => {
+  console.log('na timeout localStorage waarde:', localStorage.getItem('vergelijkingenGelijkstellen1Goed'));
+}, 100);
+
+     // console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
 
       let leerlingElement1C = document.querySelector('.js-antwoord1C');
       let leerlingAntwoord1C = leerlingElement1C.value;
@@ -255,13 +324,13 @@ function pwsVergelijkingenGelijkstellen1() {
       let juistAntwoord1C = computerAntwoord1C
       .toLowerCase()
       .replace(/\s+/g, '');
-      const correcteAntwoorden3 = [
+      const correcteAntwoorden1C = [
         `t>${a/e}`,
         `${a/e}<t`, '§', '#'
       ];
 
-      let resultaat1C;
-      if (correcteAntwoorden3.includes(leerlingAntwoord1CCorrect)) {
+      //let resultaat1C;
+      if (correcteAntwoorden1C.includes(leerlingAntwoord1CCorrect)) {
         resultaat1C = 'goed';
         allesGoed1 = true;
       } else {
@@ -271,11 +340,11 @@ function pwsVergelijkingenGelijkstellen1() {
       
 
       if (!window.vraag1CBeantwoord) {
-        let scores = getScores();
-        if (resultaat1C === 'goed') scores.c.goed++; else scores.c.fout++;
-        saveScores(scores);
+        let s1 = getScores();
+        if (resultaat1C === 'goed') s1.c.goed++; else s1.c.fout++;
+        saveScores(s1);
         updateScoreSpans();
-        //saveScores(scores);
+        //saveScores1(scores1);
         window.vraag1CBeantwoord = true;
       };
       const uitwerkingen1C = document.querySelector('.js-resultaat1C');
@@ -293,6 +362,16 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-uitwerkingen1C').hidden = false;
       }
       vraag1CBeantwoord = true;
+      updateScoreSpans();
+      console.log ('1:' + resultaat1A, '2:' + resultaat1B, '3:' + resultaat1C, 'waarde = '+ vergelijkingenGelijkstellen1Goed);
+
+      if (!vergelijkingenGelijkstellen1Goed && 
+        [resultaat1A, resultaat1B, resultaat1C].every(r => r === 'goed')) {
+        vergelijkingenGelijkstellen1Goed = true;
+        allesGoed1 = true;
+        localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
+        alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+      } return;
     };
     window.uitwerkingen1C = function () {
       const r1C = document.querySelector('.js-resultaat1C');
@@ -306,13 +385,8 @@ function pwsVergelijkingenGelijkstellen1() {
     
     document.querySelector('.js-nakijken1C').onclick = checken1C;
     document.querySelector('.js-uitwerkingen1C').onclick = uitwerkingen1C;
-    
   };
-/*
-  if (vergelijkingenGelijkstellen1Goed === true) {
-    alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
-  } return;
-   */
+
 };
 
 document.querySelector('.js-opnieuw1A').addEventListener('click', () => {

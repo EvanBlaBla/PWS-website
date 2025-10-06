@@ -1,10 +1,11 @@
 let allesGoed1 = false;
-let balansMethode1Goed = false;
+let balansMethode1Goed = JSON.parse(localStorage.getItem('balansMethode1Goed')) || false;
+
 
 function balansmethode1 () {
   let vraag1ABeantwoord = false;
 
-  let scores1 = getScores1();
+  //let scores1 = getScores1();
   function getScores1() {
     return JSON.parse(localStorage.getItem('scores1')) || {
       a: { goed: 0, fout: 0 },
@@ -18,10 +19,13 @@ function balansmethode1 () {
     const s = getScores1();
     const sp1A = document.querySelector('.js-score1A');
     if (sp1A) sp1A.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
+
     if (!balansMethode1Goed && s.a.goed > 0 ){
       balansMethode1Goed = true;
       localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
     };
+
+
   };
 
   const a1 = Math.floor(Math.random() * 8) + 2;
@@ -71,6 +75,12 @@ function balansmethode1 () {
           vraag1ABeantwoord = true;
       };
 
+      if (!balansMethode1Goed && resultaat1A === 'goed') {
+    balansMethode1Goed = true;
+    localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
+    alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+  }
+
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
         document.querySelector('.js-uitwerkingen1A').hidden = false;
@@ -87,20 +97,20 @@ function balansmethode1 () {
       Uitwerkingen: <br>
       ${c1}x + ${b1} = ${a1 * c1 + b1} <br>
       ${c1}x = ${a1 * c1} <br> 
-      ${computerAntwoord1A} <br>`
+      ${computerAntwoord1A} <br>`;
 
-  
-      if (leerlingAntwoord1A.trim().toLowerCase() === 'koningloek') {
-        const scores1 = {
-          a: { goed: 0, fout: 0 },          
-          b: { goed: 0, fout: 0 },
-          c: { goed: 0, fout: 0}
-        };
-        saveScores1(scores1);
+
+      if (leerlingAntwoord1A === 'clean') {
+        const resetScores = { a: { goed: 0, fout: 0 } };
+        saveScores1(resetScores);
+        localStorage.setItem('balansMethode1Goed', JSON.stringify(false));
+        balansMethode1Goed = false;      
+        alert("Scores en voortgang gereset 👑");
         updateScoreSpans1();
-        return; 
-      };
-    };
+        return;
+      };}
+
+
 
 
 
