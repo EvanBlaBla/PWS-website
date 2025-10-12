@@ -1,8 +1,8 @@
 let allesGoed1 = false;
 let balansMethode1Goed = JSON.parse(localStorage.getItem('balansMethode1Goed')) || false;
 
-
-function balansmethode1 () {
+function balansMethode1 () {
+  let resultaat1A = '';
   let vraag1ABeantwoord = false;
 
   //let scores1 = getScores1();
@@ -16,15 +16,16 @@ function balansmethode1 () {
   };
   // update alleen score-tekst in de DOM
   function updateScoreSpans1() {
-    const s = getScores1();
+    const s1 = getScores1();
     const sp1A = document.querySelector('.js-score1A');
-    if (sp1A) sp1A.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
+    if (sp1A) sp1A.textContent = `Score: ${s1.a.goed} goed, ${s1.a.fout} fout`;
 
+    /*
     if (!balansMethode1Goed && s.a.goed > 0 ){
       balansMethode1Goed = true;
       localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
     };
-
+*/
 
   };
 
@@ -40,7 +41,7 @@ function balansmethode1 () {
 
 
     window.checken1A = function () {
-      const leerlingElement1A = document.querySelector('.js-antwoord1A');
+      let leerlingElement1A = document.querySelector('.js-antwoord1A');
       let leerlingAntwoord1A = leerlingElement1A.value;
       if (!leerlingElement1A.value.trim()) {
         alert("Vul eerst een antwoord in voordat je nakijkt!");
@@ -67,19 +68,19 @@ function balansmethode1 () {
       }
 
       if (!vraag1ABeantwoord) {
-          let scores1 = getScores1();
-          if (resultaat1A === 'goed') scores1.a.goed++; else scores1.a.fout++;
-          saveScores1(scores1);
+          let s1 = getScores1();
+          if (resultaat1A === 'goed') s1.a.goed++; else s1.a.fout++;
+          saveScores1(s1);
           updateScoreSpans1();
           //saveScores1(scores1);
           vraag1ABeantwoord = true;
       };
 
       if (!balansMethode1Goed && resultaat1A === 'goed') {
-    balansMethode1Goed = true;
-    localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
-    alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
-  }
+        balansMethode1Goed = true;
+        localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
+        alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+      };
 
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
@@ -107,12 +108,24 @@ function balansmethode1 () {
         balansMethode1Goed = false;      
         alert("Scores en voortgang gereset 👑");
         updateScoreSpans1();
+        localStorage.removeItem('scores');
+        localStorage.setItem('balansMethode1Goed', JSON.stringify(false));
+        balansMethode1Goed = false;
+        allesGoed1 = false;
+
+        console.log('waarde is nu gereset naar:', balansMethode1Goed);
+
+
+        document.querySelector('.js-antwoord1A').value = "";
+        document.querySelector('.js-resultaat1A').innerHTML = "";
+        document.querySelector('.js-uitwerkingen1A').hidden = true;
+        document.querySelector('.js-resultaat1A').hidden = false;
+        const nakijk1A = document.querySelector('.js-nakijken1A');
+        nakijk1A.replaceWith(nakijk1A.cloneNode(true));
+        vraag1ABeantwoord = false;
+        balansMethode1();
         return;
       };}
-
-
-
-
 
     window.uitwerkingen1A = function () {
         const r1A = document.querySelector('.js-resultaat1A');
@@ -130,7 +143,7 @@ function balansmethode1 () {
 
 };
 
-balansmethode1();
+balansMethode1();
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     checken1A();
@@ -145,9 +158,11 @@ document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     document.querySelector('.js-uitwerkingen1A').hidden = true;
     document.querySelector('.js-resultaat1A').hidden = false;;
 
+    const nakijk1A = document.querySelector('.js-nakijken1A');
+    nakijk1A.replaceWith(nakijk1A.cloneNode(true));
     vraag1ABeantwoord = false;
     // en dan de functie opnieuw draaien
-    balansmethode1();
+    balansMethode1();
     allesGoed1 = false;
   } else if (allesGoed1 === false) {
     alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");

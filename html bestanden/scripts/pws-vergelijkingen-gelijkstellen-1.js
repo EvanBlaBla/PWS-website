@@ -91,7 +91,7 @@ function pwsVergelijkingenGelijkstellen1() {
         `yjonas=${b}-${d}t,yloek=${a+b}-${c}t`, '§', `#`
       ];
 
-      //let resultaat1A;
+      let resultaat1A;
       if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
         resultaat1A = 'goed';
       } else {
