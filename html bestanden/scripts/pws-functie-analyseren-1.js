@@ -108,7 +108,7 @@ function functieAnalyseren1() {
       Uitwerkingen: <br>
       De functie ${vraag1A} is een ${computerAntwoord1A} functie. De hoogste macht van x is ${c1}<br><br>`
 
-      if (leerlingAntwoord1A.trim().toLowerCase() === 'koningloek') {
+      if (leerlingAntwoord1A.trim().toLowerCase() === 'clean') {
         const scores1 = {
           a: { goed: 0, fout: 0 },          
           b: { goed: 0, fout: 0 },

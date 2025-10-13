@@ -1,10 +1,10 @@
 let allesGoed2 = false;
-let balansMethode2Goed = false;
+let balansMethode2Goed = JSON.parse(localStorage.getItem('balansMethode2Goed')) || false;
 
 function balansMethode2() {
   let vraag2ABeantwoord = false;
-
-  let scores2 = getScores2();
+  let resultaat2A = '';
+  //let scores2 = getScores2();
   function getScores2() {
     return JSON.parse(localStorage.getItem('scores2')) || {
       a: { goed: 0, fout: 0 },
@@ -18,10 +18,12 @@ function balansMethode2() {
     const s2 = getScores2();
     const sp2A = document.querySelector('.js-score2A');
     if (sp2A) sp2A.textContent = `Score: ${s2.a.goed} goed, ${s2.a.fout} fout`;
+    /*
     if (!balansMethode2Goed && s2.a.goed > 0 ){
       balansMethode2Goed = true;
       localStorage.setItem('balansMethode2Goed', JSON.stringify(true));
     };
+    */
   };
 
   const a2 = Math.floor(Math.random() * 8) + 2;
@@ -35,7 +37,7 @@ function balansMethode2() {
     //let resultaat2A = '';
 
     window.checken2A = function () {
-      const leerlingElement2A = document.querySelector('.js-antwoord2A');
+      let leerlingElement2A = document.querySelector('.js-antwoord2A');
       let leerlingAntwoord2A = leerlingElement2A.value;
       if (!leerlingElement2A.value.trim() ) {
         alert("Vul eerst een antwoord in voordat je nakijkt!");
@@ -65,12 +67,18 @@ function balansMethode2() {
       }
 
       if (!vraag2ABeantwoord) {
-          let scores2 = getScores2();
-          if (resultaat2A === 'goed') scores2.a.goed++; else scores2.a.fout++;
-          saveScores2(scores2);
+          let s2 = getScores2();
+          if (resultaat2A === 'goed') s2.a.goed++; else s2.a.fout++;
+          saveScores2(s2);
           updateScoreSpans2();
           //saveScores2(scores2);
           vraag2ABeantwoord = true;
+      };
+
+      if (!balansMethode2Goed && resultaat2A === 'goed') {
+        balansMethode2Goed = true;
+        localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
+        alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
       };
 
       if (resultaat2A === 'goed') {
@@ -93,14 +101,31 @@ function balansMethode2() {
       `
       // \u222A is het wortelteken
 
-      if (leerlingAntwoord2A.trim().toLowerCase() === 'koningloek') {
+      if (leerlingAntwoord2A.trim().toLowerCase() === 'clean') {
         const scores2 = {
-          a: { goed: 0, fout: 0 },          
-          b: { goed: 0, fout: 0 },
-          c: { goed: 0, fout: 0}
+          a: { goed: 0, fout: 0 },
         };
         saveScores2(scores2);
+         localStorage.setItem('balansMethode1Goed', JSON.stringify(false));
+        balansMethode2Goed = false;      
+        alert("Scores en voortgang gereset 👑");
         updateScoreSpans2();
+        localStorage.removeItem('scores');
+        localStorage.setItem('balansMethode1Goed', JSON.stringify(false));
+        balansMethode2Goed = false;
+        allesGoed2 = false;
+
+        console.log('waarde is nu gereset naar:', balansMethode2Goed);
+
+
+        document.querySelector('.js-antwoord2A').value = "";
+        document.querySelector('.js-resultaat2A').innerHTML = "";
+        document.querySelector('.js-uitwerkingen2A').hidden = true;
+        document.querySelector('.js-resultaat2A').hidden = false;
+        const nakijk2A = document.querySelector('.js-nakijken2A');
+        nakijk2A.replaceWith(nakijk2A.cloneNode(true));
+        vraag2ABeantwoord = false;
+        balansMethode2();
         return;
       };
     };
@@ -135,7 +160,8 @@ document.querySelector('.js-opnieuw2').addEventListener('click', () => {
     document.querySelector('.js-resultaat2A').innerHTML = "";
     document.querySelector('.js-uitwerkingen2A').hidden = true;
     document.querySelector('.js-resultaat2A').hidden = false;;
-
+    const nakijk2A = document.querySelector('.js-nakijken2A');
+    nakijk2A.replaceWith(nakijk2A.cloneNode(true));
     vraag2ABeantwoord = false;
     // en dan de functie opnieuw draaien
     balansMethode2();
