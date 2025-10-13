@@ -286,4 +286,5 @@
   transform: translateY(-2px);
   box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
   transition: 0.05s;
+  font-weight: ;
 }

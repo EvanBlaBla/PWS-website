@@ -37,7 +37,7 @@ function balansMethode2() {
     window.checken2A = function () {
       const leerlingElement2A = document.querySelector('.js-antwoord2A');
       let leerlingAntwoord2A = leerlingElement2A.value;
-      if (!leerlingElement2A.value.trim()) {
+      if (!leerlingElement2A.value.trim() ) {
         alert("Vul eerst een antwoord in voordat je nakijkt!");
       return};
       

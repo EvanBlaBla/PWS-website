@@ -215,7 +215,9 @@ function saveName(input, span) {
 
 // Startscherm → overlay
 document.getElementById("startAvontuurBtn").addEventListener("click", () => {
-  document.getElementById('overlayFP').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'flex';
+  document.getElementById('tekstInSpeechbubble').innerHTML = `Hallo avonturier, mijn naam is PiraatX². Hoe kan mag ik jou noemen? <input placeholder="Naam" id="nameInput"><button class="next-tekst-button" id="nextToMenuBtn">next...</button>`;
+
 });
 
 // Naam invullen en naar menu
@@ -237,24 +239,26 @@ document.getElementById("nextToMenuBtn").addEventListener("click", () => {
 
 // Level 1 openen
 document.getElementById("btn-1").addEventListener("click", () => {
-  showLvlLayout();
-  tekstLvl1();
-  opdr1A();
-  opdr1B();
+  hideSecondpage();
+  document.getElementById('lvl1').style.display = 'flex';
+  document.getElementById('opmaakOpdrachten').style.display = 'flex';
+  document.getElementById('overlay').style.display = 'flex';
+  document.getElementById('opdracht').style.display = 'none';
+   document.getElementById('tekstInSpeechbubble').innerHTML = `<button class="next-tekst-button" id="nextBtn">next...</button>`;  
+    document.getElementById("nextBtn").addEventListener("click", () => {
+      document.getElementById('overlay').style.display = 'none';
+    });
+
 });
+
 
 document.getElementById("btn-3").addEventListener("click", () => {
   showLvlLayout();
   tekstLvl3();
-  opdr2?.(); // optioneel, als er een opdr2 bestaat
 });
 
-function showLvlLayout() {
+function hideSecondpage() {
   document.getElementById('secondPage').style.display = 'none';
-  document.getElementById('lvl1').style.display = 'flex';
-  document.getElementById('opmaakOpdrachten').style.display = 'flex';
-  document.getElementById('overlayLvl1').style.display = 'flex';
-  document.getElementById('opdracht').style.display = 'none';
 }
 
 // Buttons uitleg / opdracht / home
@@ -271,13 +275,11 @@ document.getElementById("toHomeBtn").addEventListener("click", () => {
   document.getElementById('secondPage').style.display = 'flex';
 });
 
-document.getElementById("closeOverlayLvl1").addEventListener("click", () => {
-  document.getElementById('overlayLvl1').style.display = 'none';
+document.getElementById("closeOverlay").addEventListener("click", () => {
+  document.getElementById('overlay').style.display = 'none';
 });
 
-function tekstLvl1() {
-  // TODO: Voeg hier de uitleg/tekst voor level 1 toe
-}
+
 
 //leegt localStorage behulp van chatgtp gedaan
 //button voor toevoegen van score en coins voor koning loek

@@ -13,6 +13,20 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
+<div class="verteller" id="overlay">
+  <div class="verteller-content">
+    <div class="persoon">
+      <img src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
+    </div>
+    <div class="tekst">
+      <div id="speech-bubble">
+        <span id="tekstInSpeechbubble"> Hallo avonturier, mijn naam is PiraatX². Hoe kan mag ik jou noemen <input placeholder="Naam" id="nameInput"><button class="next-tekst-button" id="nextToMenuBtn">next...</button></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <body class="menu">
 
   <!-- Visuele "koptekst" -->
@@ -33,22 +47,6 @@
     </div>
   </div>
 
-  <!-- Overlay -->
-  <div>
-    <div class="verteller1" id="overlayFP">
-      <div class="verteller-content">
-        <div class="persoon">
-          <img id="plaatjePersoon" src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
-        </div>
-        <div class="tekst">
-          <div id="speech-bubble">
-            <span id="tekstInSpeechbubble"> Hallo avonturier, mijn naam is PiraatX². Hoe kan mag ik jou noemen <input placeholder="Naam" id="nameInput"></span>
-            <button class="next-tekst-button" id="nextToMenuBtn">next...</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
     <!-- Tweede pagina -->
 <div id="secondPage">
@@ -217,26 +215,9 @@
   </div>
 </div>
 
-
 <!-- Level 1 -->
   <div id="lvl1">
     <!-- Overlay bij start -->
-    <div id="overlayLvl1" class="verteller1">
-      <div class="verteller-content">
-        <div class="persoon">
-          <img src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
-        </div>
-        <div class="tekst">
-          <div id="speech-bubble">
-            <p style="margin: 0;">
-              Je moet de papegaai bevrijden door opdrachten op te lossen met de balansmethode. 
-              Geen zorgen, de papegaai heeft uitleg voor je om jou te helpen!
-            </p>
-            <button id="closeOverlayLvl1" class="next-tekst-button">next...</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Layout opdrachten -->
     <div id="opmaakOpdrachten">
@@ -277,40 +258,35 @@
       <!-- Opdrachten staan ook in HTML -->
       <div id="opdracht">
         <div id="opdracht1A">
-          <p class="head">Opdracht 1</p>
-          <p class="js-opdracht-1A"></p>
-          <input placeholder="Antwoord" class="js-antwoord-1A">
-          <button class="js-nakijken-1A">Nakijken</button>
-          <p class="js-resultaat-1A"></p>
+          <button class="js-opnieuw1">Opnieuw</button>
+          <p>Balansmethode - Opdracht 1</p>
+          <p class="js-score1A"></p>
+          <p class="js-opdracht1A"></p>
+          <input placeholder="Antwoord" class="js-antwoord1A">
+          <button class="js-nakijken1A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen1A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1A"></p>
         </div>
         <div id="opdracht1B">
-          <p class="head">Opdracht 2</p>
-          <p class="js-opdracht-1B"></p>
-          <input placeholder="Antwoord" class="js-antwoord-1B">
-          <button class="js-nakijken-1B">Nakijken</button>
-          <p class="js-resultaat-1B"></p>
+          <button class="js-opnieuw2">Opnieuw</button>
+          <p>Balansmethode - Opdracht 2</p>
+          <p class="js-score2A"></p>
+          <p class="js-opdracht2A"></p>
+          <input placeholder="Antwoord" class="js-antwoord2A">
+          <button class="js-nakijken2A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen2A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat2A"></p>
         </div>
       </div>
     </div>
   </div>
   <div id="lvl2">
-    <!-- Overlay bij start -->
-    <div id="overlayLvl1" class="verteller1">
-      <div class="verteller-content">
-        <div class="persoon">
-          <img src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
-        </div>
-        <div class="tekst">
-          <div id="speech-bubble">
-            <p style="margin: 0;">
-              Je moet de papegaai bevrijden door opdrachten op te lossen met de balansmethode. 
-              Geen zorgen, de papegaai heeft uitleg voor je om jou te helpen!
-            </p>
-            <button id="closeOverlayLvl1" class="next-tekst-button">next...</button>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
 
     <!-- Layout opdrachten -->
     <div id="opmaakOpdrachten">
@@ -345,7 +321,7 @@
 
       <!-- Opdrachten staan ook in HTML -->
       <div id="opdracht">
-        <div id="opdracht1A">
+        <div id="opdracht2A">
           <p class="js-opdracht1A"></p>
           <input placeholder="Antwoord" class="js-antwoord1A">
           <button class="js-nakijken1A" 
@@ -354,7 +330,7 @@
           >Uitwerkingen</button>
           <p class="js-resultaat1A"></p>
         </div>
-        <div id="opdracht1B">
+        <div id="opdracht2B">
           <p class="js-opdracht1B" hidden></p>
           <input placeholder="Antwoord" class="js-antwoord1B" hidden>
           <button class="js-nakijken1B" hidden
@@ -378,8 +354,8 @@
   
 <!--script lvl 1-->
   <script src="scripts/main.js"></script>
-  <script src="scripts/0test.js"></script>
-  <script src="scripts/1test.js"></script>
+  <script src="scripts/pws-balansmethode-1.js"></script>
+  <script src="scripts/pws-balansmethode-2.js"></script>
   <script src="scripts/pws-vergelijkingen-gelijkstellen-1.js"></script>
 </body>
 </html>
