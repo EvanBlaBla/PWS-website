@@ -37,6 +37,7 @@ function pwsVergelijkingenGelijkstellen1() {
     };
     */
   };
+  updateScoreSpans();
 
   let a, b, c, d, e, f, g;
   do {

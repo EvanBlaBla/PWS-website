@@ -25,6 +25,7 @@ function functieAnalyseren1() {
       localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
     };
   };
+  updateScoreSpans1();
 
     const a1 = Math.floor(Math.random() * (25 - 1 + 1)) + 1
     const b1 = Math.floor(Math.random() * (100 - 1 + 1)) + 1
