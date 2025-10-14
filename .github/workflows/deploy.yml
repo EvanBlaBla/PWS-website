@@ -42,6 +42,21 @@ jobs:
         # Kopieer alle bestanden uit 'html bestanden' naar de root van deployment
         cp -r "html bestanden"/* deployment/
         
+        # Maak een index.html die doorverwijst naar main-menu.html
+        cat > deployment/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Funky Islands - Redirecting...</title>
+            <meta http-equiv="refresh" content="0;url=main-menu.html">
+        </head>
+        <body>
+            <p>Als je niet automatisch wordt doorgestuurd, <a href="main-menu.html">klik dan hier om naar Funky Islands te gaan</a>.</p>
+        </body>
+        </html>
+        EOF
+        
         # Kopieer README.md naar deployment directory (optioneel)
         cp README.md deployment/ || true
         
