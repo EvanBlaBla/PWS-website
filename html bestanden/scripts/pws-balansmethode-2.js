@@ -25,6 +25,7 @@ function balansMethode2() {
     };
     */
   };
+  updateScoreSpans2();
 
   const a2 = Math.floor(Math.random() * 8) + 2;
   const b2 = Math.floor(Math.random() * 8) + 2;
@@ -147,11 +148,12 @@ function balansMethode2() {
 
 
 balansMethode2();
+/*
 document.body.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
       checken2A();
     }});
-
+*/
 document.querySelector('.js-opnieuw2').addEventListener('click', () => {
   if (allesGoed2 === true) {
     // eerst het oude wissen

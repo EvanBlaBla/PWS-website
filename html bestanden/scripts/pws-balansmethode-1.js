@@ -28,6 +28,7 @@ function balansMethode1 () {
 */
 
   };
+  updateScoreSpans1();
 
   const a1 = Math.floor(Math.random() * 8) + 2;
   const b1 = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
@@ -144,11 +145,12 @@ function balansMethode1 () {
 };
 
 balansMethode1();
+/*
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     checken1A();
   }});
-
+*/
 document.querySelector('.js-opnieuw1').addEventListener('click', () => {
   if (allesGoed1 === true) {
     // eerst het oude wissen
