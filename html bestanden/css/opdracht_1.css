@@ -12,8 +12,8 @@
 }
 
 /* ===== Uitleg + Opdracht container ===== */
-#uitlegVDOpdracht,
-#opdracht {
+#uitlegVDOpdracht, #uitlegVDOpdracht2,
+#opdracht, #opdracht2 {
   background-color: rgb(73, 230, 73);
   padding: 1%;
   border-radius: 3%;

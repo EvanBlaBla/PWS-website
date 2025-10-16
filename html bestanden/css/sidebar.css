@@ -98,6 +98,15 @@
                                                     display: flex;
 }
 
+.HTN {
+  position:absolute; 
+  top: 30% ;
+  justify-self: center; 
+  font-size: large; 
+  font-weight: bold; 
+  font-family: caveat;
+}
+
 
 /* Specifieke posities */
 .hint-main { margin-left: 68vw;}
@@ -148,6 +157,7 @@
   align-items: center;
   gap: 10px;
   z-index: 4;
+
 }
 
 .shop,
@@ -159,6 +169,20 @@
   cursor: pointer;
   margin-left: 68vw;
 }
+
+.shop {
+  height: 21vh;
+}
+
+
+#shop {
+  height: 23vh;
+  background-image: url('pictures/shop.png');
+  background-size: contain; /* of contain */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .shopItem {
   background-color: rgba(50, 50, 50, 0.5);
   border: 2px solid ;
@@ -288,6 +312,6 @@
 #parrots {
   width: 12vw;
   height: 20vh;
-  background-color: teal;
+  background-color: transparent;
   border: none;
 }

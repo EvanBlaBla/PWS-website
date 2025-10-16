@@ -13,6 +13,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 
+
+<body class="menu">
 <div class="verteller" id="overlay">
   <div class="verteller-content">
     <div class="persoon">
@@ -20,17 +22,14 @@
     </div>
     <div class="tekst">
       <div id="speech-bubble">
-        <span id="tekstInSpeechbubble"> Hallo avonturier, mijn naam is PiraatX². Hoe kan mag ik jou noemen <input placeholder="Naam" id="nameInput"><button class="next-tekst-button" id="nextToMenuBtn">next...</button></span>
+        <span id="tekstInSpeechbubble"></span>
       </div>
     </div>
   </div>
 </div>
 
-
-<body class="menu">
-
   <!-- Visuele "koptekst" -->
-  <div id="frontPage" class="frontPage">
+  <div id="frontPage" class="frontPage" >
     <div id="header" class="Header">
       <h1 class="header1">Funky Islands</h1>
     </div>
@@ -49,7 +48,7 @@
 
 
     <!-- Tweede pagina -->
-<div id="secondPage">
+<div id="secondPage" style="display: none;">
   <div class="secondPage">
     <div style="width: 100%; height: 100%; position: relative; display: flex; justify-content: center; align-items: center;">
       <div class="map-container">
@@ -70,7 +69,7 @@
 
 
       <!-- TOP BAR -->
-  <div class="top-bar">
+  <div class="top-bar" id="top-bar">
     <div class="player-box">
       <span id="player"></span>
       <input type="text" id="editInput" />
@@ -95,24 +94,24 @@
 
   </button>
   <!-- LEFT SIDEBAR -->
-  <div class="leftSidebar">
+  <div class="leftSidebar" id="leftSidebar">
     <div class="sidebarItem sidebar-item-hints">
       <div class ="hints-container">
         <div class="hint hint-main" ><button id="hints"><img src="pictures/hints.png" alt="" ></button></div>
         <div class="divFiller" style="width: 0px;"></div>
-        <div class="hint hint7"><button id="hint7"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 7</div> </button></div>
+        <div class="hint hint7"><button id="hint7"><img src="pictures/hints.png" alt="" ><span class="HTN" id="HNT7"></span> <div>Aanwijzing 7</div> </button></div>
         <div class="hint7 hintLock" id="lock7"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint4"><button id="hint4"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 4</div></button></div>
+        <div class="hint hint4"><button id="hint4"><img src="pictures/hints.png" alt="" ><span class="HTN" id="HNT4"></span> <div>Aanwijzing 4</div></button></div>
         <div class="hint4 hintLock" id="lock4"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint1"><button id="hint1"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 1</div></button></div>
+        <div class="hint hint1"><button id="hint1"><img src="pictures/hints.png" alt="" ><span class="HTN" id="HNT1"></span> <div>Aanwijzing 1</div></button></div>
         <div class="hint1 hintLock" id="lock1"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint5"><button id="hint5"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 5</div></button></div>
+        <div class="hint hint5"><button id="hint5"><img src="pictures/hints.png" alt="" > <span class="HTN" id="HNT5"></span><div>Aanwijzing 5</div></button></div>
         <div class="hint5 hintLock" id="lock5"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint2"><button id="hint2"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 2</div></button></div>
+        <div class="hint hint2"><button id="hint2"><img src="pictures/hints.png" alt="" ><span class="HTN" id="HNT2"></span> <div>Aanwijzing 2</div></button></div>
         <div class="hint2 hintLock" id="lock2"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint6"><button id="hint6"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 6</div></button></div>
+        <div class="hint hint6"><button id="hint6"><img src="pictures/hints.png" alt="" ><span class="HTN" id="HNT6"></span> <div>Aanwijzing 6</div></button></div>
         <div class="hint6 hintLock" id="lock6"><img src="pictures/slot.png" alt=""></div>
-        <div class="hint hint3"><button id="hint3"><img src="pictures/hints.png" alt="" > <div>Aanwijzing 3</div></button></div>
+        <div class="hint hint3"><button id="hint3"><img src="pictures/hints.png" alt="" > <span class="HTN" id="HNT3"></span><div>Aanwijzing 3</div></button></div>
         <div class="hint3 hintLock" id="lock3"><img src="pictures/slot.png" alt=""></div>
         <div id="hintsON" style="margin-top: -20000px; display: none;"></div>
       </div>
@@ -124,7 +123,7 @@
         <div class="divFiller" style="width: 0px;"></div>
         <div class="shop shop-main">
           <button id="shop">
-            <img src="pictures/shop.png" alt="">
+            
           </button>
         </div>
 
@@ -285,21 +284,18 @@
     </div>
   </div>
   <div id="lvl2">
-
-
-
     <!-- Layout opdrachten -->
-    <div id="opmaakOpdrachten">
-      <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
-      <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
-      <button id="toHomeBtn" class="buttonNaarHome">home</button>
+    <div id="opmaakOpdrachten2" style="display: none;">
+      <button id="toUitlegBtn2" class="buttonNaarUitleg">uitleg</button>
+      <button id="toOpdrachtBtn2" class="buttonNaarOpdracht">opdracht</button>
+      <button id="toHomeBtn2" class="buttonNaarHome">home</button>
 
       <div id="achtergrondOpdrachten">
         <img src="pictures/achtergrondLvl2AI.png" alt="">
       </div>
 
       <!-- Uitlegtekst staat direct in HTML -->
-      <div id="uitlegVDOpdracht">
+      <div id="uitlegVDOpdracht2">
         <p>Vergelijkingen aan elkaar gelijk stellen is zeer makkelijk, maar het wordt door vragen met context of te veel informatie te vaag gemaakt. Het gelijkstellen aan elkaar zorgt ervoor dat door de balansmethode het gemakkelijk oplosbaar is. Dit kan alleen als ze met elkaar snijden, of op een punt gelijk zijn. Hoe dit moet is dan ook simpel; gewoon de y-waardes door elkaar vervangen.</p>
         <div class="voorbeeld-row">
           <div class="voorbeeld-links">
@@ -320,7 +316,7 @@
       </div>
 
       <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht">
+      <div id="opdracht2">
         <div id="opdracht2A">
           <p class="js-opdracht1A"></p>
           <input placeholder="Antwoord" class="js-antwoord1A">
@@ -357,6 +353,9 @@
   <script src="scripts/pws-balansmethode-1.js"></script>
   <script src="scripts/pws-balansmethode-2.js"></script>
   <script src="scripts/pws-vergelijkingen-gelijkstellen-1.js"></script>
+  <script>
+    
+  </script>
 </body>
 </html>
  
