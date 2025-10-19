@@ -1,0 +1,16 @@
+
+/* ===== Papegaai ===== */
+.papegaaiInKooi {
+  max-height: 35vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  top: 22%;
+  left: 34%;
+  z-index: 1;
+}
+
+.buttonNaarUitleg { margin-top: 52vh; margin-left: 12.8%; transform: rotate(7deg); background-image: url('sign.png');}
+.buttonNaarOpdracht { margin-top: 61vh; margin-left: 11%; background-image: url('sign.png');}
+.buttonNaarHome { margin-top: 70vh; margin-left: 12.3%; transform: rotate(-5deg); background-image: url('sign.png');}

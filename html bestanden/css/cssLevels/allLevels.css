@@ -1,0 +1,166 @@
+body {
+  font-family: 'caveat';
+  margin: 0;
+}
+
+#lvl {
+  position: relative;
+  font-size: 26px;
+  flex-direction: column;
+  z-index: 1;
+}
+
+#opmaakOpdrachten{
+  z-index: -2;
+  background-color: green;
+  position: absolute;
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  flex-direction: column;
+}
+
+#achtergrondOpdrachten {
+  z-index: -1;
+  display: flex;
+  position: absolute;
+  height: 100vh;
+  width: auto;
+}
+
+/* ===== Uitleg + Opdracht container ===== */
+#uitlegVDOpdracht,
+#opdracht{
+  background-color: rgb(73, 230, 73);
+  padding: 1%;
+  border-radius: 3%;
+  margin: 2% 4% 0% 30vw;
+  right: 0;
+  position: absolute;
+  height: 90vh;
+  max-width: 65vw;
+  min-width: 65vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+#uitlegVDOpdracht {
+  flex-direction: column;
+}
+#opdracht {
+  flex-direction: row;
+}
+
+
+.voorbeeld-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  margin-bottom: 20px;  
+}
+
+.voorbeeld-links,
+.voorbeeld-rechts {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.4);
+  padding: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+.voorbeeld-links {flex: 30;}
+.voorbeeld-rechts {flex: 20;}
+
+#opdracht {
+  display: none;
+  gap: 20px;
+  font-family: "Caveat", Arial, sans-serif;
+  font-size: 20px;
+}
+#opdracht1A {flex: 33%;}
+#opdracht1B {flex: 33%;}
+#opdracht1C {flex: 33%;}
+
+#opdracht > div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: rgba(79, 255, 79, 0.685);
+  padding: 15px;
+  border-radius: 8px;
+}
+/* Input en button in opdrachten */
+#opdracht input,
+#opdracht button {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 10px;
+  font-family: "Caveat", Arial, sans-serif;
+  font-size: 18px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background-color: #cfcfcf;
+}
+
+#opdracht button {
+  cursor: pointer;
+  background-color: #cfcfcf;
+  border: 2px solid #4e4e4e93;
+  transition: background 0.2s ease;
+}
+
+#opdracht button:hover {
+  background-color: #ffffff7e;
+}
+
+/* Kleine textfixes */
+#uitlegVDOpdracht p,
+#opdracht p {
+  margin-top: 0;
+  margin-bottom: 0.75em;
+  z-index: 1;
+}
+
+/* JS hooks */
+.js-head,
+.js-opdracht,
+.js-nakijken,
+.js-resultaat,
+.js-antwoord {
+  z-index: 1;
+  display: flex;
+}
+.js-antwoord,
+.js-nakijken { width: 1fr 1fr 1fr; }
+
+
+
+/* Buttons in lvl1 */
+.buttonNaarUitleg,
+.buttonNaarOpdracht,
+.buttonNaarHome,
+.buttonNaarNext {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  min-width: 15%;
+  max-width: 15%;
+  height: auto;
+  object-fit: contain;
+  position: absolute;
+  font-size: large;
+  color: rgb(0, 0, 0);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 2vh;
+  background-color: transparent;
+  z-index: 2;
+}
+
+/*.buttonNaarUitleg { margin-top: 60vh; margin-left: 5.6vw; }
+.buttonNaarOpdracht { margin-top: 70vh; margin-left: 5.6vw; }
+.buttonNaarHome { margin-top: 80vh; margin-left: 2vw; }
+.buttonNaarNext { margin-top: 80vh; margin-left: 9vw; }*/

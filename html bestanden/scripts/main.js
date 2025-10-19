@@ -101,6 +101,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Shop quick equip handlers (safe-get & attach only if present) ---
+  //AI geleerd
   const equipMap = {
     shop1: { target: 'hoedEquipped', src: "pictures/piraatx2/defaulthoedAI.png" },
     shop2: { target: 'hoedEquipped', src: "pictures/piraatx2/cheaphoedAI.png" },
@@ -123,14 +124,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- items and persistence
-  const items = [
-    { id: "buyItem2", cost: 50 },
-    { id: "buyItem3", cost: 10 },
-    { id: "buyItem5", cost: 5 },
-    { id: "buyItem6", cost: 20 },
-    { id: "buyItem8", cost: 20 },
-    { id: "buyItem9", cost: 50 },
-  ];
+
 
   // --- State: name, score, coins
   let playerName = localStorage.getItem("playerName") || "";
@@ -150,7 +144,14 @@ window.addEventListener('DOMContentLoaded', () => {
     if (safeGet('leftSidebar')) safeGet('leftSidebar').style.display = 'flex';
   }
 
-  // --- Shop purchase logic (hide bought items)
+    const items = [
+    { id: "buyItem2", cost: 50 },
+    { id: "buyItem3", cost: 10 },
+    { id: "buyItem5", cost: 5 },
+    { id: "buyItem6", cost: 20 },
+    { id: "buyItem8", cost: 20 },
+    { id: "buyItem9", cost: 50 },
+  ];
   items.forEach(item => {
     const el = safeGet(item.id);
     if (!el) return;
@@ -186,6 +187,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const editBtn = safeGet("editNameBtn");
   if (editBtn) editBtn.addEventListener("click", editName);
 
+
+
+  //AI
   function editName() {
     const span = safeGet("player");
     const input = safeGet("editInput");
@@ -242,16 +246,28 @@ window.addEventListener('DOMContentLoaded', () => {
     showdevbutton();
   };
 
-  // --- Level 1 open
-  const btn1 = safeGet("btn-1");
-  if (btn1) {
-    btn1.addEventListener("click", () => {
-      if (safeGet('secondPage')) safeGet('secondPage').style.display = 'none';
-      if (safeGet('lvl1')) safeGet('lvl1').style.display = 'flex';
-      if (safeGet('opmaakOpdrachten')) safeGet('opmaakOpdrachten').style.display = 'flex';
-      if (safeGet('overlay')) safeGet('overlay').style.display = 'flex';
-      if (safeGet('opdracht')) safeGet('opdracht').style.display = 'none';
+  // --- Levels openen
 
+
+  const btnLinks = [
+    {id: "btn-1", link:'level-1blns-mthde.html'},
+    {id: "btn-2", link:'level-2.html'},
+    {id: "btn-3", link:'level-3.html'},
+    {id: "btn-4", link:'level-4.html'},
+    {id: "btn-5", link:'level-5.html'},
+    {id: "btn-6", link:'level-6.html'},
+    {id: "btn-7", link:'level-7.html'},
+  ];
+  if (btnLinks) {
+    btnLinks.forEach(item => {
+      const btn = safeGet(item.id);
+      if (btn) {
+        btn.addEventListener("click", () => {
+          window.location.href = item.link;
+        });
+      }
+    });
+      /*
       const teks = safeGet('tekstInSpeechbubble');
       if (teks) teks.innerHTML = '<button class="next-tekst-button" id="nextBtn">next...</button>';
       // attach event after insertion
@@ -259,18 +275,10 @@ window.addEventListener('DOMContentLoaded', () => {
         const nextBtn = safeGet('nextBtn');
         if (nextBtn) nextBtn.addEventListener("click", () => { if (safeGet('overlay')) safeGet('overlay').style.display = 'none'; });
       }, 10);
-    });   
+      */  
   }
 
-  const btn2 = safeGet("btn-2");
-  if (btn2) {
-    btn2.addEventListener("click", () => {
-      if (safeGet('secondPage')) safeGet('secondPage').style.display = 'none';
-      if (safeGet('lvl2')) safeGet('lvl2').style.display = 'flex';
-      if (safeGet('opmaakOpdrachten2')) safeGet('opmaakOpdrachten2').style.display = 'flex';
-      if (safeGet('overlay')) safeGet('overlay').style.display = 'flex';
-      if (safeGet('opdracht')) safeGet('opdracht').style.display = 'none';
-
+      /*
       const teks = safeGet('tekstInSpeechbubble');
       if (teks) teks.innerHTML = '<button class="next-tekst-button" id="nextBtn">next...</button>';
       // attach event after insertion
@@ -278,8 +286,9 @@ window.addEventListener('DOMContentLoaded', () => {
         const nextBtn = safeGet('nextBtn');
         if (nextBtn) nextBtn.addEventListener("click", () => { if (safeGet('overlay')) safeGet('overlay').style.display = 'none'; });
       }, 10);
-    });   
-  }
+      */
+
+
   // --- Buttons uitleg/opdracht/home
   if (safeGet("toUitlegBtn")) safeGet("toUitlegBtn").addEventListener("click", () => {
     if (safeGet('uitlegVDOpdracht')) safeGet('uitlegVDOpdracht').style.display = 'flex';
@@ -298,6 +307,7 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 
   // --- dev button logic
+  //AI
   function showdevbutton() {
     // remove old dev elements
     Array.from(document.querySelectorAll(".devDiv, .koningLoekDiv")).forEach(e => e.remove());
@@ -319,8 +329,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
       const coinsDiv = document.createElement("div");
       coinsDiv.textContent = "👑 AddCoins";
-      coinsDiv.classList.add("devDiv");
-      Object.assign(coinsDiv.style, { position: 'absolute', display: 'flex', right: 10, bottom: 20, zIndex: 9999, cursor:'pointer' });
+      coinsDiv.classList.add("devDiv2");
+      Object.assign(coinsDiv.style, { position: 'absolute', display: 'flex', right: 10, bottom: 30, zIndex: 9999, cursor:'pointer' });
       document.body.appendChild(coinsDiv);
       coinsDiv.addEventListener("click", () => addCoins(100));
     }
