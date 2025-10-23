@@ -4,8 +4,90 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title></title>
+  <link rel="stylesheet" href="css/cssLevels/allLevels.css">
+  <link rel="stylesheet" href="css/cssLevels/level-2.css">
+  <link rel="stylesheet" href="css/verteller.css">
+  <link rel="stylesheet" href="css/cssLevels/lvlCompleteOverlay.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <p>2</p>
+  <div id="lock2" style="display: none;"></div>
+   <div id="lvl">
+    <!-- Layout opdrachten -->
+    <div id="opmaakOpdrachten">
+      <div class="paaltje1"></div>
+      <div class="paaltje2"></div>
+      <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
+      <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
+      <button id="toHomeBtn" class="buttonNaarHome">home</button>
+
+      <div id="achtergrondOpdrachten">
+        <img src="pictures/achtergrondLvl2AI.png" alt="">
+      </div>
+
+      <!-- Uitlegtekst staat direct in HTML -->
+      <div id="uitlegVDOpdracht">
+        <p>Vergelijkingen aan elkaar gelijk stellen is zeer makkelijk, maar het wordt door vragen met context of te veel informatie te vaag gemaakt. Het gelijkstellen aan elkaar zorgt ervoor dat door de balansmethode het gemakkelijk oplosbaar is. Dit kan alleen als ze met elkaar snijden, of op een punt gelijk zijn. Hoe dit moet is dan ook simpel; gewoon de y-waardes door elkaar vervangen.</p>
+        <div class="voorbeeld-row">
+          <div class="voorbeeld-links">
+            <p><strong>Voorbeeld </strong></p>
+            <p>Stap 1: Je hebt twee lijnen</p>
+            <p>Stap 2: Stel de vergelijkingen aan elkaar gelijk</p>
+            <p>Stap 3: Nu kan je het gewoon oplossen met de balansmethode</p>
+            <p>Stap 4: Dit is het x-coordinaat van het snijpunt tussen lijn 1 en lijn 2</p>
+          </div>
+          <div class="voorbeeld-rechts">
+            <p><strong>:</strong></p>
+            <p>Lijn 1: Y = 2x en lijn 2: y = 2</p>
+            <p>Lijn 1 = lijn 2</p>
+            <p>2x = 2 -> x = 1</p>
+            <p>x = 1</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opdrachten staan ook in HTML -->
+      <div id="opdracht">
+        
+        <div id="opdracht1A">
+          <button class="js-opnieuw1A">Opnieuw</button>
+        <p>Vergelijkingen aan elkaar gelijkstellen - Opdracht 1</p>
+          <p class="js-opdracht1A"></p>
+          <input placeholder="Antwoord" class="js-antwoord1A">
+          <button class="js-nakijken1A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen1A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1A"></p>
+        </div>
+        <div id="opdracht1B">
+          <p class="js-opdracht1B" hidden></p>
+          <input placeholder="Antwoord" class="js-antwoord1B" hidden>
+          <button class="js-nakijken1B" hidden
+          >Nakijken</button>
+          <button class="js-uitwerkingen1B"hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1B"></p>
+        </div>
+        <div id="opdracht1C">
+          <p class="js-opdracht1C" hidden></p>
+          <input placeholder="Antwoord" class="js-antwoord1C" hidden>
+          <button class="js-nakijken1C" hidden
+          >Nakijken</button>
+          <button class="js-uitwerkingen1C"hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1C"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="scripts/pws-vergelijkingen-gelijkstellen-1.js"></script>
+<script src="scripts/jsLevels/allLevels.js"></script>
+<script src="scripts/jsLevels/level-2.js"></script>
+<script src="scripts/jsLevels/lvlCompleteOverlay.js"></script>
+
 </body>
 </html>

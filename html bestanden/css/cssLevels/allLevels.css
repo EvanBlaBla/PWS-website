@@ -146,8 +146,6 @@ body {
   justify-content: center;
   align-items: center;
   border: none;
-  min-width: 15%;
-  max-width: 15%;
   height: auto;
   object-fit: contain;
   position: absolute;
@@ -157,7 +155,7 @@ body {
   background-repeat: no-repeat;
   padding: 2vh;
   background-color: transparent;
-  z-index: 2;
+  z-index: 3;
 }
 
 /*.buttonNaarUitleg { margin-top: 60vh; margin-left: 5.6vw; }

@@ -17,6 +17,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const shopButton = safeGet('shop');
   const piraatInShop = $('.piraatInShop');
 
+  const overlay = safeGet('overlay');
+  const tekst = safeGet('tekstInSpeechbubble');
+
   // --- small safety: if some elements are missing, don't crash
   function restartAnimation(element, animationName) {
     if (!element) return;
@@ -102,27 +105,75 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // --- Shop quick equip handlers (safe-get & attach only if present) ---
   //AI geleerd
-  const equipMap = {
-    shop1: { target: 'hoedEquipped', src: "pictures/piraatx2/defaulthoedAI.png" },
-    shop2: { target: 'hoedEquipped', src: "pictures/piraatx2/cheaphoedAI.png" },
-    shop3: { target: 'hoedEquipped', src: "pictures/piraatx2/durehoedAI.png" },
-    shop4: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/defaultooglapjeAI.png" },
-    shop5: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/cheapooglapjeAI.png" },
-    shop6: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/duurooglapjeAI.png" },
-    shop7: { target: 'zwaardEquipped', src: "pictures/piraatx2/defaultzwaardAI.png" },
-    shop8: { target: 'zwaardEquipped', src: "pictures/piraatx2/cheapzwaardAI.png" },
-    shop9: { target: 'zwaardEquipped', src: "pictures/piraatx2/duurzwaardAI.png" }
-  };
+const equipMap = {
+  Equip1: { target: 'hoedEquipped', src: "pictures/piraatx2/defaulthoedAI.png" },
+  Equip2: { target: 'hoedEquipped', src: "pictures/piraatx2/cheaphoedAI.png" },
+   Equip3: { target: 'hoedEquipped', src: "pictures/piraatx2/durehoedAI.png" },
 
-  Object.keys(equipMap).forEach(id => {
-    const btn = safeGet(id);
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const t = safeGet(equipMap[id].target);
-      if (t) t.src = equipMap[id].src;
-    });
+  Equip4: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/defaultooglapjeAI.png" },
+  Equip5: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/cheapooglapjeAI.png" },
+  Equip6: { target: 'ooglapjeEquipped', src: "pictures/piraatx2/duurooglapjeAI.png" },
+
+  Equip7: { target: 'zwaardEquipped', src: "pictures/piraatx2/defaultzwaardAI.png" },
+  Equip8: { target: 'zwaardEquipped', src: "pictures/piraatx2/cheapzwaardAI.png" },
+  Equip9: { target: 'zwaardEquipped', src: "pictures/piraatx2/duurzwaardAI.png" }
+};
+
+// Default state
+const defaultState = {
+  hoedEquipped: "pictures/piraatx2/defaulthoedAI.png",
+  ooglapjeEquipped: "pictures/piraatx2/defaultooglapjeAI.png",
+  zwaardEquipped: "pictures/piraatx2/defaultzwaardAI.png"
+};
+
+// Laad uit localStorage of gebruik default
+const savedState = JSON.parse(localStorage.getItem('pirateEquipped')) || defaultState;
+
+// Plaats de imgs in de persoonImg div (overlays)
+const persoonImg = safeGet('persoonImg');
+persoonImg.innerHTML = `
+  <img id="hoedEquipped" src="${savedState.hoedEquipped}">
+  <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}">
+  <img id="zwaardEquipped" src="${savedState.zwaardEquipped}">
+  <img id="kledingEquipped" src="pictures/piraatx2/piraatX2bodyAI.png">
+`;
+
+// Shop images updaten met dezelfde ids zodat ze zichtbaar zijn
+safeGet('piraatInShop').innerHTML = `
+  <img id="hoedEquipped" src="${savedState.hoedEquipped}" alt="">
+  <img id="zwaardEquipped" src="${savedState.zwaardEquipped}" alt="">
+  <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}" alt="">
+  <img src="pictures/piraatx2/piraatX2bodyAI.png" alt="">
+`;
+
+// Voeg event listeners toe aan alle equip-knoppen
+Object.keys(equipMap).forEach(id => {
+  const btn = safeGet(id);
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const { target, src } = equipMap[id];
+
+    // Update overlay
+    const overlayImg = safeGet(target);
+    if (overlayImg) overlayImg.src = src;
+
+    // Update shop (gebruik querySelector binnen safeGet('piraatInShop'))
+    const shopImg = safeGet('piraatInShop').querySelector(`#${target}`);
+    if (shopImg) shopImg.src = src;
+
+    // Opslaan in localStorage
+    savedState[target] = src;
+    localStorage.setItem('pirateEquipped', JSON.stringify(savedState));
   });
+});
 
+
+  
+
+  
+
+  
   // --- items and persistence
 
 
@@ -169,6 +220,30 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+ const hintlock = ['lock1','lock2','lock3','lock4','lock5','lock6','lock7'];
+
+hintlock.forEach(id => {
+  const lockEl = safeGet(id);
+  if (!lockEl) return;
+
+  if (localStorage.getItem(id + '_locked') === 'true') {
+    lockEl.style.display = 'none';
+
+    const number = id.replace('lock', '');
+    const span = safeGet('HNT' + number); 
+    if (span) {
+      span.textContent = 'yahahhh'; 
+    }
+  }
+});
+
+if (safeGet('lock1').style.display === 'none'){
+  if (overlay) {overlay.style.display === 'flex';}
+  if (tekst) (tekst.style.display)
+
+}
+
+
   // --- Score/coins helpers
   function saveScore(newScore) {
     score = newScore;
@@ -214,18 +289,45 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   // --- Start overlay / next button
-  const startBtn = safeGet("startAvontuurBtn");
-  if (startBtn) {
-    startBtn.addEventListener("click", () => {
-      const overlay = safeGet('overlay');
-      const teks = safeGet('tekstInSpeechbubble');
-      if (overlay) overlay.style.display = 'flex';
-      if (teks) teks.innerHTML =
-        `Hallo avonturier, mijn naam is PiraatX². Ik heb jou hulp nodig. De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat op de funky isands verstopt, maar ik kan hem niet alleen vinden. kun je mij helpen? Hoe heet je? 
-         <input placeholder="Naam" id="nameInput" style="width: 100px;">
-         <button class="next-tekst-button" id="nextToMenuBtn" onclick="nextToMenu()">next...</button>`;
-    });
-  }
+const startBtn = safeGet("startAvontuurBtn");
+if (startBtn) {
+  startBtn.addEventListener("click", () => {
+    if (overlay) overlay.style.display = 'flex';
+
+    const introText = "Hallo avonturier, mijn naam is PiraatX². De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat op de funky island verstopt, maar ik kan hem niet alleen vinden. Ik heb jouw hulp daarbij nodig.";
+    
+    // Clear de span
+    tekst.textContent = '';
+
+    
+    // Typewriter-effect
+    let i = 0;
+    function type() {
+      if (i < introText.length) {
+        tekst.textContent += introText[i];
+        i++;
+        setTimeout(type, 30); // snelheid aanpassen
+      } else {
+        // Voeg input + button toe nadat de tekst klaar is
+        const input = document.createElement('input');
+        input.placeholder = 'Naam';
+        input.id = 'nameInput';
+        input.style.width = '100px';
+
+        const nextBtn = document.createElement('button');
+        nextBtn.textContent = 'next...';
+        nextBtn.classList.add('next-tekst-button');
+        nextBtn.addEventListener('click', nextToMenu);
+
+        tekst.appendChild(document.createElement('br'));
+        tekst.appendChild(input);
+        tekst.appendChild(nextBtn);
+      }
+    }
+    type();
+  });
+}
+
 
   // --- nextToMenu (window global so inline onclick works)
   window.nextToMenu = function () {
@@ -244,7 +346,12 @@ window.addEventListener('DOMContentLoaded', () => {
     if (safeGet('top-bar')) safeGet('top-bar').style.display = 'grid';
     if (safeGet('secondPage')) safeGet('secondPage').style.display = 'block';
     showdevbutton();
+    rondleidingMenu();
   };
+
+  function rondleidingMenu () {
+    
+  }
 
   // --- Levels openen
 
@@ -289,7 +396,7 @@ window.addEventListener('DOMContentLoaded', () => {
       */
 
 
-  // --- Buttons uitleg/opdracht/home
+  /* --- Buttons uitleg/opdracht/home
   if (safeGet("toUitlegBtn")) safeGet("toUitlegBtn").addEventListener("click", () => {
     if (safeGet('uitlegVDOpdracht')) safeGet('uitlegVDOpdracht').style.display = 'flex';
     if (safeGet('opdracht')) safeGet('opdracht').style.display = 'none';
@@ -305,6 +412,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (safeGet("closeOverlay")) safeGet("closeOverlay").addEventListener("click", () => {
     if (safeGet('overlay')) safeGet('overlay').style.display = 'none';
   });
+  */
+
+
+
+
 
   // --- dev button logic
   //AI

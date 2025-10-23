@@ -307,6 +307,15 @@
   margin-left: 0;
 }
 
+
+.piraatInShop {
+  display: flex; align-items: center; position: fixed; left: 80vw; top: 0; width: 20vw; height: 100vh;  z-index: 10
+}
+
+.piraatInShop img {
+  position: absolute; width: 20vw; object-fit: contain; z-index: 10;
+}
+
 /* Shop en skin buttons */
 
 #parrots {

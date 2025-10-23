@@ -11,6 +11,8 @@
   z-index: 1;
 }
 
+.buttonNaarHome, .buttonNaarOpdracht, .buttonNaarUitleg{  min-width: 15%;
+  max-width: 15%;}
 .buttonNaarUitleg { margin-top: 52vh; margin-left: 12.8%; transform: rotate(7deg); background-image: url('sign.png');}
 .buttonNaarOpdracht { margin-top: 61vh; margin-left: 11%; background-image: url('sign.png');}
 .buttonNaarHome { margin-top: 70vh; margin-left: 12.3%; transform: rotate(-5deg); background-image: url('sign.png');}

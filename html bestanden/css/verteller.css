@@ -5,8 +5,9 @@
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9998;
+  z-index: 10000;
   display: none;
+  backdrop-filter: blur(4px);
 }
 
 .verteller {
@@ -16,7 +17,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9999;
+  z-index: 100000;
   color: white;
   font-size: 32px;
   
@@ -44,6 +45,11 @@
   height: 400px;
   background-color: transparent;
   }
+.persoon img {
+  position: absolute;
+  width: 250px;
+  height: 400px;
+}
 
 .tekst {
   font-size: 25px;

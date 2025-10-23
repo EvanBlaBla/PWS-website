@@ -20,8 +20,8 @@
 <body class="menu">
 <div class="verteller" id="overlay">
   <div class="verteller-content">
-    <div class="persoon">
-      <img src="pictures/piraatx2-removebg-previewAI.png" alt="piraatx2">
+    <div class="persoon" id="persoonImg">
+      
     </div>
     <div class="tekst">
       <div id="speech-bubble">
@@ -209,155 +209,16 @@
     </div>
   </div>
 
-  <div class="piraatInShop" style="display: flex; align-items: center; position: fixed; left: 80vw; top: 0; width: 20vw; height: 100vh;  z-index: 10;">
-    <img src="pictures/piraatx2/piraatX2bodyAI.png" alt="" style="position: absolute; width: 20vw; object-fit: contain; z-index: 10;">
-    <img src="pictures/piraatx2/defaulthoedAI.png" alt="" id="hoedEquipped" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;">
-    <img src="pictures/piraatx2/defaultzwaardAI.png" alt="" id="zwaardEquipped" style="position: absolute; width: 20vw; object-fit: contain; z-index: 9;">
-    <img src="pictures/piraatx2/defaultooglapjeAI.png" alt="" id="ooglapjeEquipped" style="z-index: 9; position: absolute; width: 20vw; object-fit: contain;">
+  <div class="piraatInShop" id='piraatInShop'>
+    <img id="piraatBody" src="pictures/piraatx2/piraatX2bodyAI.png" alt="">
+    <img src="pictures/piraatx2/defaulthoedAI.png" alt="" id="hoedEquipped">
+    <img src="pictures/piraatx2/defaultzwaardAI.png" alt="" id="zwaardEquipped">
+    <img src="pictures/piraatx2/defaultooglapjeAI.png" alt="" id="ooglapjeEquipped">
   </div>
 </div>
-
-<!-- Level 1 -->
-  <div id="lvl1">
-    <!-- Overlay bij start -->
-
-    <!-- Layout opdrachten -->
-    <div id="opmaakOpdrachten">
-      <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
-      <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
-      <button id="toHomeBtn" class="buttonNaarHome">home</button>
-
-      <div id="achtergrondOpdrachten">
-        <img src="pictures/boomlvl1AI.png" alt="">
-        <img src="pictures/papegaaiInKooiAI.png" class="papegaaiInKooi" alt="">
-      </div>
-
-      <!-- Uitlegtekst staat direct in HTML -->
-      <div id="uitlegVDOpdracht">
-        <p>De balansmethode is een methode De balansmethode is een methode die rekenregels gebruikt om vergelijkingen op te lossen.  
-        In een vergelijking waarin meerdere x’en staan en voor de rest variabelen, 
-        is het de bedoeling dat de x’en naar links worden verplaatst en de rest naar rechts. 
-        De rekenregels zorgen hiervoor.</p>
-        <div class="voorbeeld-row">
-          <div class="voorbeeld-links">
-            <p><strong>Voorbeeld </strong></p>
-            <p>Stap 1: Haal van beide kanten 8x af</p>
-            <p>Stap 2: Voeg aan beide kanten 6 toe</p>
-            <p>Stap 3: Deel beide kanten door -5</p>
-            <p>Stap 4: Check je antwoord door -2 in te vullen voor x</p>
-          </div>
-          <div class="voorbeeld-rechts">
-            <p><strong>:</strong></p>
-            <p>3x - 6 = 8x + 4</p>
-            <p>3x - 8x - 6 = 4</p>
-            <p>-5x = 10</p>
-            <p>x = -2</p>
-            <p>Controle: -12 = -12 ✅</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht">
-        <div id="opdracht1A">
-          <button class="js-opnieuw1">Opnieuw</button>
-          <p>Balansmethode - Opdracht 1</p>
-          <p class="js-score1A"></p>
-          <p class="js-opdracht1A"></p>
-          <input placeholder="Antwoord" class="js-antwoord1A">
-          <button class="js-nakijken1A" 
-          >Nakijken</button>
-          <button class="js-uitwerkingen1A" hidden
-          >Uitwerkingen</button>
-          <p class="js-resultaat1A"></p>
-        </div>
-        <div id="opdracht1B">
-          <button class="js-opnieuw2">Opnieuw</button>
-          <p>Balansmethode - Opdracht 2</p>
-          <p class="js-score2A"></p>
-          <p class="js-opdracht2A"></p>
-          <input placeholder="Antwoord" class="js-antwoord2A">
-          <button class="js-nakijken2A" 
-          >Nakijken</button>
-          <button class="js-uitwerkingen2A" hidden
-          >Uitwerkingen</button>
-          <p class="js-resultaat2A"></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id="lvl2">
-    <!-- Layout opdrachten -->
-    <div id="opmaakOpdrachten2" style="display: none;">
-      <button id="toUitlegBtn2" class="buttonNaarUitleg">uitleg</button>
-      <button id="toOpdrachtBtn2" class="buttonNaarOpdracht">opdracht</button>
-      <button id="toHomeBtn2" class="buttonNaarHome">home</button>
-
-      <div id="achtergrondOpdrachten">
-        <img src="pictures/achtergrondLvl2AI.png" alt="">
-      </div>
-
-      <!-- Uitlegtekst staat direct in HTML -->
-      <div id="uitlegVDOpdracht2">
-        <p>Vergelijkingen aan elkaar gelijk stellen is zeer makkelijk, maar het wordt door vragen met context of te veel informatie te vaag gemaakt. Het gelijkstellen aan elkaar zorgt ervoor dat door de balansmethode het gemakkelijk oplosbaar is. Dit kan alleen als ze met elkaar snijden, of op een punt gelijk zijn. Hoe dit moet is dan ook simpel; gewoon de y-waardes door elkaar vervangen.</p>
-        <div class="voorbeeld-row">
-          <div class="voorbeeld-links">
-            <p><strong>Voorbeeld </strong></p>
-            <p>Stap 1: Je hebt twee lijnen</p>
-            <p>Stap 2: Stel de vergelijkingen aan elkaar gelijk</p>
-            <p>Stap 3: Nu kan je het gewoon oplossen met de balansmethode</p>
-            <p>Stap 4: Dit is het x-coordinaat van het snijpunt tussen lijn 1 en lijn 2</p>
-          </div>
-          <div class="voorbeeld-rechts">
-            <p><strong>:</strong></p>
-            <p>Lijn 1: Y = 2x en lijn 2: y = 2</p>
-            <p>Lijn 1 = lijn 2</p>
-            <p>2x = 2 -> x = 1</p>
-            <p>x = 1</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht2">
-        <div id="opdracht2A">
-          <p class="js-opdracht1A"></p>
-          <input placeholder="Antwoord" class="js-antwoord1A">
-          <button class="js-nakijken1A" 
-          >Nakijken</button>
-          <button class="js-uitwerkingen1A" hidden
-          >Uitwerkingen</button>
-          <p class="js-resultaat1A"></p>
-        </div>
-        <div id="opdracht2B">
-          <p class="js-opdracht1B" hidden></p>
-          <input placeholder="Antwoord" class="js-antwoord1B" hidden>
-          <button class="js-nakijken1B" hidden
-          >Nakijken</button>
-          <button class="js-uitwerkingen1B"hidden
-          >Uitwerkingen</button>
-          <p class="js-resultaat1B"></p>
-        </div>
-        <div>
-          <p class="js-opdracht1C" hidden></p>
-          <input placeholder="Antwoord" class="js-antwoord1C" hidden>
-          <button class="js-nakijken1C" hidden
-          >Nakijken</button>
-          <button class="js-uitwerkingen1C"hidden
-          >Uitwerkingen</button>
-          <p class="js-resultaat1C"></p>
-        </div>
-      </div>
-    </div>
-  </div>
   
 <!--script lvl 1-->
-  <script src="scripts/main.js"></script>
-  <script src="scripts/pws-balansmethode-1.js"></script>
-  <script src="scripts/pws-balansmethode-2.js"></script>
-  <script src="scripts/pws-vergelijkingen-gelijkstellen-1.js"></script>
-  <script>
-    
+  <script src="scripts/main.js"></script>    
   </script>
 </body>
 </html>
