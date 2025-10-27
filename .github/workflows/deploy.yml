@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  # Trigger wanneer er gepusht wordt naar de main branch
+  push:
+    branches: [ main ]
+  
+  # Mogelijkheid om handmatig te triggeren
+  workflow_dispatch:
+
+# Geef de GITHUB_TOKEN de juiste permissies voor deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Zorg ervoor dat slechts één deployment tegelijk plaatsvindt
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job om de website te bouwen en te deployen
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Copy files to deployment directory
+      run: |
+        # Maak een deployment directory
+        mkdir -p deployment
+        
+        # Kopieer alle bestanden uit 'html bestanden' naar de root van deployment
+        cp -r "html bestanden"/* deployment/
+        
+        # Maak een index.html die doorverwijst naar main-menu.html
+        cat > deployment/index.html << 'EOF'
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Funky Islands - Redirecting...</title>
+            <meta http-equiv="refresh" content="0;url=main-menu.html">
+        </head>
+        <body>
+            <p>Als je niet automatisch wordt doorgestuurd, <a href="main-menu.html">klik dan hier om naar Funky Islands te gaan</a>.</p>
+        </body>
+        </html>
+        EOF
+        
+        # Kopieer README.md naar deployment directory (optioneel)
+        cp README.md deployment/ || true
+        
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: ./deployment
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

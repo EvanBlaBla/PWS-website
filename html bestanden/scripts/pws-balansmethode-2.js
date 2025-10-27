@@ -1,4 +1,5 @@
-let allesGoed2 = false;
+/** @type {boolean} */ let allesGoed2 = false;
+
 let balansMethode2Goed = JSON.parse(localStorage.getItem('balansMethode2Goed')) || false;
 
 function balansMethode2() {
@@ -79,13 +80,14 @@ function balansMethode2() {
       if (!balansMethode2Goed && resultaat2A === 'goed') {
         balansMethode2Goed = true;
         localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
-        alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
       };
 
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
         document.querySelector('.js-uitwerkingen2A').hidden = false;
         document.querySelector('.js-opnieuw2').hidden = false;
+        checkAllesGoed();
+        addScoreAndCoins();
       } else {
         allesGoed2 = false;
       };

@@ -372,6 +372,7 @@ function pwsVergelijkingenGelijkstellen1() {
         allesGoed1 = true;
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
         alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+        
       } return;
     };
     window.uitwerkingen1C = function () {

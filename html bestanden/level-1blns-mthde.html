@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title></title>
+  <link rel="stylesheet" href="css/cssLevels/allLevels.css">
+  <link rel="stylesheet" href="css/cssLevels/level-1.css">
+  <link rel="stylesheet" href="css/verteller.css">
+  <link rel="stylesheet" href="css/cssLevels/lvlCompleteOverlay.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="lock1"></div>
+
+
+  <!-- Level 1 -->
+  <div id="lvl">
+    <!-- Overlay bij start -->
+
+    <!-- Layout opdrachten -->
+    <div id="opmaakOpdrachten">
+      
+
+      <div id="achtergrondOpdrachten">
+        <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
+        <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
+        <button id="toHomeBtn" class="buttonNaarHome">home</button>
+        <img src="pictures/boomlvl1AI.png" alt="">
+        <img src="pictures/papegaaiInKooiAI.png" id="pape" class="papegaaiInKooi" alt="">
+      </div>
+
+      <!-- Uitlegtekst staat direct in HTML -->
+      <div id="uitlegVDOpdracht">
+        <p>De balansmethode is een methode De balansmethode is een methode die rekenregels gebruikt om vergelijkingen op te lossen.  
+        In een vergelijking waarin meerdere x’en staan en voor de rest variabelen, 
+        is het de bedoeling dat de x’en naar links worden verplaatst en de rest naar rechts. 
+        De rekenregels zorgen hiervoor.</p>
+        <div class="voorbeeld-row">
+          <div class="voorbeeld-links">
+            <p><strong>Voorbeeld </strong></p>
+            <p>Stap 1: Haal van beide kanten 8x af</p>
+            <p>Stap 2: Voeg aan beide kanten 6 toe</p>
+            <p>Stap 3: Deel beide kanten door -5</p>
+            <p>Stap 4: Check je antwoord door -2 in te vullen voor x</p>
+          </div>
+          <div class="voorbeeld-rechts">
+            <p><strong>:</strong></p>
+            <p>3x - 6 = 8x + 4</p>
+            <p>3x - 8x - 6 = 4</p>
+            <p>-5x = 10</p>
+            <p>x = -2</p>
+            <p>Controle: -12 = -12 ✅</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Opdrachten staan ook in HTML -->
+      <div id="opdracht">
+        <div id="opdracht1A">
+          <button class="js-opnieuw1">Opnieuw</button>
+          <p>Balansmethode - Opdracht 1</p>
+          <p class="js-score1A"></p>
+          <p class="js-opdracht1A"></p>
+          <input placeholder="Antwoord" class="js-antwoord1A">
+          <button class="js-nakijken1A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen1A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat1A"></p>
+        </div>
+        <div id="opdracht1B">
+          <button class="js-opnieuw2">Opnieuw</button>
+          <p>Balansmethode - Opdracht 2</p>
+          <p class="js-score2A"></p>
+          <p class="js-opdracht2A"></p>
+          <input placeholder="Antwoord" class="js-antwoord2A">
+          <button class="js-nakijken2A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen2A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat2A"></p>
+        </div>
+        <div id="opdracht1C">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="scripts/pws-balansmethode-1.js"></script>
+<script src="scripts/pws-balansmethode-2.js"></script>
+<script src="scripts/jsLevels/allLevels.js"></script>
+<script src="scripts/jsLevels/level-1.js"></script>
+<script src="scripts/jsLevels/lvlCompleteOverlay.js"></script>
+
+</html>
