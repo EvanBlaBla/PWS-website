@@ -15,7 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   function checkAllesGoed () {
-  if (allesGoed1){
+  if (vegelijkingenGelijkstellen1Goed){
     setTimeout(() => {
       
     }, 2000);

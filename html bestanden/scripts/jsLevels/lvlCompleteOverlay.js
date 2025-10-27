@@ -153,7 +153,6 @@ function startConfetti() {
 
     // als er geen confetti meer over is → stoppen
     if (particles.length === 0 && Date.now() - startTime > stopNewAfter + 2500) {
-      stopConfetti();
     }
   }, 20);
 }

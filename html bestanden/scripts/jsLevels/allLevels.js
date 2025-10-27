@@ -1,5 +1,5 @@
+const safeGet = (id) => document.getElementById(id);
 window.addEventListener('DOMContentLoaded', () => {
-  const safeGet = (id) => document.getElementById(id);
   const toUitleg = safeGet('toUitlegBtn');
   const toOpdracht = safeGet('toOpdrachtBtn');
   const homeBtn = safeGet('toHomeBtn');
@@ -64,8 +64,6 @@ maandag
 -pas volgend level als goed
 
 levels maken
-donderdag
--level 2
 vrijdag
 -level 3
 -level 4
@@ -82,9 +80,9 @@ extras
 
 */
 
+
 }); 
 
- 
 //localstorage en functions die daarbij horen  
   //score en coins
   let score = parseInt(localStorage.getItem("score")) || 0;
@@ -133,40 +131,3 @@ function unlockHint () {
       });
     
 };
-
-
-
-  
-
-
-/*
-wiskunde
-  donderdag
-  -som
-  -gonio begrijpen
-  -lineair begrijpen
-
-natuurkunde
-  -electromagnetisme maken
-
-
-grieks
-  vrijdag
-  -tekst leren
-
--oefenproef vertaling
-  -afelopen week
-  -komende week
-
-wiskunde d
-  donderdag/vrijdag
-  -boekje afmaken tot wat in som staat en begrijpen 
-
-scheikunde
-  woensdag/zaterdag
-  -boekje begrijpen en extra maken als nodig
-
-
-zaterdag evt nederlands debat tekst schrijven
-*/
-

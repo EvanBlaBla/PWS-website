@@ -100,7 +100,8 @@ function balansMethode1 () {
       Uitwerkingen: <br>
       ${c1}x + ${b1} = ${a1 * c1 + b1} <br>
       ${c1}x = ${a1 * c1} <br> 
-      ${computerAntwoord1A} <br>`;
+      ${computerAntwoord1A} <br>
+      <button class="js-opnieuw1">Opnieuw</button>`;
 
 
       if (leerlingAntwoord1A === 'clean') {
