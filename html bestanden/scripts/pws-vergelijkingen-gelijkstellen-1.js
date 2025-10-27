@@ -214,6 +214,7 @@ function pwsVergelijkingenGelijkstellen1() {
   }; 
 
   function vraag1BGenereren() {
+    console.log('resultaat1A' + resultaat1A);
     document.querySelector('.js-opdracht1B').innerHTML = `
       <span class="js-score1B"></span>
      - 1b <br> Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.`;
@@ -372,7 +373,6 @@ function pwsVergelijkingenGelijkstellen1() {
         allesGoed1 = true;
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
         alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
-        
       } return;
     };
     window.uitwerkingen1C = function () {
