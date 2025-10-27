@@ -30,15 +30,18 @@ function balansMethode1 () {
   };
   updateScoreSpans1();
 
-  const a1 = Math.floor(Math.random() * 8) + 2;
+  const a1 = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+  //random getal tussen 2 en 9
   const b1 = Math.floor(Math.random() * (100 - 10 + 1)) + 10;
-  const c1 = Math.floor(Math.random() * 8) + 2;
+  //random getal tussen 10 en 100
+  const c1 = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
+  //random getal tussen 2 en 9
   const computerAntwoord1A = `x = ${a1}`;
+
   vraag1AGenereren();
 
   function vraag1AGenereren() {
     document.querySelector('.js-opdracht1A').innerHTML = `${c1}x + ${b1} = ${c1 * a1 + b1}`;
-    //let resultaat1A = '';
 
 
     window.checken1A = function () {
