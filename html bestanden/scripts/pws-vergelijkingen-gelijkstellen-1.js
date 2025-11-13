@@ -30,6 +30,7 @@ function pwsVergelijkingenGelijkstellen1() {
     if (sp1A) sp1A.textContent = `Score: ${s1.a.goed} goed, ${s1.a.fout} fout`;
     if (sp1B) sp1B.textContent = `Score: ${s1.b.goed} goed, ${s1.b.fout} fout`;
     if (sp1C) sp1C.textContent = `Score: ${s1.c.goed} goed, ${s1.c.fout} fout`;
+    
     /*
     if (!vergelijkingenGelijkstellen1Goed && s1.a.goed > 0 && s1.b.goed > 0 && s1.c.goed > 0) {
       vergelijkingenGelijkstellen1Goed = true;
@@ -68,7 +69,7 @@ function pwsVergelijkingenGelijkstellen1() {
       console.log("checken1A draait");
       //console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
       //let s = getScores1();
-
+      //let resultaat1A = '';   
       let leerlingElement1A = document.querySelector('.js-antwoord1A');
       let leerlingAntwoord1A = leerlingElement1A.value;
       if (!leerlingElement1A.value.trim()) {
@@ -92,7 +93,7 @@ function pwsVergelijkingenGelijkstellen1() {
         `yjonas=${b}-${d}t,yloek=${a+b}-${c}t`, '§', `#`
       ];
 
-      let resultaat1A;
+      //let resultaat1A;
       if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
         resultaat1A = 'goed';
       } else {
@@ -367,6 +368,7 @@ function pwsVergelijkingenGelijkstellen1() {
       updateScoreSpans();
       console.log ('1:' + resultaat1A, '2:' + resultaat1B, '3:' + resultaat1C, 'waarde = '+ vergelijkingenGelijkstellen1Goed);
 
+      
       if (!vergelijkingenGelijkstellen1Goed && 
         [resultaat1A, resultaat1B, resultaat1C].every(r => r === 'goed')) {
         vergelijkingenGelijkstellen1Goed = true;
@@ -374,6 +376,7 @@ function pwsVergelijkingenGelijkstellen1() {
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
         alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
       } return;
+       
     };
     window.uitwerkingen1C = function () {
       const r1C = document.querySelector('.js-resultaat1C');
