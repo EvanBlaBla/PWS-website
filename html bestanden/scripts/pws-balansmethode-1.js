@@ -88,7 +88,7 @@ function balansMethode1 () {
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
         document.querySelector('.js-uitwerkingen1A').hidden = false;
-        document.querySelector('.js-opnieuw1').hidden = false;
+        //document.querySelector('.js-opnieuw1').hidden = false;
         checkAllesGoed();
         addScoreAndCoins();
       } else {
@@ -105,6 +105,26 @@ function balansMethode1 () {
       ${c1}x = ${a1 * c1} <br> 
       ${computerAntwoord1A} <br>
       <button class="js-opnieuw1">Opnieuw</button>`;
+      document.querySelector('.js-opnieuw1').hidden = false;
+      document.querySelector('.js-opnieuw1').addEventListener('click', () => {
+        if (allesGoed1 === true) {
+          // eerst het oude wissen
+        // document.querySelector('.js-opdracht1').innerHTML = "";
+          document.querySelector('.js-antwoord1A').value = "";
+          document.querySelector('.js-resultaat1A').innerHTML = "";
+          document.querySelector('.js-uitwerkingen1A').hidden = true;
+          document.querySelector('.js-resultaat1A').hidden = false;;
+
+          const nakijk1A = document.querySelector('.js-nakijken1A');
+          nakijk1A.replaceWith(nakijk1A.cloneNode(true));
+          vraag1ABeantwoord = false;
+          // en dan de functie opnieuw draaien
+          balansMethode1();
+          allesGoed1 = false;
+        } else if (allesGoed1 === false) {
+          alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
+        } return;
+      });
 
 
       if (leerlingAntwoord1A === 'clean') {
@@ -156,22 +176,3 @@ document.body.addEventListener('keydown', (event) => {
     checken1A();
   }});
 */
-document.querySelector('.js-opnieuw1').addEventListener('click', () => {
-  if (allesGoed1 === true) {
-    // eerst het oude wissen
-   // document.querySelector('.js-opdracht1').innerHTML = "";
-    document.querySelector('.js-antwoord1A').value = "";
-    document.querySelector('.js-resultaat1A').innerHTML = "";
-    document.querySelector('.js-uitwerkingen1A').hidden = true;
-    document.querySelector('.js-resultaat1A').hidden = false;;
-
-    const nakijk1A = document.querySelector('.js-nakijken1A');
-    nakijk1A.replaceWith(nakijk1A.cloneNode(true));
-    vraag1ABeantwoord = false;
-    // en dan de functie opnieuw draaien
-    balansMethode1();
-    allesGoed1 = false;
-  } else if (allesGoed1 === false) {
-    alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
-  } return;
-});

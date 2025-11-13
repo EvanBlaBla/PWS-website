@@ -12,7 +12,6 @@ body {
 
 #opmaakOpdrachten{
   z-index: -2;
-  background-color: green;
   position: absolute;
   margin: 0;
   height: 100vh;
@@ -31,7 +30,6 @@ body {
 /* ===== Uitleg + Opdracht container ===== */
 #uitlegVDOpdracht,
 #opdracht{
-  background-color: rgb(73, 230, 73);
   padding: 1%;
   border-radius: 3%;
   margin: 2% 4% 0% 30vw;
@@ -64,7 +62,7 @@ body {
 .voorbeeld-links,
 .voorbeeld-rechts {
   flex: 1;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.37);
   padding: 10px;
   border-radius: 8px;
   box-sizing: border-box;
@@ -84,9 +82,9 @@ body {
 
 #opdracht > div {
   display: flex;
+  background-color: rgba(235, 235, 235, 0.37);
   flex-direction: column;
   align-items: stretch;
-  background: rgba(79, 255, 79, 0.685);
   padding: 15px;
   border-radius: 8px;
 }

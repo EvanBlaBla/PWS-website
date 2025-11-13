@@ -10,7 +10,16 @@
   left: 34%;
   z-index: 1;
 }
-
+#opdrach > div {
+  background: rgba(79, 255, 79, 0.685);
+}
+#uitlegVDOpdracht,
+#opdracht{
+  background-color: rgb(73, 230, 73);;
+}
+#opmaakOpdrachten{
+  background-color: green;
+}
 .buttonNaarHome, .buttonNaarOpdracht, .buttonNaarUitleg{  min-width: 15%;
   max-width: 15%;}
 .buttonNaarUitleg { margin-top: 52vh; margin-left: 12.8%; transform: rotate(7deg); background-image: url('sign.png');}

@@ -15,7 +15,16 @@
   position: absolute;
   z-index: 2;
 }
-
+#opdrach > div {
+  background: rgba(79, 255, 79, 0.685);
+}
+#uitlegVDOpdracht,
+#opdracht{
+  background-color: rgb(73, 230, 73);;
+}
+#opmaakOpdrachten{
+  background-color: green;
+}
 .paaltje1 {
   margin-left: 5.5%;
 }

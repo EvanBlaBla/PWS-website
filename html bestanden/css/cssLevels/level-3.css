@@ -1,0 +1,15 @@
+
+#uitlegVDOpdracht,
+#opdracht{
+  background-color: rgb(102, 196, 177);
+}
+#opmaakOpdrachten{
+  background-color: rgb(55, 160, 139);
+}
+
+
+.buttonNaarHome,.buttonNaarOpdracht, .buttonNaarUitleg {  min-width: 10%;
+  max-width: 10%; margin-left: 5%;}
+.buttonNaarUitleg { margin-top: 70vh; background-image: url('sign.png');}
+.buttonNaarOpdracht { margin-top: 78vh;  background-image: url('sign.png');}
+.buttonNaarHome { margin-top: 86vh;background-image: url('sign.png');}

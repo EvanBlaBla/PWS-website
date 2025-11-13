@@ -85,7 +85,7 @@ function balansMethode2() {
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
         document.querySelector('.js-uitwerkingen2A').hidden = false;
-        document.querySelector('.js-opnieuw2').hidden = false;
+        
         checkAllesGoed();
         addScoreAndCoins();
       } else {
@@ -101,7 +101,27 @@ function balansMethode2() {
       x^2 = ${a2*a2} <br>
       x = \u222A${a2*a2} V x = -\u222A${a2*a2} <br> 
       ${computerAntwoord2A} <br>
-      `
+      <button class="js-opnieuw2">Opnieuw</button>
+      `;
+      document.querySelector('.js-opnieuw2').hidden = false;
+      document.querySelector('.js-opnieuw2').addEventListener('click', () => {
+        if (allesGoed2 === true) {
+          // eerst het oude wissen
+        // document.querySelector('.js-opdracht1').innerHTML = "";
+          document.querySelector('.js-antwoord2A').value = "";
+          document.querySelector('.js-resultaat2A').innerHTML = "";
+          document.querySelector('.js-uitwerkingen2A').hidden = true;
+          document.querySelector('.js-resultaat2A').hidden = false;;
+          const nakijk2A = document.querySelector('.js-nakijken2A');
+          nakijk2A.replaceWith(nakijk2A.cloneNode(true));
+          vraag2ABeantwoord = false;
+          // en dan de functie opnieuw draaien
+          balansMethode2();
+          allesGoed2 = false;
+        } else if (allesGoed2 === false) {
+          alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
+        } return;
+      });
       // \u222A is het wortelteken
 
       if (leerlingAntwoord2A.trim().toLowerCase() === 'clean') {
@@ -156,21 +176,3 @@ document.body.addEventListener('keydown', (event) => {
       checken2A();
     }});
 */
-document.querySelector('.js-opnieuw2').addEventListener('click', () => {
-  if (allesGoed2 === true) {
-    // eerst het oude wissen
-   // document.querySelector('.js-opdracht1').innerHTML = "";
-    document.querySelector('.js-antwoord2A').value = "";
-    document.querySelector('.js-resultaat2A').innerHTML = "";
-    document.querySelector('.js-uitwerkingen2A').hidden = true;
-    document.querySelector('.js-resultaat2A').hidden = false;;
-    const nakijk2A = document.querySelector('.js-nakijken2A');
-    nakijk2A.replaceWith(nakijk2A.cloneNode(true));
-    vraag2ABeantwoord = false;
-    // en dan de functie opnieuw draaien
-    balansMethode2();
-    allesGoed2 = false;
-  } else if (allesGoed2 === false) {
-    alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
-  } return;
-});

@@ -20,18 +20,15 @@ window.addEventListener('DOMContentLoaded', () => {
   const overlay = safeGet('overlay');
   const tekst = safeGet('tekstInSpeechbubble');
 
-  // --- small safety: if some elements are missing, don't crash
   function restartAnimation(element, animationName) {
     if (!element) return;
     element.style.animation = 'none';
-    void element.offsetWidth; // force reflow
+    void element.offsetWidth;
     element.style.animation = `${animationName} 3s forwards`;
   }
 
-  // --- Sidebar open/close logic (original behavior preserved) ---
-  if (hints) {
-    hints.addEventListener('click', () => {
-      const shopON = safeGet('shopON');
+  function openHints(){
+    const shopON = safeGet('shopON');
       if (shopON && shopON.style.display === 'block') {
         if (shopContainer) { shopContainer.style.animation = 'none'; shopContainer.style.transform = 'translateX(-68vw)'; }
         if (piraatInShop) { piraatInShop.style.animation = 'none'; piraatInShop.style.transform = 'translateX(100vw)'; }
@@ -48,6 +45,10 @@ window.addEventListener('DOMContentLoaded', () => {
       const hintsON = safeGet('hintsON');
       if (hintsON) hintsON.style.display = 'block';
       if (sidebarToggle) sidebarToggle.style.display = 'block';
+  }
+  if (hints) {
+    hints.addEventListener('click', () => {
+      openHints();
     });
   }
 
@@ -81,25 +82,30 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  function openShop() {
+    if (hintsON && hintsON.style.display === 'block') {
+      if (hintsContainer) { hintsContainer.style.animation = 'none'; hintsContainer.style.transform = 'translateX(-68vw)'; }
+      hintsON.style.display = 'none';
+    } else {
+      restartAnimation(leftSidebar, 'background');
+    }
+
+    restartAnimation(shopContainer, 'slide');
+    restartAnimation(sidebarItemBar, 'slide');
+    restartAnimation(sidebarItemBar2, 'slide');
+    restartAnimation(sidebarItemBar3, 'slide');
+    restartAnimation(piraatInShop, 'slidepiraat');
+
+    const shopON = safeGet('shopON');
+    if (shopON) shopON.style.display = 'block';
+    if (sidebarToggle) sidebarToggle.style.display = 'block';
+  }
+
   if (shopButton) {
     shopButton.addEventListener('click', () => {
       const hintsON = safeGet('hintsON');
-      if (hintsON && hintsON.style.display === 'block') {
-        if (hintsContainer) { hintsContainer.style.animation = 'none'; hintsContainer.style.transform = 'translateX(-68vw)'; }
-        hintsON.style.display = 'none';
-      } else {
-        restartAnimation(leftSidebar, 'background');
-      }
-
-      restartAnimation(shopContainer, 'slide');
-      restartAnimation(sidebarItemBar, 'slide');
-      restartAnimation(sidebarItemBar2, 'slide');
-      restartAnimation(sidebarItemBar3, 'slide');
-      restartAnimation(piraatInShop, 'slidepiraat');
-
-      const shopON = safeGet('shopON');
-      if (shopON) shopON.style.display = 'block';
-      if (sidebarToggle) sidebarToggle.style.display = 'block';
+      
+      openShop();
     });
   }
 
@@ -289,69 +295,111 @@ if (safeGet('lock1').style.display === 'none'){
   }
 
   // --- Start overlay / next button
+// JS
+
+
+
 const startBtn = safeGet("startAvontuurBtn");
-if (startBtn) {
-  startBtn.addEventListener("click", () => {
-    if (overlay) overlay.style.display = 'flex';
 
-    const introText = "Hallo avonturier, mijn naam is PiraatX². De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat op de funky island verstopt, maar ik kan hem niet alleen vinden. Ik heb jouw hulp daarbij nodig.";
-    
-    // Clear de span
-    tekst.textContent = '';
+startBtn.addEventListener("click", () => {
+  overlay.style.display = 'flex';
+  tekst.textContent = '';
 
-    
-    // Typewriter-effect
-    let i = 0;
-    function type() {
-      if (i < introText.length) {
-        tekst.textContent += introText[i];
-        i++;
-        setTimeout(type, 30); // snelheid aanpassen
-      } else {
-        // Voeg input + button toe nadat de tekst klaar is
-        const input = document.createElement('input');
-        input.placeholder = 'Naam';
-        input.id = 'nameInput';
-        input.style.width = '100px';
+  const introText = "Hallo avonturier, mijn naam is PiraatX². De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat op de Funky Eilanden verstopt, maar ik kan hem niet alleen vinden. Ik heb jouw hulp daarbij nodig.";
 
-        const nextBtn = document.createElement('button');
-        nextBtn.textContent = 'next...';
-        nextBtn.classList.add('next-tekst-button');
-        nextBtn.addEventListener('click', nextToMenu);
+  let i = 0;
+  function type() {
+    if (i < introText.length) {
+      tekst.textContent += introText[i];
+      i++;
+      setTimeout(type, 1);
+    } else {
+      const container = document.createElement('div');
+      container.style.marginTop = '8px';
+      container.style.display = 'flex';
+      container.style.flexDirection = 'row';
+      container.style.gap = '10px';
 
-        tekst.appendChild(document.createElement('br'));
-        tekst.appendChild(input);
-        tekst.appendChild(nextBtn);
-      }
+      const input = document.createElement('input');
+      input.placeholder = 'Naam';
+      input.id = 'nameInput';
+      input.style.width = '150px';
+
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = 'Doorgaan';
+      nextBtn.classList.add('next-tekst-button');
+
+      container.appendChild(input);
+      container.appendChild(nextBtn);
+      tekst.appendChild(container);
+
+      nextBtn.addEventListener('click', () => {
+        const value = input.value.trim();
+        if (value !== '') {
+          playerName = value;
+          localStorage.setItem("playerName", playerName);
+
+          // --- Hier gebeuren de main menu dingen ---
+          if (safeGet("player")) safeGet("player").textContent = playerName;
+          if (safeGet("frontPage")) safeGet("frontPage").style.display = 'none';
+          if (safeGet("leftSidebar")) safeGet("leftSidebar").style.display = 'flex';
+          if (safeGet("top-bar")) safeGet("top-bar").style.display = 'grid';
+          if (safeGet("secondPage")) safeGet("secondPage").style.display = 'block';
+
+          showdevbutton();  // als deze functie bestaat
+
+          startRondleiding(playerName);
+        } else {
+          alert('Vul eerst je naam in!');
+        }
+      });
     }
-    type();
-  });
+  }
+  type();
+});
+
+// ---- Rondleiding functies ----
+function startRondleiding(name) {
+  safeGet('tekst').style.height = '150px';
+  overlay.style.backdropFilter = 'blur(0px)';
+  tekst.innerHTML = `Welkom op de Funky Eilanden, ${name}! Ik zal je een korte rondleiding geven.`;
+  addNextButton(ronleidingShop);
 }
 
+function addNextButton(callback, text = 'Doorgaan') {
+  const btn = document.createElement('button');
+  btn.textContent = text;
+  btn.classList.add('next-tekst-button');
+  tekst.appendChild(btn);
+  btn.addEventListener('click', callback);
+}
 
-  // --- nextToMenu (window global so inline onclick works)
-  window.nextToMenu = function () {
-    const inputElement = safeGet('nameInput');
-    const inputValue = inputElement ? inputElement.value.trim() : '';
-    if (inputValue === '') {
-      alert("Vul eerst je naam in!");
-      return;
-    }
-    playerName = inputValue;
-    localStorage.setItem("playerName", playerName);
-    if (safeGet("player")) safeGet("player").textContent = playerName;
-    if (safeGet('overlay')) safeGet('overlay').style.display = 'none';
-    if (safeGet('frontPage')) safeGet('frontPage').style.display = 'none';
-    if (safeGet('leftSidebar')) safeGet('leftSidebar').style.display = 'flex';
-    if (safeGet('top-bar')) safeGet('top-bar').style.display = 'grid';
-    if (safeGet('secondPage')) safeGet('secondPage').style.display = 'block';
-    showdevbutton();
-    rondleidingMenu();
-  };
+function ronleidingShop() {
+  openShop();
+  safeGet('overlay').style.backgroundColor = 'transparent';
+  safeGet('overlay').style.transform = 'translate(-20%)';
+  safeGet('overlay').style.transitionDuration = '1.5s';
+  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
+  addNextButton(ronleidingHints);
+}
 
-  function rondleidingMenu () {
-    
-  }
+function ronleidingHints() {
+  openHints();
+  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier vinden`;
+  addNextButton(ronleidingLevels);
+}
+
+function ronleidingLevels() {
+  closeSidebar();
+  safeGet('overlay').style.transform = 'translate(0%)';
+  safeGet('overlay').style.transitionDuration = '1.5s';
+  tekst.innerHTML = `Ik denk dat je nu klaar bent om te beginnen met het eerste level. Veel succes. Arrrr!`;
+  addNextButton(closeRondleiding, 'Beginnen');
+}
+
+function closeRondleiding() {
+  overlay.style.display = 'none';
+}
 
   // --- Levels openen
 

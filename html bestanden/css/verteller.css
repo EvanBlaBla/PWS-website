@@ -70,13 +70,16 @@
 }
 
 .next-tekst-button:hover {
-  color: red;
-  text-decoration: underline red 2px;
+  transform: translate(0px,-1px);
+  color: rgb(0, 84, 90);
+  text-decoration: underline rgb(0, 84, 90) 2px;
+  transition-duration: 0.1s;
 }
 
 .next-tekst-button:active {
-  color: rgb(155, 0, 0);
-  text-decoration: underline rgb(155, 0, 0) 2px;
+  transform: translate(0px,1px);
+  color: rgb(2, 143, 112);
+  text-decoration: underline rgb(1, 145, 113) 2px;
 }
 
 #speech-bubble {
