@@ -1,4 +1,4 @@
-let allesGoed1 = false;
+let allesGoed4 = false;
 let vergelijkingenGelijkstellen1Goed = JSON.parse(localStorage.getItem('vergelijkingenGelijkstellen1Goed')) || false;
 
 function pwsVergelijkingenGelijkstellen1() {
@@ -67,7 +67,7 @@ function pwsVergelijkingenGelijkstellen1() {
     //let resultaat1A = '';
     window.checken1A = function () {
       console.log("checken1A draait");
-      //console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
+      //console.log(allesGoed4, vergelijkingenGelijkstellen1Goed);
       //let s = getScores1();
       //let resultaat1A = '';   
       let leerlingElement1A = document.querySelector('.js-antwoord1A');
@@ -127,6 +127,8 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-opdracht1B').hidden = false;
         document.querySelector('.js-antwoord1B').hidden = false;
         document.querySelector('.js-nakijken1B').hidden = false;
+        addCoins(2);
+        addScore(1);
       };
       vraag1ABeantwoord = true;
 
@@ -146,7 +148,7 @@ function pwsVergelijkingenGelijkstellen1() {
         localStorage.removeItem('scores');
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(false));
         vergelijkingenGelijkstellen1Goed = false;
-        allesGoed1 = false;
+        allesGoed4 = false;
 
         console.log('waarde is nu gereset naar:', vergelijkingenGelijkstellen1Goed);
 
@@ -188,7 +190,7 @@ function pwsVergelijkingenGelijkstellen1() {
         vraag1CBeantwoord = false;
         // en dan de functie opnieuw draaien
         pwsVergelijkingenGelijkstellen1();
-        allesGoed1 = false;
+        allesGoed4 = false;
         return;
       };
       
@@ -222,7 +224,7 @@ function pwsVergelijkingenGelijkstellen1() {
     //let resultaat1B = '';
     window.checken1B = function () {
       console.log("checken1B draait");
-     //console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
+     //console.log(allesGoed4, vergelijkingenGelijkstellen1Goed);
       //let s1 = getScores1();
 
       let leerlingElement1B = document.querySelector('.js-antwoord1B');
@@ -279,6 +281,8 @@ function pwsVergelijkingenGelijkstellen1() {
         document.querySelector('.js-opdracht1C').hidden = false;
         document.querySelector('.js-antwoord1C').hidden = false;
         document.querySelector('.js-nakijken1C').hidden = false;
+        addCoins(2);
+        addScore(1);
       }
       vraag1BBeantwoord = true;
       updateScoreSpans();
@@ -313,7 +317,7 @@ function pwsVergelijkingenGelijkstellen1() {
   console.log('na timeout localStorage waarde:', localStorage.getItem('vergelijkingenGelijkstellen1Goed'));
 }, 100);
 
-     // console.log(allesGoed1, vergelijkingenGelijkstellen1Goed);
+     // console.log(allesGoed4, vergelijkingenGelijkstellen1Goed);
 
       let leerlingElement1C = document.querySelector('.js-antwoord1C');
       let leerlingAntwoord1C = leerlingElement1C.value;
@@ -335,10 +339,10 @@ function pwsVergelijkingenGelijkstellen1() {
       //let resultaat1C;
       if (correcteAntwoorden1C.includes(leerlingAntwoord1CCorrect)) {
         resultaat1C = 'goed';
-        allesGoed1 = true;
+        allesGoed4 = true;
       } else {
         resultaat1C = 'fout';
-        allesGoed1 = false;
+        allesGoed4 = false;
       };
       
 
@@ -361,8 +365,10 @@ function pwsVergelijkingenGelijkstellen1() {
       ${e}t > ${a} <br>
       ${computerAntwoord1C} <br>`
       if (resultaat1C === 'goed') {
-        allesGoed1 = true;
+        allesGoed4 = true;
         document.querySelector('.js-uitwerkingen1C').hidden = false;
+        addCoins(2);
+        addScore(1);
       }
       vraag1CBeantwoord = true;
       updateScoreSpans();
@@ -372,9 +378,14 @@ function pwsVergelijkingenGelijkstellen1() {
       if (!vergelijkingenGelijkstellen1Goed && 
         [resultaat1A, resultaat1B, resultaat1C].every(r => r === 'goed')) {
         vergelijkingenGelijkstellen1Goed = true;
-        allesGoed1 = true;
+        allesGoed4 = true;
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
-        alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+        //alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
+        addCoins(5);
+        addScore(1);
+        checkAllesGoed();
+        
+        console.log(allesGoed4);
       } return;
        
     };
@@ -395,7 +406,7 @@ function pwsVergelijkingenGelijkstellen1() {
 };
 
 document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
-    if (allesGoed1 === true) {
+    if (allesGoed4 === true) {
       // eerst het oude wissen
      // document.querySelector('.js-opdracht1A').innerHTML = "";
       document.querySelector('.js-antwoord1A').value = "";
@@ -426,8 +437,8 @@ document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
       vraag1CBeantwoord = false;
       // en dan de functie opnieuw draaien
       pwsVergelijkingenGelijkstellen1();
-      allesGoed1 = false;
-    } else if (allesGoed1 === false) {
+      allesGoed4 = false;
+    } else if (allesGoed4 === false) {
       alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
     } return;
 });

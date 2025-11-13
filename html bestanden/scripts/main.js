@@ -1,6 +1,7 @@
 // scripts/main.js
 window.addEventListener('DOMContentLoaded', () => {
 
+
   // kleine helper functies
   const safeGet = id => document.getElementById(id);
   const $ = sel => document.querySelector(sel);
@@ -19,6 +20,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const overlay = safeGet('overlay');
   const tekst = safeGet('tekstInSpeechbubble');
+
+  const shortcutBtn = safeGet('shortcutBtn');
+
 
   function restartAnimation(element, animationName) {
     if (!element) return;
@@ -499,7 +503,21 @@ function closeRondleiding() {
   // run once at load
   showdevbutton();
 
+    if (shortcutBtn) {
+    shortcutBtn.addEventListener('click', () => {
+      if (safeGet("frontPage")) safeGet("frontPage").style.display = 'none';
+      if (safeGet("leftSidebar")) safeGet("leftSidebar").style.display = 'flex';
+      if (safeGet("top-bar")) safeGet("top-bar").style.display = 'grid';
+      if (safeGet("secondPage")) safeGet("secondPage").style.display = 'block';
+      playerName = "Funkydev~";
+      if (safeGet("player")) safeGet("player").textContent = playerName;
+      localStorage.setItem("playerName", playerName);
+      showdevbutton();  // als deze functie bestaat      
+    });
+  }
+
 }); // end DOMContentLoaded
+
 
 
 

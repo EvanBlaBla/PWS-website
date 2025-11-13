@@ -14,10 +14,15 @@ window.addEventListener('DOMContentLoaded', () => {
     `
   };
 
-  function checkAllesGoed () {
-  if (vegelijkingenGelijkstellen1Goed){
+
+});
+
+  window.checkAllesGoed = function () {
+    console.log(allesGoed4, vergelijkingenGelijkstellen1Goed, 'het werkt');
+  if (vergelijkingenGelijkstellen1Goed === true){
+    console.log('vergelijkingenGelijkstellen1Goed is true');
     setTimeout(() => {
-      
+            
     }, 2000);
     createLevelCompleteOverlay({
       onNext: () => {
@@ -28,4 +33,3 @@ window.addEventListener('DOMContentLoaded', () => {
     unlockHint();
   };
 };
-});

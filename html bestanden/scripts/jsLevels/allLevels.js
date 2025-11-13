@@ -101,10 +101,7 @@ extras
   function addScore(amount) { saveScore(score + amount); }
   function addCoins(amount) { saveCoins(coins + amount); }
 
-function addScoreAndCoins() {
-  addScore(1);
-  addCoins(2);
-}
+
 
 function checkAllesGoed () {
   if (allesGoed1 && allesGoed2){

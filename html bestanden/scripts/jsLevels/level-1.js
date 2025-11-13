@@ -27,8 +27,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  function checkAllesGoed () {
-  if (allesGoed1 && allesGoed2){
+  
+});
+
+window.checkAllesGoed = function  () {
+  if (balansMethode2Goed && balansMethode1Goed){
+    addCoins(3);
+    addScore(1);
     setTimeout(() => {
       
     }, 2000);
@@ -41,5 +46,4 @@ window.addEventListener('DOMContentLoaded', () => {
     unlockHint();
   };
 };
-});
 

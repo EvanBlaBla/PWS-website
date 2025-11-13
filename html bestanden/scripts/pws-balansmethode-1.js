@@ -83,14 +83,18 @@ function balansMethode1 () {
       if (!balansMethode1Goed && resultaat1A === 'goed') {
         balansMethode1Goed = true;
         localStorage.setItem('balansMethode1Goed', JSON.stringify(true));
+        checkAllesGoed();
+        console.log('balansMethode1Goed is nu:', balansMethode1Goed);
       };
 
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
         document.querySelector('.js-uitwerkingen1A').hidden = false;
         //document.querySelector('.js-opnieuw1').hidden = false;
-        checkAllesGoed();
-        addScoreAndCoins();
+        addCoins(1);
+        addScore(1);
+        
+
       } else {
         allesGoed1 = false;
       };
