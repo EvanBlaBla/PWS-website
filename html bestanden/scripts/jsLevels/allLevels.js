@@ -9,7 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const show = (el) => el.style.display = 'flex';
 
 
- const div = document.createElement('div');
+/* const div = document.createElement('div');
 div.id = 'overlay';
 div.classList.add('verteller');
 div.innerHTML = `
@@ -25,7 +25,7 @@ div.innerHTML = `
 document.body.appendChild(div);
 
 // Debug: kijken of de div er echt is
-console.log("✅ Overlay toegevoegd aan DOM:", document.getElementById("overlay"));
+console.log("✅ Overlay toegevoegd aan DOM:", document.getElementById("overlay"));*/
 
   toUitleg.addEventListener("click",() => {
     show(safeGet('uitlegVDOpdracht'));

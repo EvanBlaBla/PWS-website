@@ -1,14 +1,20 @@
 
 /* ===== Papegaai ===== */
-.papegaaiInKooi {
-  max-height: 35vh;
+.persoon {
+  height: 10px;
   width: auto;
   height: auto;
   object-fit: contain;
-  position: absolute;
-  top: 22%;
-  left: 34%;
+  position: relative;
+  top: 42%;
+  left: 20%;
   z-index: 1;
+}
+.persoon img {
+  position: absolute;
+  height: 100px;
+  width: auto;
+  object-fit: contain;
 }
 #opdrach > div {
   background: rgba(79, 255, 79, 0.685);
