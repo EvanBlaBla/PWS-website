@@ -1,12 +1,12 @@
 let allesGoed1 = false;
-let functieAnalyseren1Goed = false;
+let functieAnalyseren1Goed = JSON.parse(localStorage.getItem('functieAnalyseren1Goed')) || false;
 
 
 function functieAnalyseren1() {
 
   let vraag1ABeantwoord = false;
 
-  let scores1 = getScores1();
+  //let scores1 = getScores1();
   function getScores1() {
     return JSON.parse(localStorage.getItem('scores1')) || {
       a: { goed: 0, fout: 0 },
@@ -20,10 +20,12 @@ function functieAnalyseren1() {
     const s = getScores1();
     const sp1A = document.querySelector('.js-score1A');
     if (sp1A) sp1A.textContent = `Score: ${s.a.goed} goed, ${s.a.fout} fout`;
+    /*
     if (!functieAnalyseren1Goed && s.a.goed > 0 ){
       functieAnalyseren1Goed = true;
       localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
     };
+    */
   };
   updateScoreSpans1();
 
@@ -94,10 +96,21 @@ function functieAnalyseren1() {
           vraag1ABeantwoord = true;
       };
 
+      if (!functieAnalyseren1Goed && resultaat1A === 'goed') {
+        functieAnalyseren1Goed = true;
+        localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
+        checkAllesGoed();
+        console.log('functieAnalyseren1Goed is nu, :', functieAnalyseren1Goed);
+      };
+
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
         document.querySelector('.js-uitwerkingen1A').hidden = false;
-        document.querySelector('.js-opnieuw1').hidden = false;
+        //document.querySelector('.js-opnieuw1').hidden = false;
+        addCoins(1);
+        addScore(1);
+        
+
       } else {
         allesGoed1 = false;
       };
@@ -107,19 +120,57 @@ function functieAnalyseren1() {
       ${leerlingAntwoord1A} <br>
       Jouw antwoord is ${resultaat1A} <br><br>
       Uitwerkingen: <br>
-      De functie ${vraag1A} is een ${computerAntwoord1A} functie. De hoogste macht van x is ${c1}<br><br>`
+      De functie ${vraag1A} is een ${computerAntwoord1A} functie. De hoogste macht van x is ${c1}<br><br>
+      
+      <button class="js-opnieuw1">Opnieuw</button>`;
+      document.querySelector('.js-opnieuw1').hidden = false;
+      document.querySelector('.js-opnieuw1').addEventListener('click', () => {
+        if (allesGoed1 === true) {
+          // eerst het oude wissen
+        // document.querySelector('.js-opdracht1').innerHTML = "";
+          document.querySelector('.js-antwoord1A').value = "";
+          document.querySelector('.js-resultaat1A').innerHTML = "";
+          document.querySelector('.js-uitwerkingen1A').hidden = true;
+          document.querySelector('.js-resultaat1A').hidden = false;;
 
-      if (leerlingAntwoord1A.trim().toLowerCase() === 'clean') {
-        const scores1 = {
-          a: { goed: 0, fout: 0 },          
-          b: { goed: 0, fout: 0 },
-          c: { goed: 0, fout: 0}
-        };
-        saveScores1(scores1);
+          const nakijk1A = document.querySelector('.js-nakijken1A');
+          nakijk1A.replaceWith(nakijk1A.cloneNode(true));
+          vraag1ABeantwoord = false;
+          // en dan de functie opnieuw draaien
+          functieAnalyseren1();
+          allesGoed1 = false;
+        } else if (allesGoed1 === false) {
+          alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
+        } return;
+      });
+
+      
+
+      if (leerlingAntwoord1A === 'clean') {
+        const resetScores = { a: { goed: 0, fout: 0 } };
+        saveScores1(resetScores);
+        localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(false));
+        functieAnalyseren1Goed = false;      
+        alert("Scores en voortgang gereset 👑");
         updateScoreSpans1();
-        return; 
-      };
-    };
+        localStorage.removeItem('scores');
+        localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(false));
+        functieAnalyseren1Goed = false;
+        allesGoed1 = false;
+
+        console.log('waarde is nu gereset naar:', functieAnalyseren1Goed);
+
+
+        document.querySelector('.js-antwoord1A').value = "";
+        document.querySelector('.js-resultaat1A').innerHTML = "";
+        document.querySelector('.js-uitwerkingen1A').hidden = true;
+        document.querySelector('.js-resultaat1A').hidden = false;
+        const nakijk1A = document.querySelector('.js-nakijken1A');
+        nakijk1A.replaceWith(nakijk1A.cloneNode(true));
+        vraag1ABeantwoord = false;
+        functieAnalyseren1();
+        return;
+      };}
 
     window.uitwerkingen1A = function () {
         const r1A = document.querySelector('.js-resultaat1A');
@@ -143,6 +194,7 @@ document.body.addEventListener('keydown', (event) => {
     checken1A();
   }});
 
+  /*
 document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     // eerst het oude wissen
     if (allesGoed1 === true) {
@@ -158,5 +210,5 @@ document.querySelector('.js-opnieuw1').addEventListener('click', () => {
       alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
     } return;
 });
- 
+ */
 

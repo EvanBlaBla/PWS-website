@@ -170,7 +170,6 @@ function balansMethode1 () {
         document.querySelector('.js-nakijken1A').onclick = checken1A;
         document.querySelector('.js-uitwerkingen1A').onclick = uitwerkingen1A;
   };
-
 };
 
 balansMethode1();
