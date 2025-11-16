@@ -102,20 +102,7 @@ extras
 
 
 
-function checkAllesGoed () {
-  if (allesGoed1 && allesGoed2){
-    setTimeout(() => {
-      
-    }, 2000);
-    createLevelCompleteOverlay({
-      onNext: () => {
-        window.location.href = "level-2.html";
-      }
-    });
 
-    unlockHint();
-  };
-};
 function unlockHint () {
      const hintlock = ['lock1', 'lock2', 'lock3', 'lock4', 'lock5', 'lock6', 'lock7'];
       hintlock.forEach(id => {

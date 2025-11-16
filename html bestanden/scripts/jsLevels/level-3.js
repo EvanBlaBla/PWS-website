@@ -15,6 +15,7 @@ window.addEventListener('DOMContentLoaded', () => {
     console.log("lock3_locked = true → overlay blijft verborgen");
   }
 
+
   // Event listener toevoegen (veiliger dan inline onclick)
   document.addEventListener('click', (e) => {
     if (e.target.id === 'nextToMenuBtn') {
@@ -27,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.checkAllesGoed = function  () {
-  if (balansMethode2Goed && balansMethode1Goed){
+  if (functieAnalyseren1Goed ){
     addCoins(2);
     addScore(1);
     setTimeout(() => {
@@ -35,7 +36,7 @@ window.checkAllesGoed = function  () {
     }, 2000);
     createLevelCompleteOverlay({
       onNext: () => {
-        window.location.href = "level-2.html";
+        window.location.href = "main-menu.html";
       }
     });
 

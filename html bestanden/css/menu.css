@@ -131,3 +131,19 @@
   box-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
   transition: 0.05s;
 }
+
+
+#btn-schat {
+  width: 100px; 
+  height: 100px; 
+  background-color: transparent; 
+  display: none; 
+  position: absolute; 
+  left: 60%; 
+  bottom: 10%; 
+  border: none; 
+  background-image: url('pictures/schatkist.png'); 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+}
