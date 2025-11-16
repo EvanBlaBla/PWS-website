@@ -25,6 +25,7 @@ body {
   position: absolute;
   height: 100vh;
   width: auto;
+  overflow: hidden;
 }
 
 /* ===== Uitleg + Opdracht container ===== */

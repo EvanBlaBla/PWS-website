@@ -1,13 +1,9 @@
 window.addEventListener('DOMContentLoaded', () => {
 
-  const safeGet = (id) => document.getElementById(id);
-  const overlay = safeGet('overlay');
-  const tekst = safeGet('tekstInSpeechbubble');
-
   // Debug: wat zit er in localStorage?
-  console.log("lock1_locked =", localStorage.getItem('lock1_locked'));
+  console.log("lock3_locked =", localStorage.getItem('lock3_locked'));
 
-  if (localStorage.getItem('lock1_locked') !== 'true') {
+  if (localStorage.getItem('lock3_locked') !== 'true') {
     console.log(" Overlay zou nu moeten verschijnen!");
     if (overlay) {overlay.style.display = 'flex'; console.log('zichtbaar');}
     if (tekst) {
@@ -16,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
       `;
     }
   } else {
-    console.log("lock1_locked = true → overlay blijft verborgen");
+    console.log("lock3_locked = true → overlay blijft verborgen");
   }
 
   // Event listener toevoegen (veiliger dan inline onclick)
@@ -32,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 window.checkAllesGoed = function  () {
   if (balansMethode2Goed && balansMethode1Goed){
-    addCoins(3);
+    addCoins(2);
     addScore(1);
     setTimeout(() => {
       

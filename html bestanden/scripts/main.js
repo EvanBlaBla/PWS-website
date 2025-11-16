@@ -242,7 +242,7 @@ hintlock.forEach(id => {
     const number = id.replace('lock', '');
     const span = safeGet('HNT' + number); 
     if (span) {
-      span.textContent = 'yahahhh'; 
+      span.textContent = 'hintcontent'; 
     }
   }
 });
@@ -383,13 +383,13 @@ function ronleidingShop() {
   safeGet('overlay').style.backgroundColor = 'transparent';
   safeGet('overlay').style.transform = 'translate(-20%)';
   safeGet('overlay').style.transitionDuration = '1.5s';
-  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
+  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden, zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
   addNextButton(ronleidingHints);
 }
 
 function ronleidingHints() {
   openHints();
-  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier vinden`;
+  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier zien`;
   addNextButton(ronleidingLevels);
 }
 
