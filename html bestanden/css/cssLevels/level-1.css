@@ -5,7 +5,7 @@
   height: 300px;
   object-fit: contain;
   top: 54%;
-  left: 26%;
+  left: 32%;
   z-index: 1;
 }
 .shadow {
@@ -13,7 +13,7 @@
   width: 175px;
   height: 125px;
   top: 88%;
-  left: 28%;
+  left: 32%;
   z-index: 0;
 
   background: radial-gradient(
@@ -27,18 +27,23 @@
   filter: blur(3px);
   overflow: hidden;
 }
-#opdrach > div {
-  background: rgba(79, 255, 79, 0.685);
+
+#achtergrondPlaatje div {
+background: linear-gradient(to left,rgb(96,118,10), transparent);
+
 }
+
+
+
 #uitlegVDOpdracht,
 #opdracht{
-  background-color: rgb(73, 230, 73);;
+  background-color: rgb(170,180,19);
 }
 #opmaakOpdrachten{
-  background-color: green;
+  background-color: rgb(96,118,10);
 }
-.buttonNaarHome, .buttonNaarOpdracht, .buttonNaarUitleg{  min-width: 15%;
-  max-width: 15%;}
-.buttonNaarUitleg { margin-top: 52vh; margin-left: 12.8%; transform: rotate(7deg); background-image: url('sign.png');}
-.buttonNaarOpdracht { margin-top: 61vh; margin-left: 11%; background-image: url('sign.png');}
-.buttonNaarHome { margin-top: 70vh; margin-left: 12.3%; transform: rotate(-5deg); background-image: url('sign.png');}
+.buttonNaarHome, .buttonNaarOpdracht, .buttonNaarUitleg{  min-width: 20%;
+  max-width: 20%; z-index: 0;}
+.buttonNaarUitleg { margin-top: 52vh; margin-left: 20%; transform: rotate(7deg); background-image: url('sign.png');}
+.buttonNaarOpdracht { margin-top: 61vh; margin-left: 19%; background-image: url('sign.png');}
+.buttonNaarHome { margin-top: 70vh; margin-left: 18%; transform: rotate(-5deg); background-image: url('sign.png');}

@@ -23,15 +23,17 @@
   position: absolute;
   z-index: 2;
 }
-#opdrach > div {
-  background: rgba(79, 255, 79, 0.685);
+
+#achtergrondPlaatje div {
+background: linear-gradient(to left,rgb(61, 116, 22), transparent);
+
 }
 #uitlegVDOpdracht,
 #opdracht{
-  background-color: rgb(73, 230, 73);;
+  background-color: rgb(111, 165, 41);
 }
 #opmaakOpdrachten{
-  background-color: green;
+  background-color: rgb(61, 116, 22);
 }
 .paaltje1 {
   margin-left: 5.5%;

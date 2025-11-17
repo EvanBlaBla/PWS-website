@@ -81,14 +81,14 @@ function balansMethode3() {
           if (resultaat3A === 'goed') s3.a.goed++; else s3.a.fout++;
           saveScores3(s3);
           updateScoreSpans3();
-          saveScores3(scores3);
+          saveScores3(s3);
           vraag3ABeantwoord = true;
       };
 
       if (!balansMethode3Goed && resultaat3A === 'goed') {
         balansMethode3Goed = true;
         localStorage.setItem('balansMethode3Goed', JSON.stringify(true));
-        //checkAllesGoed();
+        checkAllesGoed();
         console.log('balansMethode3Goed is nu:', balansMethode3Goed);
       };
 

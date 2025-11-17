@@ -424,8 +424,8 @@ function closeRondleiding() {
 
   const btnLinks = [
     {id: "btn-1", link:'level-1blns-mthde.html'},
-    {id: "btn-2", link:'level-2.html'},
-    {id: "btn-3", link:'level-3.html'},
+    {id: "btn-2", link:'level-2vergl-gelkst.html'},
+    {id: "btn-3", link:'level-3fncts-analysrn.html'},
     {id: "btn-4", link:'level-4.html'},
     {id: "btn-5", link:'level-5.html'},
     {id: "btn-6", link:'level-6.html'},

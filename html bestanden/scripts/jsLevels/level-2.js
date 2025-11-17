@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }, 2000);
     createLevelCompleteOverlay({
       onNext: () => {
-        window.location.href = "level-3.html";
+        window.location.href = "level-3fncts-analysrn.html";
       }
     });
 

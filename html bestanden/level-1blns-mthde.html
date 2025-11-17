@@ -30,16 +30,16 @@
         <button id="toUitlegBtn" class="buttonNaarUitleg">uitleg</button>
         <button id="toOpdrachtBtn" class="buttonNaarOpdracht">opdracht</button>
         <button id="toHomeBtn" class="buttonNaarHome">home</button>
-        <img src="pictures/boomlvl1AI.png" alt="">
+        <div id="achtergrondPlaatje">
+          <img src="pictures/boomAI.png" alt="">
+          <div></div>
+        </div>        
         <div class="persoon" id="persoonImg" style="height: 300px;display: flex; position: absolute;"></div><div class="shadow"></div>
       </div>
 
       <!-- Uitlegtekst staat direct in HTML -->
       <div id="uitlegVDOpdracht">
-        <p>De balansmethode is een methode De balansmethode is een methode die rekenregels gebruikt om vergelijkingen op te lossen.  
-        In een vergelijking waarin meerdere x’en staan en voor de rest variabelen, 
-        is het de bedoeling dat de x’en naar links worden verplaatst en de rest naar rechts. 
-        De rekenregels zorgen hiervoor.</p>
+        <p>De balansmethode is een methode die rekenregels gebruikt om vergelijkingen op te lossen.  In een vergelijking waarin meerdere x-waardes staan en voor de rest variabelen, worden de x’en naar links worden verplaatst en de rest naar rechts. De rekenregels zorgen aan beide kanten voor een verandering, waardoor enkele x-waarden gelijk staan aan een getal. </p>
         <div class="voorbeeld-row">
           <div class="voorbeeld-links">
             <p><strong>Voorbeeld </strong></p>
@@ -86,7 +86,15 @@
           <p class="js-resultaat2A"></p>
         </div>
         <div id="opdracht1C">
-
+          <p>Balansmethode - Opdracht 3</p>
+          <p class="js-score3A"></p>
+          <p class="js-opdracht3A"></p>
+          <input placeholder="Antwoord" class="js-antwoord3A">
+          <button class="js-nakijken3A" 
+          >Nakijken</button>
+          <button class="js-uitwerkingen3A" hidden
+          >Uitwerkingen</button>
+          <p class="js-resultaat3A"></p>
         </div>
       </div>
     </div>
@@ -94,6 +102,7 @@
 </body>
 <script src="scripts/pws-balansmethode-1.js"></script>
 <script src="scripts/pws-balansmethode-2.js"></script>
+<script src="scripts/pws-balansmethode-3.1.js"></script>
 <script src="scripts/jsLevels/allLevels.js"></script>
 <script src="scripts/jsLevels/level-1.js"></script>
 <script src="scripts/jsLevels/lvlCompleteOverlay.js"></script>

@@ -31,7 +31,7 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 window.checkAllesGoed = function  () {
-  if (balansMethode2Goed && balansMethode1Goed){
+  if (balansMethode2Goed && balansMethode1Goed && balansMethode3Goed){
     addCoins(3);
     addScore(1);
     setTimeout(() => {
@@ -39,7 +39,7 @@ window.checkAllesGoed = function  () {
     }, 2000);
     createLevelCompleteOverlay({
       onNext: () => {
-        window.location.href = "level-2.html";
+        window.location.href = "level-2vergl-gelkst.html";
       }
     });
 

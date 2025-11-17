@@ -52,10 +52,10 @@ console.log("✅ Overlay toegevoegd aan DOM:", document.getElementById("overlay"
   // Plaats de imgs in de persoonImg div (overlays)
   const persoonImg = safeGet('persoonImg');
   persoonImg.innerHTML = `
-    <img id="hoedEquipped" src="${savedState.hoedEquipped}" style="height: 300px; width: auto; object-fit: contain;">
-    <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}" style="height: 300px; width: auto; object-fit: contain;">
-    <img id="zwaardEquipped" src="${savedState.zwaardEquipped}" style="height: 300px; width: auto; object-fit: contain;">
-    <img id="kledingEquipped" src="pictures/piraatx2/piraatX2bodyAI.png" style="height: 300px; width: auto; object-fit: contain;">
+    <img id="hoedEquipped" src="${savedState.hoedEquipped}" style="height: 45vh; width: auto; object-fit: contain;">
+    <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}" style="height: 45vh; width: auto; object-fit: contain;">
+    <img id="zwaardEquipped" src="${savedState.zwaardEquipped}" style="height: 45vh; width: auto; object-fit: contain;">
+    <img id="kledingEquipped" src="pictures/piraatx2/piraatX2bodyAI.png" style="height: 45vh; width: auto; object-fit: contain;">
   `;
 /*
 localstorage
