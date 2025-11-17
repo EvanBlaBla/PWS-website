@@ -33,6 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   function openHints(){
     const shopON = safeGet('shopON');
+    showSchat();
       if (shopON && shopON.style.display === 'block') {
         if (shopContainer) { shopContainer.style.animation = 'none'; shopContainer.style.transform = 'translateX(-68vw)'; }
         if (piraatInShop) { piraatInShop.style.animation = 'none'; piraatInShop.style.transform = 'translateX(100vw)'; }
@@ -230,7 +231,16 @@ Object.keys(equipMap).forEach(id => {
     });
   });
 
- const hintlock = ['lock1','lock2','lock3','lock4','lock5','lock6','lock7'];
+const hintlock = ['lock1','lock2','lock3','lock4','lock5','lock6','lock7'];
+const hintTeksten = {
+  1: "5x+2 = 3x+6",
+  2: "3²*4-27/3+3(4-2)",
+  3: "x² is lineair of kwadratisch",
+  4: "",
+  5: "",
+  6: "",
+  7: ""
+};
 
 hintlock.forEach(id => {
   const lockEl = safeGet(id);
@@ -239,10 +249,11 @@ hintlock.forEach(id => {
   if (localStorage.getItem(id + '_locked') === 'true') {
     lockEl.style.display = 'none';
 
-    const number = id.replace('lock', '');
+    const number = id.replace('lock', ''); // haalt 1,2,3,...
     const span = safeGet('HNT' + number); 
+
     if (span) {
-      span.textContent = 'yahahhh'; 
+      span.textContent = hintTeksten[number] || "Geen hint beschikbaar";
     }
   }
 });
@@ -301,7 +312,9 @@ if (safeGet('lock1').style.display === 'none'){
   // --- Start overlay / next button
 // JS
 
-
+if (playerName === '') {
+  safeGet('frontPage').style.display = 'flex';
+}
 
 const startBtn = safeGet("startAvontuurBtn");
 
@@ -381,22 +394,23 @@ function addNextButton(callback, text = 'Doorgaan') {
 function ronleidingShop() {
   openShop();
   safeGet('overlay').style.backgroundColor = 'transparent';
-  safeGet('overlay').style.transform = 'translate(-20%)';
+  safeGet('verteller').style.transform = 'translate(-30%)';
   safeGet('overlay').style.transitionDuration = '1.5s';
-  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
+  safeGet('verteller').style.transitionDuration = '1.5s';  
+  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden, zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
   addNextButton(ronleidingHints);
 }
 
 function ronleidingHints() {
   openHints();
-  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier vinden`;
+  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier zien`;
   addNextButton(ronleidingLevels);
 }
 
 function ronleidingLevels() {
   closeSidebar();
-  safeGet('overlay').style.transform = 'translate(0%)';
-  safeGet('overlay').style.transitionDuration = '1.5s';
+  safeGet('verteller').style.transform = 'translate(0%)';
+  safeGet('verteller').style.transitionDuration = '1.5s';
   tekst.innerHTML = `Ik denk dat je nu klaar bent om te beginnen met het eerste level. Veel succes. Arrrr!`;
   addNextButton(closeRondleiding, 'Beginnen');
 }
@@ -426,50 +440,24 @@ function closeRondleiding() {
         });
       }
     });
-      /*
-      const teks = safeGet('tekstInSpeechbubble');
-      if (teks) teks.innerHTML = '<button class="next-tekst-button" id="nextBtn">next...</button>';
-      // attach event after insertion
-      setTimeout(() => {
-        const nextBtn = safeGet('nextBtn');
-        if (nextBtn) nextBtn.addEventListener("click", () => { if (safeGet('overlay')) safeGet('overlay').style.display = 'none'; });
-      }, 10);
-      */  
   }
+function showSchat() {
+const hintLock = ['lock1', 'lock2', 'lock3'];
 
-      /*
-      const teks = safeGet('tekstInSpeechbubble');
-      if (teks) teks.innerHTML = '<button class="next-tekst-button" id="nextBtn">next...</button>';
-      // attach event after insertion
-      setTimeout(() => {
-        const nextBtn = safeGet('nextBtn');
-        if (nextBtn) nextBtn.addEventListener("click", () => { if (safeGet('overlay')) safeGet('overlay').style.display = 'none'; });
-      }, 10);
-      */
+const allHidden = hintLock.every(id => {
+  const el = safeGet(id);
+  if (!el) return false;
+  return window.getComputedStyle(el).display === 'none';
+});
 
-
-  /* --- Buttons uitleg/opdracht/home
-  if (safeGet("toUitlegBtn")) safeGet("toUitlegBtn").addEventListener("click", () => {
-    if (safeGet('uitlegVDOpdracht')) safeGet('uitlegVDOpdracht').style.display = 'flex';
-    if (safeGet('opdracht')) safeGet('opdracht').style.display = 'none';
+if (allHidden) {
+  console.log('alle hints unlocked, schat knop toevoegen');
+  safeGet('btn-schat').style.display = 'block';
+  safeGet('btn-schat').addEventListener('click', () => {
+    window.location.href = 'schat.html';
   });
-  if (safeGet("toOpdrachtBtn")) safeGet("toOpdrachtBtn").addEventListener("click", () => {
-    if (safeGet('uitlegVDOpdracht')) safeGet('uitlegVDOpdracht').style.display = 'none';
-    if (safeGet('opdracht')) safeGet('opdracht').style.display = 'grid';
-  });
-  if (safeGet("toHomeBtn")) safeGet("toHomeBtn").addEventListener("click", () => {
-    if (safeGet('opmaakOpdrachten')) safeGet('opmaakOpdrachten').style.display = 'none';
-    if (safeGet('secondPage')) safeGet('secondPage').style.display = 'flex';
-  });
-  if (safeGet("closeOverlay")) safeGet("closeOverlay").addEventListener("click", () => {
-    if (safeGet('overlay')) safeGet('overlay').style.display = 'none';
-  });
-  */
-
-
-
-
-
+}
+}
   // --- dev button logic
   //AI
   function showdevbutton() {
@@ -515,10 +503,5 @@ function closeRondleiding() {
       showdevbutton();  // als deze functie bestaat      
     });
   }
-
-}); // end DOMContentLoaded
-
-
-
-
-    
+  
+});// end DOMContentLoaded

@@ -1,3 +1,11 @@
+.persoon {
+  position: absolute;
+  height: 300px;
+  object-fit: contain;
+  top: 32%;
+  left: 8%;
+  z-index: 1;
+}
 
 
 .buttonNaarHome,.buttonNaarOpdracht, .buttonNaarUitleg {  min-width: 10%;

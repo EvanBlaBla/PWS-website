@@ -36,7 +36,7 @@ function balansMethode2() {
   vraag2AGenereren();
 
   function vraag2AGenereren() {
-    document.querySelector('.js-opdracht2A').innerHTML = `x^2 + ${b2} = ${c2}`;
+    document.querySelector('.js-opdracht2A').innerHTML = `x² + ${b2} = ${c2}`;
     //let resultaat2A = '';
 
     window.checken2A = function () {
@@ -99,8 +99,8 @@ function balansMethode2() {
       ${leerlingAntwoord2A} <br>
       Jouw antwoord is ${resultaat2A} <br><br>
       uitwerkingen: <br>
-      x^2 + ${b2} = ${c2} <br>
-      x^2 = ${a2*a2} <br>
+      x² + ${b2} = ${c2} <br>
+      x² = ${a2*a2} <br>
       x = \u222A${a2*a2} V x = -\u222A${a2*a2} <br> 
       ${computerAntwoord2A} <br>
       <button class="js-opnieuw2">Opnieuw</button>

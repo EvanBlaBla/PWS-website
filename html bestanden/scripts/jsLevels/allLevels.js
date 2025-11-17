@@ -52,12 +52,11 @@ console.log("✅ Overlay toegevoegd aan DOM:", document.getElementById("overlay"
   // Plaats de imgs in de persoonImg div (overlays)
   const persoonImg = safeGet('persoonImg');
   persoonImg.innerHTML = `
-    <img id="hoedEquipped" src="${savedState.hoedEquipped}">
-    <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}">
-    <img id="zwaardEquipped" src="${savedState.zwaardEquipped}">
-    <img id="kledingEquipped" src="pictures/piraatx2/piraatX2bodyAI.png">
+    <img id="hoedEquipped" src="${savedState.hoedEquipped}" style="height: 300px; width: auto; object-fit: contain;">
+    <img id="ooglapjeEquipped" src="${savedState.ooglapjeEquipped}" style="height: 300px; width: auto; object-fit: contain;">
+    <img id="zwaardEquipped" src="${savedState.zwaardEquipped}" style="height: 300px; width: auto; object-fit: contain;">
+    <img id="kledingEquipped" src="pictures/piraatx2/piraatX2bodyAI.png" style="height: 300px; width: auto; object-fit: contain;">
   `;
-
 /*
 localstorage
 maandag
@@ -103,20 +102,7 @@ extras
 
 
 
-function checkAllesGoed () {
-  if (allesGoed1 && allesGoed2){
-    setTimeout(() => {
-      
-    }, 2000);
-    createLevelCompleteOverlay({
-      onNext: () => {
-        window.location.href = "level-2.html";
-      }
-    });
 
-    unlockHint();
-  };
-};
 function unlockHint () {
      const hintlock = ['lock1', 'lock2', 'lock3', 'lock4', 'lock5', 'lock6', 'lock7'];
       hintlock.forEach(id => {

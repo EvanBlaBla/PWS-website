@@ -97,6 +97,7 @@ function functieAnalyseren1() {
       };
 
       if (!functieAnalyseren1Goed && resultaat1A === 'goed') {
+        console.log('goed');
         functieAnalyseren1Goed = true;
         localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
         checkAllesGoed();

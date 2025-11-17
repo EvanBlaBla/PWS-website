@@ -1,3 +1,30 @@
+.persoon {
+  position: absolute;
+  height: 300px;
+  object-fit: contain;
+  top: 50%;
+  left: 30%;
+  z-index: 1;
+}
+
+.shadow {
+  position: absolute;
+  width: 175px;
+  height: 125px;
+  top: 88%;
+  left: 28%;
+  z-index: 0;
+
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.35) 40%,
+    rgba(0, 0, 0, 0.1) 70%,
+    rgba(0, 0, 0, 0) 100%
+  );
+
+  filter: blur(3px);
+}
 
 #uitlegVDOpdracht,
 #opdracht{
@@ -9,7 +36,7 @@
 
 
 .buttonNaarHome,.buttonNaarOpdracht, .buttonNaarUitleg {  min-width: 10%;
-  max-width: 10%; margin-left: 5%;}
+  max-width: 10%; margin-left: 1%;}
 .buttonNaarUitleg { margin-top: 70vh; background-image: url('sign.png');}
 .buttonNaarOpdracht { margin-top: 78vh;  background-image: url('sign.png');}
 .buttonNaarHome { margin-top: 86vh;background-image: url('sign.png');}
