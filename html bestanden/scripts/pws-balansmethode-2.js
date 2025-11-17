@@ -1,4 +1,5 @@
-/** @type {boolean} */ let allesGoed2 = false;
+/** @type {boolean} */ 
+let allesGoed2 = false;
 
 let balansMethode2Goed = JSON.parse(localStorage.getItem('balansMethode2Goed')) || false;
 
