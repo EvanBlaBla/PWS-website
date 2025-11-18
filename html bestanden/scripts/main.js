@@ -207,8 +207,8 @@ Object.keys(equipMap).forEach(id => {
   }
 
     const items = [
-    { id: "buyItem2", cost: 50 },
-    { id: "buyItem3", cost: 10 },
+    { id: "buyItem2", cost: 10 },
+    { id: "buyItem3", cost: 50 },
     { id: "buyItem5", cost: 5 },
     { id: "buyItem6", cost: 20 },
     { id: "buyItem8", cost: 20 },

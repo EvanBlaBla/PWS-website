@@ -54,7 +54,7 @@ body {
 
 /* ===== Uitleg + Opdracht container ===== */
 #uitlegVDOpdracht,
-#opdracht{
+#opdracht, #opdrachtZ{
   padding: 1%;
   border-radius: 3%;
   margin: 2% 4% 0% 30vw;
@@ -105,7 +105,8 @@ body {
 #opdracht1B {flex: 33%;}
 #opdracht1C {flex: 33%;}
 
-#opdracht > div {
+#opdracht1A, #opdracht1B, #opdracht1C, #opdrachtInfo {
+  height:auto;
   display: flex;
   background-color: rgba(235, 235, 235, 0.27);
   flex-direction: column;

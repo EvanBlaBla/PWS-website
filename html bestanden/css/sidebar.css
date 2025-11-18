@@ -50,7 +50,8 @@
 }
 
 .sidebarItem img {
-  width: 100%;
+  width: auto;
+  height:100%;
 }
 
 /* Balk onder de items */
@@ -77,7 +78,7 @@
 .hint {
   position: absolute;
   width: 12vw;
-  height: 20vh;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;

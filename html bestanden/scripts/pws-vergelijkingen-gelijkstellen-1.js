@@ -60,10 +60,12 @@ function pwsVergelijkingenGelijkstellen1() {
   vraag1AGenereren();
 
   function vraag1AGenereren() {
+    document.querySelector('.js-tekst' ).innerHTML = `
+    
+    <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) Koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>`
     document.querySelector('.js-opdracht1A').innerHTML = `
-    <span class="js-score1A"></span>
-     - 1a <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) Koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>
-    Stel de functies van Loek en Jonas op.`;
+    <span class="js-score1A" style="margin-top: 0;"></span>
+     <p style="margin: 0;">A) Stel de functies van Loek en Jonas op.</p>`;
     //let resultaat1A = '';
     window.checken1A = function () {
       console.log("checken1A draait");
@@ -221,7 +223,7 @@ function pwsVergelijkingenGelijkstellen1() {
     console.log('resultaat1A' + resultaat1A);
     document.querySelector('.js-opdracht1B').innerHTML = `
       <span class="js-score1B"></span>
-     - 1b <br> Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.`;
+     <p style="margin: 0;">B) Stel een ongelijkheid op waarmee berekend kan worden na hoeveel dagen(t) Jonas meer geld heeft dan Loek.</p>`;
     //let resultaat1B = '';
     window.checken1B = function () {
       console.log("checken1B draait");
@@ -308,7 +310,7 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1CGenereren() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
-       - 1c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?
+       <p style="margin: 0;">C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?</p>
       `;
     //let resultaat1C = '';
 

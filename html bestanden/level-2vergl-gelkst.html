@@ -55,42 +55,54 @@
 
       <!-- Opdrachten staan ook in HTML -->
         
-        <div id="opdracht" style="background-color: green; display: flex; flex-direction:column;">
-          <div>
-          <div style="background-color: red;">tekst</div>
-          <div style="background-color: blue;"><button class="js-opnieuw1A">Opnieuw</button></div>
-        </div>
-        <div>
-          <div id="opdracht1A">
+        <div id="opdracht" style=" display: flex; flex-direction:column;">
+          <div id="opdrachtInfo">
+             <button class="js-opnieuw1A" style=" position: absolute; margin-top: 0.5%; width: 28%; margin-left: 65%; display: flex; z-index: 3;">Opnieuw</button>
+            <p style="margin: 0; font-weight: bold; margin-top: 10px;">Vergelijkingen aan elkaar gelijkstellen - Opdracht 1</p>
+          <div style="padding: 0; " class="js-tekst">
             
-          <p>Vergelijkingen aan elkaar gelijkstellen - Opdracht 1</p>
+          </div>
+         
+        </div>
+        
+        <div id="a" style="display:flex; flex-direction: row; align-items:flex-start; width: 100%; gap: 1%;height: 100%;">
+          <div id="opdracht1A" style="min-height: 90%;">
+            
+          
             <p class="js-opdracht1A"></p>
-            <input placeholder="Antwoord" class="js-antwoord1A">
-            <button class="js-nakijken1A" 
-            >Nakijken</button>
+            <div style="display: flex; flex-direction: row;">
+              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1A" >
+              <button style="width: 30%;" class="js-nakijken1A" 
+              >Nakijken</button>
+            </div>
             <button class="js-uitwerkingen1A" hidden
             >Uitwerkingen</button>
             <p class="js-resultaat1A"></p>
           </div>
-          <div id="opdracht1B" hidden>
+          <div id="opdracht1B" style="min-height: 90%;" hidden>
             <p class="js-opdracht1B" hidden></p>
-            <input placeholder="Antwoord" class="js-antwoord1B" hidden>
-            <button class="js-nakijken1B" hidden
-            >Nakijken</button>
+            <div style="display: flex; flex-direction: row;">
+              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1B" hidden>
+              <button style="width: 30%;" class="js-nakijken1B" hidden
+              >Nakijken</button>
+            </div>
             <button class="js-uitwerkingen1B"hidden
             >Uitwerkingen</button>
             <p class="js-resultaat1B"></p>
           </div>
-          <div id="opdracht1C">
+          <div id="opdracht1C" style="min-height: 90%;" hidden>
             <p class="js-opdracht1C" hidden></p>
-            <input placeholder="Antwoord" class="js-antwoord1C" hidden>
-            <button class="js-nakijken1C" hidden
-            >Nakijken</button>
+            <div style="display: flex; flex-direction: row;">
+              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1C" hidden>
+              <button style="width: 30%;" class="js-nakijken1C" hidden
+              >Nakijken</button>
+            </div>
             <button class="js-uitwerkingen1C"hidden
             >Uitwerkingen</button>
             <p class="js-resultaat1C"></p>
           </div>
         </div>
+        
 
       </div>
     </div>

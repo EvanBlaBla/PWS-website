@@ -50,24 +50,26 @@
       </div>
 
       <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht">
+      <div id="opdracht" style="display:flex; flex-direction: column;">
+        <div id="a" style="display:flex; flex-direction: row; align-items:flex-start; width: 100%; gap: 1%;min-height: 100%;">
         
-        <div id="opdracht1A">
-          <button class="js-opnieuw1">Opnieuw</button>
+        <div id="opdracht1A" style="min-height:95%">
           <p>Functie analyseren - Opdracht 1</p>
           <p class="js-score1A"></p>
           <p class="js-opdracht1A"></p>
-          <input placeholder="Antwoord" class="js-antwoord1A">
-          <button class="js-nakijken1A" 
-          >Nakijken</button>
+          <div style="display: flex; flex-direction: row;">
+              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1A" >
+              <button style="width: 30%;" class="js-nakijken1A" 
+              >Nakijken</button>
+            </div>
           <button class="js-uitwerkingen1A" hidden
           >Uitwerkingen</button>
+          <p class="js-resultaat1A"></p>
         </div>
-        <div id="opdracht1B">
+        <div id="opdracht1B" style="min-height:95%">
           
-        <div id="opdracht1C">
-          
-        </div>
+        
+      </div>
       </div>
     </div>
   </div>
