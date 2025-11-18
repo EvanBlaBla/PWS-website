@@ -124,6 +124,7 @@ function functieAnalyseren1() {
       De functie ${vraag1A} is een ${computerAntwoord1A} functie. De hoogste macht van x is ${c1}<br><br>
       
       <button class="js-opnieuw1">Opnieuw</button>`;
+
       document.querySelector('.js-opnieuw1').hidden = false;
       document.querySelector('.js-opnieuw1').addEventListener('click', () => {
         if (allesGoed1 === true) {
@@ -143,8 +144,7 @@ function functieAnalyseren1() {
         } else if (allesGoed1 === false) {
           alert("Je kunt pas opnieuw als je alle antwoorden goed hebt!");
         } return;
-      });
-
+      });    
       
 
       if (leerlingAntwoord1A === 'clean') {

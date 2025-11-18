@@ -123,6 +123,7 @@ function pwsVergelijkingenGelijkstellen1() {
       ${computerAntwoord1A} <br>`
 
       if (resultaat1A === 'goed') {
+        document.querySelector('#opdracht1B').hidden = false
         document.querySelector('.js-uitwerkingen1A').hidden = false;
         document.querySelector('.js-opdracht1B').hidden = false;
         document.querySelector('.js-antwoord1B').hidden = false;

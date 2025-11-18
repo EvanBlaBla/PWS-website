@@ -60,7 +60,7 @@
   width: 80vw;
   margin-left: 0;
   height: 10px;
-  background-color: brown;
+  background-color: transparent;
   position: relative;
   z-index: 5;
 }
