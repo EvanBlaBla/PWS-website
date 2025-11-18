@@ -29,29 +29,30 @@ function functieAnalyseren2() {
   };
   updateScoreSpans2();
 
-    const a2 = Math.floor(Math.random() * (25 - 2 + 2)) + 2
-    const b2 = Math.floor(Math.random() * (200 - 2 + 2)) + 2
-    const c2 = Math.floor(Math.random() * (3 - 2 + 2)) + 2
-    const d2 = Math.floor(Math.random() * (25 - 2 + 2)) + 2
+  const a2 = Math.floor(Math.random() * (9)) + 1
+  const b2 = Math.floor(Math.random() * (10)) + 1
+  do {
+    c2 = Math.floor(Math.random() * 10) + 1;   
+  } while (c2 === b2);
+  const d22 = [b2, c2]
+  const d2Index = Math.floor(Math.random() * d22.length);
+  const d2 = d22[d2Index];
     
-    let computerAntwoord2A = '';
-    let vraag2A = '';
+  let computerAntwoord2A = '';
 
-    if (c2 === 2) {
-      computerAntwoord2A = `lineair`  
-      vraag2A = `f(x) = ${a2 + b2}x + ${d2}`;
-    } else if (c2 === 2) {
-      computerAntwoord2A = `kwadratisch` 
-      vraag2A = `f(x) = ${a2}x^${c2} + ${b2}x + ${d2}`;
-    } else {
-      computerAntwoord2A = `niet kwadratisch en niet lineair` 
-      vraag2A = `f(x) = ${a2}x^${c2} + ${b2}x + ${d2}`;
-    };
+  if (d2Index === 0) {
+    computerAntwoord2A = `lineaire`
+  } else if (d2Index === 1) {
+    computerAntwoord2A = `kwadratische`
+  } else {
+    computerAntwoord2A = `niet kwadratische of lineaire`
+  };
 
-    vraag2AGenereren();
+  vraag2AGenereren();
   function vraag2AGenereren() {
-    document.querySelector('.js-opdracht2A').innerHTML = `Gegeven de functie ${vraag2A}. Wat voor soort functie is dit? <br>
+    document.querySelector('.js-opdracht2A').innerHTML = `Gegeven de functie f(x) = ${b2}(x+${a2})^2 - ${d2}x^2. Wat voor soort functie is dit? <br>
     Je kan kiezen uit de volgende antwoorden: lineair, kwadratisch, niet kwadratisch en niet lineair.`;
+    console.log(`b2 is: ${b2}, c2 is: ${c2}, d2 is: ${d2}, d2Index is: ${d2Index}`);
 
     //let resultaat2A = '';
 
@@ -73,13 +74,13 @@ function functieAnalyseren2() {
      
 
       let correcteAntwoorden2A;
-      if (c2 === 2) {
+      if (d2Index === 0) {
         correcteAntwoorden2A = [`lineair`, '§', '#']
-      } else if (c2 === 2) {
+      } else if (d2Index === 1) {
         correcteAntwoorden2A = [`kwadratisch`, '§', '#']
       } else {
-        correcteAntwoorden2A = [`niet kwadratisch en niet lineair`, 'Niet lineair en niet kwadratisch', '§', '#']
-      }
+        correcteAntwoorden2A = [`nietkwadratischennietlineair`,'nietlineairennietkwadratisch', '§', '#']
+      };
 
       let resultaat2A;
       if (correcteAntwoorden2A.includes(leerlingAntwoord2ACorrect)) {
@@ -101,20 +102,32 @@ function functieAnalyseren2() {
         console.log('goed');
         functieAnalyseren2Goed = true;
         localStorage.setItem('functieAnalyseren2Goed', JSON.stringify(true));
-        //checkAllesGoed();
+        checkAllesGoed();
         console.log('functieAnalyseren2Goed is nu, :', functieAnalyseren2Goed);
       };
 
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
-        document.querySelector('.js-uitwerkingen2A').hidden = false;
+         ;
         //document.querySelector('.js-opnieuw2').hidden = false;
-        //addCoins(2);
-        //addScore(2);
+        addCoins(2);
+        addScore(2);
         
 
       } else {
         allesGoed2 = false;
+      };
+      let uitwerkingenUitleg2A = '';
+      if (d2Index === 0) {
+        uitwerkingenUitleg2A = `f(x) = ${b2}(x+${a2})^2 - ${d2}x^2 kun je korter schrijven als <br> 
+        f(x) = ${b2}x^2 + ${2*b2*a2}x + ${b2*a2*a2} - ${d2}x^2 <br>
+        f(x) = ${2*b2*a2}x + ${b2*a2*a2} <br>
+        De hoogste macht van x is 1, dus dit is een lineaire functie.`;
+      } else if (d2Index === 1) {
+        uitwerkingenUitleg2A = `f(x) = ${b2}(x+${a2})^2 - ${d2}x^2 kun je korter schrijven als <br> 
+        f(x) = ${b2}x^2 + ${2*b2*a2}x + ${b2*a2*a2} - ${d2}x^2 <br>
+        f(x) = ${b2 - d2}x^2 + ${2*b2*a2}x + ${b2*a2*a2} <br>
+        De hoogste macht van x is 2, dus dit is een kwadratische functie.`;
       };
 
       const uitwerkingen2A = document.querySelector('.js-resultaat2A');
@@ -122,7 +135,7 @@ function functieAnalyseren2() {
       ${leerlingAntwoord2A} <br>
       Jouw antwoord is ${resultaat2A} <br><br>
       Uitwerkingen: <br>
-      De functie ${vraag2A} is een ${computerAntwoord2A} functie. De hoogste macht van x is ${c2}<br><br>
+      ${uitwerkingenUitleg2A}
       
       <button class="js-opnieuw2">Opnieuw</button>`;
       document.querySelector('.js-opnieuw2').hidden = false;
@@ -132,7 +145,7 @@ function functieAnalyseren2() {
         // document.querySelector('.js-opdracht2').innerHTML = "";
           document.querySelector('.js-antwoord2A').value = "";
           document.querySelector('.js-resultaat2A').innerHTML = "";
-          document.querySelector('.js-uitwerkingen2A').hidden = true;
+           ;
           document.querySelector('.js-resultaat2A').hidden = false;;
 
           const nakijk2A = document.querySelector('.js-nakijken2A');
@@ -165,7 +178,7 @@ function functieAnalyseren2() {
 
         document.querySelector('.js-antwoord2A').value = "";
         document.querySelector('.js-resultaat2A').innerHTML = "";
-        document.querySelector('.js-uitwerkingen2A').hidden = true;
+         ;
         document.querySelector('.js-resultaat2A').hidden = false;
         const nakijk2A = document.querySelector('.js-nakijken2A');
         nakijk2A.replaceWith(nakijk2A.cloneNode(true));
@@ -186,15 +199,18 @@ function functieAnalyseren2() {
 
 
        document.querySelector('.js-nakijken2A').onclick = checken2A;
-       document.querySelector('.js-uitwerkingen2A').onclick = uitwerkingen2A;
+        ;
 
   };
 };
 functieAnalyseren2();
+
+/*
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     checken2A();
   }});
+  */
 
   /*
 document.querySelector('.js-opnieuw2').addEventListener('click', () => {
@@ -203,7 +219,7 @@ document.querySelector('.js-opnieuw2').addEventListener('click', () => {
     document.querySelector('.js-opdracht2A').innerHTML = "";
     document.querySelector('.js-antwoord2A').value = "";
     document.querySelector('.js-resultaat2A').innerHTML = "";
-    document.querySelector('.js-uitwerkingen2A').hidden = true;
+     ;
 
     vraag2ABeantwoord = false;
     allesGoed2 = false;

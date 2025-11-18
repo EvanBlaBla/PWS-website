@@ -127,7 +127,7 @@ function pwsVergelijkingenGelijkstellen1() {
 
       if (resultaat1A === 'goed') {
         document.querySelector('#opdracht1B').hidden = false
-        document.querySelector('.js-uitwerkingen1A').hidden = false;
+         ;
         document.querySelector('.js-opdracht1B').hidden = false;
         document.querySelector('.js-antwoord1B').hidden = false;
         document.querySelector('.js-nakijken1B').hidden = false;
@@ -159,13 +159,13 @@ function pwsVergelijkingenGelijkstellen1() {
 
         document.querySelector('.js-antwoord1A').value = "";
         document.querySelector('.js-resultaat1A').innerHTML = "";
-        document.querySelector('.js-uitwerkingen1A').hidden = true;
+         ;
         document.querySelector('.js-resultaat1A').hidden = false;
 
     //   document.querySelector('.js-opdracht1B').innerHTML = "";
         document.querySelector('.js-antwoord1B').value = "";
         document.querySelector('.js-resultaat1B').innerHTML = "";
-        document.querySelector('.js-uitwerkingen1B').hidden = true;
+      
         document.querySelector('.js-opdracht1B').hidden = true;
         document.querySelector('.js-antwoord1B').hidden = true;
         document.querySelector('.js-nakijken1B').hidden = true;
@@ -174,7 +174,6 @@ function pwsVergelijkingenGelijkstellen1() {
         //document.querySelector('.js-opdracht1C').innerHTML = "";
         document.querySelector('.js-antwoord1C').value = "";
         document.querySelector('.js-resultaat1C').innerHTML = "";
-        document.querySelector('.js-uitwerkingen1C').hidden = true;
         document.querySelector('.js-opdracht1C').hidden = true;
         document.querySelector('.js-antwoord1C').hidden = true;
         document.querySelector('.js-nakijken1C').hidden = true;
@@ -214,7 +213,7 @@ function pwsVergelijkingenGelijkstellen1() {
     };
     
     document.querySelector('.js-nakijken1A').onclick = checken1A;
-    document.querySelector('.js-uitwerkingen1A').onclick = uitwerkingen1A;
+
     
     vraag1BGenereren();
     
@@ -281,7 +280,7 @@ function pwsVergelijkingenGelijkstellen1() {
       ${computerAntwoord1B} <br>`
 
       if (resultaat1B === 'goed') {
-        document.querySelector('.js-uitwerkingen1B').hidden = false;
+
         document.querySelector('.js-opdracht1C').hidden = false;
         document.querySelector('.js-antwoord1C').hidden = false;
         document.querySelector('.js-nakijken1C').hidden = false;
@@ -303,7 +302,7 @@ function pwsVergelijkingenGelijkstellen1() {
     };
     
     document.querySelector('.js-nakijken1B').onclick = checken1B;
-    document.querySelector('.js-uitwerkingen1B').onclick = uitwerkingen1B;
+
     
     vraag1CGenereren();
   };
@@ -370,7 +369,6 @@ function pwsVergelijkingenGelijkstellen1() {
       ${computerAntwoord1C} <br>`
       if (resultaat1C === 'goed') {
         allesGoed4 = true;
-        document.querySelector('.js-uitwerkingen1C').hidden = false;
         addCoins(2);
         addScore(1);
       }
@@ -404,7 +402,7 @@ function pwsVergelijkingenGelijkstellen1() {
     };
     
     document.querySelector('.js-nakijken1C').onclick = checken1C;
-    document.querySelector('.js-uitwerkingen1C').onclick = uitwerkingen1C;
+uitwerkingen1C;
   };
 
 };
@@ -415,13 +413,13 @@ document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
      // document.querySelector('.js-opdracht1A').innerHTML = "";
       document.querySelector('.js-antwoord1A').value = "";
       document.querySelector('.js-resultaat1A').innerHTML = "";
-      document.querySelector('.js-uitwerkingen1A').hidden = true;
+       ;
       document.querySelector('.js-resultaat1A').hidden = false;
 
    //   document.querySelector('.js-opdracht1B').innerHTML = "";
       document.querySelector('.js-antwoord1B').value = "";
       document.querySelector('.js-resultaat1B').innerHTML = "";
-      document.querySelector('.js-uitwerkingen1B').hidden = true;
+ 
       document.querySelector('.js-opdracht1B').hidden = true;
       document.querySelector('.js-antwoord1B').hidden = true;
       document.querySelector('.js-nakijken1B').hidden = true;
@@ -430,7 +428,6 @@ document.querySelector('.js-opnieuw1A').addEventListener('click', () => {
       //document.querySelector('.js-opdracht1C').innerHTML = "";
       document.querySelector('.js-antwoord1C').value = "";
       document.querySelector('.js-resultaat1C').innerHTML = "";
-      document.querySelector('.js-uitwerkingen1C').hidden = true;
       document.querySelector('.js-opdracht1C').hidden = true;
       document.querySelector('.js-antwoord1C').hidden = true;
       document.querySelector('.js-nakijken1C').hidden = true;

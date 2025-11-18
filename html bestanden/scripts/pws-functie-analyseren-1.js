@@ -37,13 +37,13 @@ function functieAnalyseren1() {
     let vraag1A = '';
 
     if (c1 === 1) {
-      computerAntwoord1A = `lineair`  
+      computerAntwoord1A = `lineaire`  
       vraag1A = `f(x) = ${a1 + b1}x + ${d1}`;
     } else if (c1 === 2) {
-      computerAntwoord1A = `kwadratisch` 
+      computerAntwoord1A = `kwadratische` 
       vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
     } else {
-      computerAntwoord1A = `niet kwadratisch en niet lineair` 
+      computerAntwoord1A = `niet kwadratische of lineaire` 
       vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
     };
 
@@ -77,8 +77,9 @@ function functieAnalyseren1() {
       } else if (c1 === 2) {
         correcteAntwoorden1A = [`kwadratisch`, '§', '#']
       } else {
-        correcteAntwoorden1A = [`niet kwadratisch en niet lineair`, 'Niet lineair en niet kwadratisch', '§', '#']
+        correcteAntwoorden1A = [`nietkwadratischennietlineair`, 'nietlineairennietkwadratisch', '§', '#']
       }
+      console.log(correcteAntwoorden1A);
 
       let resultaat1A;
       if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
@@ -100,16 +101,16 @@ function functieAnalyseren1() {
         console.log('goed');
         functieAnalyseren1Goed = true;
         localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
-        //checkAllesGoed();
+        checkAllesGoed();
         console.log('functieAnalyseren1Goed is nu, :', functieAnalyseren1Goed);
       };
 
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
-        document.querySelector('.js-uitwerkingen1A').hidden = false;
+         ;
         //document.querySelector('.js-opnieuw1').hidden = false;
-        //addCoins(1);
-        //addScore(1);
+        addCoins(1);
+        addScore(1);
         
 
       } else {
@@ -132,7 +133,7 @@ function functieAnalyseren1() {
         // document.querySelector('.js-opdracht1').innerHTML = "";
           document.querySelector('.js-antwoord1A').value = "";
           document.querySelector('.js-resultaat1A').innerHTML = "";
-          document.querySelector('.js-uitwerkingen1A').hidden = true;
+           ;
           document.querySelector('.js-resultaat1A').hidden = false;;
 
           const nakijk1A = document.querySelector('.js-nakijken1A');
@@ -164,7 +165,7 @@ function functieAnalyseren1() {
 
         document.querySelector('.js-antwoord1A').value = "";
         document.querySelector('.js-resultaat1A').innerHTML = "";
-        document.querySelector('.js-uitwerkingen1A').hidden = true;
+         ;
         document.querySelector('.js-resultaat1A').hidden = false;
         const nakijk1A = document.querySelector('.js-nakijken1A');
         nakijk1A.replaceWith(nakijk1A.cloneNode(true));
@@ -185,16 +186,17 @@ function functieAnalyseren1() {
 
 
        document.querySelector('.js-nakijken1A').onclick = checken1A;
-       document.querySelector('.js-uitwerkingen1A').onclick = uitwerkingen1A;
+        ;
 
   };
 };
 functieAnalyseren1();
+/*
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') {
     checken1A();
   }});
-
+*/
   /*
 document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     // eerst het oude wissen
@@ -202,7 +204,7 @@ document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     document.querySelector('.js-opdracht1A').innerHTML = "";
     document.querySelector('.js-antwoord1A').value = "";
     document.querySelector('.js-resultaat1A').innerHTML = "";
-    document.querySelector('.js-uitwerkingen1A').hidden = true;
+     ;
 
     vraag1ABeantwoord = false;
     allesGoed1 = false;
