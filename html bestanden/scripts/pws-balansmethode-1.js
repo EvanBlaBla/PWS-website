@@ -87,18 +87,17 @@ function balansMethode1 () {
         console.log('balansMethode1Goed is nu:', balansMethode1Goed);
       };
 
+      if (resultaat1A === 'goed' && allesGoed1 === false) {
+        addCoins(1);
+        addScore(10);
+        console.log(coins);
+      };
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
-         ;
-        //document.querySelector('.js-opnieuw1').hidden = false;
-        addCoins(1);
-        addScore(1);
-        
-
       } else {
         allesGoed1 = false;
       };
-      
+    
 
       const uitwerkingen1A = document.querySelector('.js-resultaat1A')
       uitwerkingen1A.innerHTML = `
@@ -116,9 +115,7 @@ function balansMethode1 () {
         // document.querySelector('.js-opdracht1').innerHTML = "";
           document.querySelector('.js-antwoord1A').value = "";
           document.querySelector('.js-resultaat1A').innerHTML = "";
-           ;
           document.querySelector('.js-resultaat1A').hidden = false;;
-
           const nakijk1A = document.querySelector('.js-nakijken1A');
           nakijk1A.replaceWith(nakijk1A.cloneNode(true));
           vraag1ABeantwoord = false;

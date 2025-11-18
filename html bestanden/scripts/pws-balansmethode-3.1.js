@@ -93,11 +93,13 @@ function balansMethode3() {
         console.log('balansMethode3Goed is nu:', balansMethode3Goed);
       };
 
+      if (resultaat3A === 'goed' && allesGoed3 === false) {
+        addCoins(3);
+        addScore(10);
+        console.log(coins);
+      };
       if (resultaat3A === 'goed') {
         allesGoed3 = true;
-         ;
-        addCoins(1);
-        addScore(1);
       } else {
         allesGoed3 = false;
       };

@@ -85,11 +85,13 @@ function balansMethode2() {
         console.log('balansMethode2Goed is nu:', balansMethode2Goed);
       };
 
+      if (resultaat2A === 'goed' && allesGoed2 === false) {
+        addCoins(2);
+        addScore(10);
+        console.log(coins);
+      };
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
-         ;
-        addCoins(1);
-        addScore(1);
       } else {
         allesGoed2 = false;
       };
@@ -101,7 +103,7 @@ function balansMethode2() {
       uitwerkingen: <br>
       x² + ${b2} = ${c2} <br>
       x² = ${a2*a2} <br>
-      x = \u222A${a2*a2} V x = -\u222A${a2*a2} <br> 
+      x = √${a2*a2} V x = -√${a2*a2} <br> 
       ${computerAntwoord2A} <br>
       <button class="js-opnieuw2">Opnieuw</button>
       `;

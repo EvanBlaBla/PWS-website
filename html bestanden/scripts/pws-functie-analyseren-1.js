@@ -105,14 +105,13 @@ function functieAnalyseren1() {
         console.log('functieAnalyseren1Goed is nu, :', functieAnalyseren1Goed);
       };
 
+      if (resultaat1A === 'goed' && allesGoed1 === false) {
+        addCoins(1);
+        addScore(10);
+        console.log(coins);
+      };
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
-         ;
-        //document.querySelector('.js-opnieuw1').hidden = false;
-        addCoins(1);
-        addScore(1);
-        
-
       } else {
         allesGoed1 = false;
       };

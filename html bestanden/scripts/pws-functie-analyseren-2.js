@@ -106,17 +106,17 @@ function functieAnalyseren2() {
         console.log('functieAnalyseren2Goed is nu, :', functieAnalyseren2Goed);
       };
 
+     if (resultaat2A === 'goed' && allesGoed2 === false) {
+        addCoins(2);
+        addScore(10);
+        console.log(coins);
+      };
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
-         ;
-        //document.querySelector('.js-opnieuw2').hidden = false;
-        addCoins(2);
-        addScore(2);
-        
-
       } else {
         allesGoed2 = false;
       };
+      
       let uitwerkingenUitleg2A = '';
       if (d2Index === 0) {
         uitwerkingenUitleg2A = `f(x) = ${b2}(x+${a2})^2 - ${d2}x^2 kun je korter schrijven als <br> 

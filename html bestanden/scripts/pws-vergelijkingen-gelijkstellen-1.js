@@ -125,14 +125,22 @@ function pwsVergelijkingenGelijkstellen1() {
       yJonas = -${d}t + ${b} <br><br>
       ${computerAntwoord1A} <br>`
 
+
+      if (resultaat1A === 'goed' && vraag1ABeantwoord === false) {
+        addCoins(1);
+        addScore(10);
+        console.log(coins);
+      };
+
       if (resultaat1A === 'goed') {
         document.querySelector('#opdracht1B').hidden = false
          ;
         document.querySelector('.js-opdracht1B').hidden = false;
         document.querySelector('.js-antwoord1B').hidden = false;
         document.querySelector('.js-nakijken1B').hidden = false;
-        addCoins(2);
-        addScore(1);
+        //addCoins(1);
+        //addScore(10);
+        vraag1ABeantwoord = true;
       };
       vraag1ABeantwoord = true;
 
@@ -279,13 +287,19 @@ function pwsVergelijkingenGelijkstellen1() {
       Dus: yJonas > yLoek <br>
       ${computerAntwoord1B} <br>`
 
-      if (resultaat1B === 'goed') {
+      if (resultaat1B === 'goed' && vraag1BBeantwoord === false) {
+        addCoins(2);
+        addScore(10);
+        console.log(coins);
+      };
 
+      if (resultaat1B === 'goed') {
         document.querySelector('.js-opdracht1C').hidden = false;
         document.querySelector('.js-antwoord1C').hidden = false;
         document.querySelector('.js-nakijken1C').hidden = false;
-        addCoins(2);
-        addScore(1);
+        //addCoins(2);
+        //addScore(10);
+        vraag1BBeantwoord = true;
       }
       vraag1BBeantwoord = true;
       updateScoreSpans();
@@ -367,10 +381,17 @@ function pwsVergelijkingenGelijkstellen1() {
       (${c}-${d})t > ${a} <br>
       ${e}t > ${a} <br>
       ${computerAntwoord1C} <br>`
+      
+      if (resultaat1C === 'goed' && vraag1CBeantwoord === false) {
+        addCoins(3);
+        addScore(10);
+        console.log(coins);
+      };
+
       if (resultaat1C === 'goed') {
         allesGoed4 = true;
-        addCoins(2);
-        addScore(1);
+        //addCoins(2);
+        //addScore(1);
       }
       vraag1CBeantwoord = true;
       updateScoreSpans();
