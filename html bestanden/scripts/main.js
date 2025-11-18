@@ -23,6 +23,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
   const shortcutBtn = safeGet('shortcutBtn');
 
+  window.onload = function() {
+    showSchat();
+  }
 
   function restartAnimation(element, animationName) {
     if (!element) return;
@@ -234,8 +237,8 @@ Object.keys(equipMap).forEach(id => {
 const hintlock = ['lock1','lock2','lock3','lock4','lock5','lock6','lock7'];
 const hintTeksten = {
   1: "5x+2 = 3x+6",
-  2: "3²*4-27/3+3(4-2)",
-  3: "x² is lineair of kwadratisch",
+  2: "3x²-5 = 2x²+4",
+  3: "Is x² lineair of kwadratisch",
   4: "",
   5: "",
   6: "",
@@ -322,7 +325,7 @@ startBtn.addEventListener("click", () => {
   overlay.style.display = 'flex';
   tekst.textContent = '';
 
-  const introText = "Hallo avonturier, mijn naam is PiraatX². De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat op de Funky Eilanden verstopt, maar ik kan hem niet alleen vinden. Ik heb jouw hulp daarbij nodig.";
+  const introText = "Hallo avonturier, mijn naam is PiraatX². De schat van mijn overgroot opa is gestolen door π-raat. Hij heeft de schat in de Wiskunde Baai verstopt, maar ik kan hem niet alleen vinden. Ik heb jouw hulp daarbij nodig.";
 
   let i = 0;
   function type() {
@@ -379,7 +382,7 @@ startBtn.addEventListener("click", () => {
 function startRondleiding(name) {
   safeGet('tekst').style.height = '150px';
   overlay.style.backdropFilter = 'blur(0px)';
-  tekst.innerHTML = `Welkom op de Funky Eilanden, ${name}! Ik zal je een korte rondleiding geven.`;
+  tekst.innerHTML = `Welkom op in Wiskunde Baai, ${name}! Ik zal je een korte rondleiding geven.`;
   addNextButton(ronleidingShop);
 }
 
@@ -397,13 +400,13 @@ function ronleidingShop() {
   safeGet('verteller').style.transform = 'translate(-30%)';
   safeGet('overlay').style.transitionDuration = '1.5s';
   safeGet('verteller').style.transitionDuration = '1.5s';  
-  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden, zwaarden en ooglapjes kopen met je funky munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
+  tekst.innerHTML = `Dit is de winkel. hier kan je hoeden, zwaarden en ooglapjes kopen met munten. Je kan rechtsboven zien hoeveel munten je hebt. Munten verdien je door levels te spelen.`;
   addNextButton(ronleidingHints);
 }
 
 function ronleidingHints() {
   openHints();
-  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier zien`;
+  tekst.innerHTML = `Als je een level haalt krijg je een aanwijzing voor waar de schat ligt verstopt. Je kan de aanwijzingen hier zien.`;
   addNextButton(ronleidingLevels);
 }
 
@@ -451,6 +454,7 @@ const allHidden = hintLock.every(id => {
   const el = safeGet(id);
   if (!el) return false;
   return window.getComputedStyle(el).display === 'none';
+  
 });
 
 if (allHidden) {
@@ -461,6 +465,7 @@ if (allHidden) {
   });
 }
 }
+
   // --- dev button logic
   //AI
   function showdevbutton() {
