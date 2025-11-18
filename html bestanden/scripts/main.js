@@ -234,8 +234,8 @@ Object.keys(equipMap).forEach(id => {
 const hintlock = ['lock1','lock2','lock3','lock4','lock5','lock6','lock7'];
 const hintTeksten = {
   1: "5x+2 = 3x+6",
-  2: "3²*4-27/3+3(4-2)",
-  3: "x² is lineair of kwadratisch",
+  2: "3x² - 5 = 2x² + 4",
+  3: "Is x² lineair of kwadratisch",
   4: "",
   5: "",
   6: "",
