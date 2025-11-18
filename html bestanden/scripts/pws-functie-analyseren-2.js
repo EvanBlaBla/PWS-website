@@ -50,7 +50,7 @@ function functieAnalyseren2() {
 
   vraag2AGenereren();
   function vraag2AGenereren() {
-    document.querySelector('.js-opdracht2A').innerHTML = `Gegeven de functie ${b2}(x+${a2})^2 - ${d2}x^2. Wat voor soort functie is dit? <br>
+    document.querySelector('.js-opdracht2A').innerHTML = `Gegeven de functie f(x) = ${b2}(x+${a2})^2 - ${d2}x^2. Wat voor soort functie is dit? <br>
     Je kan kiezen uit de volgende antwoorden: lineair, kwadratisch, niet kwadratisch en niet lineair.`;
     console.log(`b2 is: ${b2}, c2 is: ${c2}, d2 is: ${d2}, d2Index is: ${d2Index}`);
 
