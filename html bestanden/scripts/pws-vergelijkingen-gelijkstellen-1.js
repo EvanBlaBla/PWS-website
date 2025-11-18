@@ -64,8 +64,9 @@ function pwsVergelijkingenGelijkstellen1() {
     
     <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) Koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>`
     document.querySelector('.js-opdracht1A').innerHTML = `
-    <span class="js-score1A" style="margin-top: 0;"></span>
-     <p style="margin: 0;">A) Stel de functies van Loek en Jonas op.</p>`;
+    <span class="js-score1A"></span>
+     - 1a <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) Koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>
+    Stel de functies van Loek en Jonas op.`;
     //let resultaat1A = '';
     window.checken1A = function () {
       console.log("checken1A draait");
@@ -310,7 +311,7 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1CGenereren() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
-       <p style="margin: 0;">C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?</p>
+       - 1c <br> Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?
       `;
     //let resultaat1C = '';
 
