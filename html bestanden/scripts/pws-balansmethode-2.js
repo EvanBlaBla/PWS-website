@@ -87,7 +87,7 @@ function balansMethode2() {
 
       if (resultaat2A === 'goed') {
         allesGoed2 = true;
-        document.querySelector('.js-uitwerkingen2A').hidden = false;
+         ;
         addCoins(1);
         addScore(1);
       } else {
@@ -112,7 +112,7 @@ function balansMethode2() {
         // document.querySelector('.js-opdracht1').innerHTML = "";
           document.querySelector('.js-antwoord2A').value = "";
           document.querySelector('.js-resultaat2A').innerHTML = "";
-          document.querySelector('.js-uitwerkingen2A').hidden = true;
+           ;
           document.querySelector('.js-resultaat2A').hidden = false;;
           const nakijk2A = document.querySelector('.js-nakijken2A');
           nakijk2A.replaceWith(nakijk2A.cloneNode(true));
@@ -145,7 +145,7 @@ function balansMethode2() {
 
         document.querySelector('.js-antwoord2A').value = "";
         document.querySelector('.js-resultaat2A').innerHTML = "";
-        document.querySelector('.js-uitwerkingen2A').hidden = true;
+         ;
         document.querySelector('.js-resultaat2A').hidden = false;
         const nakijk2A = document.querySelector('.js-nakijken2A');
         nakijk2A.replaceWith(nakijk2A.cloneNode(true));
@@ -166,7 +166,7 @@ function balansMethode2() {
         };
         
         document.querySelector('.js-nakijken2A').onclick = checken2A;
-        document.querySelector('.js-uitwerkingen2A').onclick = uitwerkingen2A;
+         ;
   }
 }
 

@@ -107,7 +107,7 @@ function functieAnalyseren1() {
 
       if (resultaat1A === 'goed') {
         allesGoed1 = true;
-        document.querySelector('.js-uitwerkingen1A').hidden = false;
+         ;
         //document.querySelector('.js-opnieuw1').hidden = false;
         addCoins(1);
         addScore(1);
@@ -133,7 +133,7 @@ function functieAnalyseren1() {
         // document.querySelector('.js-opdracht1').innerHTML = "";
           document.querySelector('.js-antwoord1A').value = "";
           document.querySelector('.js-resultaat1A').innerHTML = "";
-          document.querySelector('.js-uitwerkingen1A').hidden = true;
+           ;
           document.querySelector('.js-resultaat1A').hidden = false;;
 
           const nakijk1A = document.querySelector('.js-nakijken1A');
@@ -165,7 +165,7 @@ function functieAnalyseren1() {
 
         document.querySelector('.js-antwoord1A').value = "";
         document.querySelector('.js-resultaat1A').innerHTML = "";
-        document.querySelector('.js-uitwerkingen1A').hidden = true;
+         ;
         document.querySelector('.js-resultaat1A').hidden = false;
         const nakijk1A = document.querySelector('.js-nakijken1A');
         nakijk1A.replaceWith(nakijk1A.cloneNode(true));
@@ -186,7 +186,7 @@ function functieAnalyseren1() {
 
 
        document.querySelector('.js-nakijken1A').onclick = checken1A;
-       document.querySelector('.js-uitwerkingen1A').onclick = uitwerkingen1A;
+        ;
 
   };
 };
@@ -204,7 +204,7 @@ document.querySelector('.js-opnieuw1').addEventListener('click', () => {
     document.querySelector('.js-opdracht1A').innerHTML = "";
     document.querySelector('.js-antwoord1A').value = "";
     document.querySelector('.js-resultaat1A').innerHTML = "";
-    document.querySelector('.js-uitwerkingen1A').hidden = true;
+     ;
 
     vraag1ABeantwoord = false;
     allesGoed1 = false;
