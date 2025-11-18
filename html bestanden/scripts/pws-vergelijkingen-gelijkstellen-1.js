@@ -62,7 +62,7 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1AGenereren() {
     document.querySelector('.js-tekst' ).innerHTML = `
     
-    <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) Koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft ${d} euro dagelijks uit aan snoep.<br><br>`
+    <br> Loek mag van zijn vader ${a+b} euro van zijn creditcard gebruiken. Elke dag (t) koopt hij 1 nieuw spel van ${c} euro. Jonas heeft de creditcard van zijn moeder gekregen, waar hij ${b} euro op mag gebruiken. Hij geeft dagelijks ${d} euro uit aan snoep.<br><br>`
     document.querySelector('.js-opdracht1A').innerHTML = `
     <span class="js-score1A"></span>
     <p style= "margin: 0;">A) Stel de functies van Loek en Jonas op. Schrijf in de vorm: </p>
@@ -255,9 +255,9 @@ function pwsVergelijkingenGelijkstellen1() {
         `${b}-${d}t>-${c}t+${a+b}`,
         `-${d}t+${b}>${a+b}-${c}t`,
         `${b}-${d}t>${a+b}-${c}t`,
-        `${c}t- ${d}t<${a+b}- ${b}`,
+        `${c}t-${d}t<${a+b}-${b}`,
         `-${c}t+${a+b}<-${d}t+${b}`,
-        `${c}t- ${d}t>${a+b}- ${b}`,
+        `${c}t-${d}t>${a+b}-${b}`,
         `-${c}t+${a+b}>-${d}t+${b}`, '§', '#'
       ];
 
