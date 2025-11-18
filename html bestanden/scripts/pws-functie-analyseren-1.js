@@ -100,7 +100,7 @@ function functieAnalyseren1() {
         console.log('goed');
         functieAnalyseren1Goed = true;
         localStorage.setItem('functieAnalyseren1Goed', JSON.stringify(true));
-        checkAllesGoed();
+        //checkAllesGoed();
         console.log('functieAnalyseren1Goed is nu, :', functieAnalyseren1Goed);
       };
 
@@ -108,8 +108,8 @@ function functieAnalyseren1() {
         allesGoed1 = true;
         document.querySelector('.js-uitwerkingen1A').hidden = false;
         //document.querySelector('.js-opnieuw1').hidden = false;
-        addCoins(1);
-        addScore(1);
+        //addCoins(1);
+        //addScore(1);
         
 
       } else {
