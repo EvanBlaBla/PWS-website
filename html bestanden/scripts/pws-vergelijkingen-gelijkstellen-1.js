@@ -409,8 +409,8 @@ function pwsVergelijkingenGelijkstellen1() {
         allesGoed4 = true;
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
         //alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
-        addCoins(5);
-        addScore(1);
+        //addCoins(3);
+        //addScore(10);
         checkAllesGoed();
         
         console.log(allesGoed4);
