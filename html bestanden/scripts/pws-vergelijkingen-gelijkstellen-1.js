@@ -52,7 +52,7 @@ function pwsVergelijkingenGelijkstellen1() {
   } while ((a < 20 || a > 60) || (b < 20 || b > 40) ||a === b);
   const computerAntwoord1A = `yLoek = -${c}t + ${a+b}, yJonas = -${d}t + ${b}`;
   const computerAntwoord1B = `-${d}t + ${b} > -${c}t + ${a+b}`;
-  const computerAntwoord1C = `t > ${a/e}`;
+  const computerAntwoord1C = `Na ${a/e} dagen`;
   
   //console.log(a, b, c, d, e, f, g, computerAntwoord1A, computerAntwoord1B, computerAntwoord1C, vergelijkingenGelijkstellen1Goed);
   //dit waren alle variabelen
@@ -255,10 +255,10 @@ function pwsVergelijkingenGelijkstellen1() {
         `${b}-${d}t>-${c}t+${a+b}`,
         `-${d}t+${b}>${a+b}-${c}t`,
         `${b}-${d}t>${a+b}-${c}t`,
-        `${c}t-${d}t<${a+b}-${b}`,
-        `-${c}t+${a+b}<-${d}t+${b}`,
-        `${c}t-${d}t>${a+b}-${b}`,
-        `-${c}t+${a+b}>-${d}t+${b}`, '§', '#'
+        `${a+b}-${c}t<${b}-${d}t`,
+        `${a+b}-${c}t<-${d}t+${b}`,
+        `-${c}t+${a+b}<${b}-${d}t`,
+        `-${c}t+${a+b}<-${d}t+${b}`, '§', '#'
       ];
 
       //let resultaat1B;
@@ -324,7 +324,8 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1CGenereren() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
-      <p>C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek?</p>
+      <p style="margin:0;">C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek? Schrijf in de vorm: </p>
+      <p style="margin:0;">... dagen</p>
       `;
     //let resultaat1C = '';
 
@@ -350,7 +351,12 @@ function pwsVergelijkingenGelijkstellen1() {
       .replace(/\s+/g, '');
       const correcteAntwoorden1C = [
         `t>${a/e}`,
-        `${a/e}<t`, '§', '#'
+        `${a/e}<t`, 
+        `na${a/e}dagen`,
+        `meerdan${a/e}dagen`,
+        `${a/e}dagen`,
+        `t=${a/e}`,
+        '§', '#'
       ];
 
       //let resultaat1C;
@@ -404,8 +410,8 @@ function pwsVergelijkingenGelijkstellen1() {
         allesGoed4 = true;
         localStorage.setItem('vergelijkingenGelijkstellen1Goed', JSON.stringify(true));
         //alert("Je hebt alle vragen goed beantwoord! Je kunt nu naar de volgende opdracht.");
-        addCoins(5);
-        addScore(1);
+        //addCoins(3);
+        //addScore(10);
         checkAllesGoed();
         
         console.log(allesGoed4);
