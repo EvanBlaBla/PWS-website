@@ -33,7 +33,7 @@ function functieAnalyseren2() {
     const b2 = Math.floor(Math.random() * (200 - 2 + 2)) + 2
     const c2 = Math.floor(Math.random() * (3 - 2 + 2)) + 2
     const d2 = Math.floor(Math.random() * (25 - 2 + 2)) + 2
-    
+
     let computerAntwoord2A = '';
     let vraag2A = '';
 
@@ -73,7 +73,7 @@ function functieAnalyseren2() {
      
 
       let correcteAntwoorden2A;
-      if (c2 === 2) {
+      if (c2 === 1) {
         correcteAntwoorden2A = [`lineair`, '§', '#']
       } else if (c2 === 2) {
         correcteAntwoorden2A = [`kwadratisch`, '§', '#']

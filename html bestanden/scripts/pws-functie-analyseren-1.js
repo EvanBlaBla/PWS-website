@@ -37,13 +37,13 @@ function functieAnalyseren1() {
     let vraag1A = '';
 
     if (c1 === 1) {
-      computerAntwoord1A = `lineair`  
+      computerAntwoord1A = `lineaire`  
       vraag1A = `f(x) = ${a1 + b1}x + ${d1}`;
     } else if (c1 === 2) {
-      computerAntwoord1A = `kwadratisch` 
+      computerAntwoord1A = `kwadratische` 
       vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
     } else {
-      computerAntwoord1A = `niet kwadratisch en niet lineair` 
+      computerAntwoord1A = `niet kwadratische of lineaire` 
       vraag1A = `f(x) = ${a1}x^${c1} + ${b1}x + ${d1}`;
     };
 
@@ -77,8 +77,9 @@ function functieAnalyseren1() {
       } else if (c1 === 2) {
         correcteAntwoorden1A = [`kwadratisch`, '§', '#']
       } else {
-        correcteAntwoorden1A = [`niet kwadratisch en niet lineair`, 'Niet lineair en niet kwadratisch', '§', '#']
+        correcteAntwoorden1A = [`nietkwadratischennietlineair`, 'nietlineairennietkwadratisch', '§', '#']
       }
+      console.log(correcteAntwoorden1A);
 
       let resultaat1A;
       if (correcteAntwoorden1A.includes(leerlingAntwoord1ACorrect)) {
