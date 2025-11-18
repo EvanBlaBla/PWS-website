@@ -34,6 +34,7 @@ function balansMethode3() {
   let e3 = Math.floor(Math.random() * 10) + 1; 
   if (e3 === 0) e3 = 1; 
   let d3 = Math.floor(Math.random() * e3*b3) + 1
+  if (d3 === 0) d3 = 1;
   let f3 = (e3*b3) - d3;
 
   
