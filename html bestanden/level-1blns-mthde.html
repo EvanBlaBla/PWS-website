@@ -39,28 +39,31 @@
 
       <!-- Uitlegtekst staat direct in HTML -->
       <div id="uitlegVDOpdracht">
+        <p><strong>Balansmethode</strong></p>
         <p>De balansmethode is een methode die rekenregels gebruikt om vergelijkingen op te lossen.  In een vergelijking waarin meerdere x-waardes staan en voor de rest variabelen, worden de x’en naar links worden verplaatst en de rest naar rechts. De rekenregels zorgen aan beide kanten voor een verandering, waardoor enkele x-waarden gelijk staan aan een getal. </p>
         <div class="voorbeeld-row">
           <div class="voorbeeld-links">
             <p><strong>Voorbeeld </strong></p>
-            <p>Stap 1: Haal van beide kanten 8x af</p>
-            <p>Stap 2: Voeg aan beide kanten 6 toe</p>
-            <p>Stap 3: Deel beide kanten door -5</p>
-            <p>Stap 4: Check je antwoord door -2 in te vullen voor x</p>
+            <p>Stap 1. Haal van beide kanten 2x² eraf </p>
+            <p>Stap 2. Voeg aan beide kanten 5 toe </p>
+            <p>Stap 3. Wortel beide kanten </p>
+            <p>Stap 4. Vereenvoudig beide kanten</p>
+            <p>Stap 5. vul aan beide kanten x = 3 v x = -3 in om te controleren.</p>
           </div>
           <div class="voorbeeld-rechts">
-            <p><strong>:</strong></p>
-            <p>3x - 6 = 8x + 4</p>
-            <p>3x - 8x - 6 = 4</p>
-            <p>-5x = 10</p>
-            <p>x = -2</p>
-            <p>Controle: -12 = -12 ✅</p>
+            <p><strong>3x² - 5 = 2x² + 4</strong></p>
+            <p>3x² - 2x² - 5 = 4</p>
+            <p>x² = 9</p>
+            <p>x = ±√9</p>
+            <p>x = 3 ∨ x = -3</p>
+            <p>Controle: 3 * 3² - 5 = 2 * 3² + 4 : 22 = 22</p>
+            <p>Controle:  3 * (-3)²  - 5 = 2 * (-3)² + 4 : 22 = 22</p>
           </div>
         </div>
       </div>
 
       <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht" style=" display: flex; flex-direction:column;">
+      <div id="opdracht" style=" display: none; flex-direction:column;">
         <div id="a" style="display:flex; flex-direction: row; align-items:flex-start; width: 100%; gap: 1%;height: 100%;">
         <div id="opdracht1A" style="min-height:95%">
           
@@ -69,8 +72,8 @@
           <p style="margin: 0;">Bereken de waarde van x</p>
           <p class="js-opdracht1A" style="margin: 0;"></p>
           <div style="display: flex; flex-direction: row;">
-            <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1A" >
-            <button style="width: 30%;" class="js-nakijken1A" 
+            <input style="width: 60%;" placeholder="Antwoord" class="js-antwoord1A" >
+            <button style="width: 40%;" class="js-nakijken1A" 
             >Nakijken</button>
           </div>
           <button class="js-uitwerkingen1A" hidden
@@ -84,8 +87,8 @@
           <p style="margin: 0;">Bereken de waarde van x</p>
           <p class="js-opdracht2A" style="margin: 0;"></p>
           <div style="display: flex; flex-direction: row;">
-              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord2A" >
-              <button style="width: 30%;" class="js-nakijken2A" 
+              <input style="width: 60%;" placeholder="Antwoord" class="js-antwoord2A" >
+              <button style="width: 40%;" class="js-nakijken2A" 
               >Nakijken</button>
             </div>
           <button class="js-uitwerkingen2A" hidden
@@ -97,8 +100,8 @@
           <p class="js-score3A" style="margin: 0;"></p>
           <p class="js-opdracht3A" style="margin: 0;"></p>
           <div style="display: flex; flex-direction: row;">
-              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord3A" >
-              <button style="width: 30%;" class="js-nakijken3A" 
+              <input style="width: 60%;" placeholder="Antwoord" class="js-antwoord3A" >
+              <button style="width: 40%;" class="js-nakijken3A" 
               >Nakijken</button>
             </div>
           <button class="js-uitwerkingen3A" hidden

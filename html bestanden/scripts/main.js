@@ -421,7 +421,8 @@ function closeRondleiding() {
 
   // --- Levels openen
 
-
+  const hide = (el) => el.style.display = 'none';
+  const show = (el) => el.style.display = 'flex';
   const btnLinks = [
     {id: "btn-1", link:'level-1blns-mthde.html'},
     {id: "btn-2", link:'level-2vergl-gelkst.html'},
@@ -437,6 +438,8 @@ function closeRondleiding() {
       if (btn) {
         btn.addEventListener("click", () => {
           window.location.href = item.link;
+          show(safeGet('uitlegVDOpdracht'));
+          hide(safeGet('opdracht'));
         });
       }
     });

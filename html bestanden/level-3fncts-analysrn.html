@@ -31,26 +31,27 @@
 
       <!-- Uitlegtekst staat direct in HTML -->
       <div id="uitlegVDOpdracht">
-        <p>Het grootste verschil tussen een lineaire en kwadratische functie is dat er in een lineaire functie x voorkomt en in een kwadratische functie x². In wiskundige termen wordt een lineaire functie ook een eerstegraadsfunctie genoemd, omdat x eigenlijk x¹ is. Volgens dezelfde reden wordt een kwadratische functie ook wel een tweedegraadsfunctie genoemd. </p>
+        <p><strong>Functie analyseren</strong></p>
+        <p>Het grootste verschil tussen een lineaire en kwadratische formule is dat er in een lineaire formule x voorkomt en in een kwadratische formule x². In wiskundige termen wordt een lineaire formule ook een eerstegraadsformule genoemd, omdat x eigenlijk x¹ is. Volgens dezelfde reden wordt een kwadratische formule ook wel een tweedegraadsformule genoemd. </p>
         <div class="voorbeeld-row">
           <div class="voorbeeld-links">
             <p><strong>Voorbeeld </strong></p>
-            <p>Stap 1: Je hebt twee lijnen</p>
-            <p>Stap 2: Stel de vergelijkingen aan elkaar gelijk</p>
-            <p>Stap 3: Nu kan je het gewoon oplossen met de balansmethode</p>
+            <p>y=8x+b</p>
+            <p></p>
+            <p>y=ax^2+bx+c</p>
             
           </div>
           <div class="voorbeeld-rechts">
             <p><strong>:</strong></p>
-            <p>Lijn 1: Y = 2x en lijn 2: y = 2</p>
-            <p>Lijn 1 = lijn 2</p>
-            <p>2x = 2 -> x = 1</p>
+            <p>Lineair</p>
+            <p></p>
+            <p>Kwadratisch</p>
           </div>
         </div>
       </div>
 
       <!-- Opdrachten staan ook in HTML -->
-      <div id="opdracht" style="display:flex; flex-direction: column;">
+      <div id="opdracht" style="display: none; flex-direction: column;">
         <div id="a" style="display:flex; flex-direction: row; align-items:flex-start; width: 100%; gap: 1%;min-height: 100%;">
         
         <div id="opdracht1A" style="min-height:95%">
@@ -58,23 +59,32 @@
           <p class="js-score1A" style="margin: 0;"></p>
           <p class="js-opdracht1A" style="margin: 0;"></p>
           <div style="display: flex; flex-direction: row;">
-              <input style="width: 70%;" placeholder="Antwoord" class="js-antwoord1A" >
-              <button style="width: 30%;" class="js-nakijken1A" 
+              <input style="width: 60%;" placeholder="Antwoord" class="js-antwoord1A" >
+              <button style="width: 40%;" class="js-nakijken1A" 
               >Nakijken</button>
-            </div>
+          </div>
           <button class="js-uitwerkingen1A" hidden
           >Uitwerkingen</button>
           <p class="js-resultaat1A"></p>
         </div>
         <div id="opdracht1B" style="min-height:95%">
-          
+          <p style="font-weight: bold;">Functie analyseren - Opdracht 2</p>
+          <p class="js-score2A" style="margin: 0;"></p>
+          <p class="js-opdracht2A" style="margin: 0;"></p>
+          <div style="display: flex; flex-direction: row;">
+              <input style="width: 60%;" placeholder="Antwoord" class="js-antwoord2A" >
+              <button style="width: 40%;" class="js-nakijken2A" 
+              >Nakijken</button>
+          </div>
+          <p class="js-resultaat2A"></p>
         
-      </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script src="scripts/pws-functie-analyseren-1.js"></script>
+  <script src="scripts/pws-functie-analyseren-2.js"></script>
   <script src="scripts/jsLevels/allLevels.js"></script>
   <script src="scripts/jsLevels/level-3.js"></script>
   <script src="scripts/jsLevels/lvlCompleteOverlay.js"></script>

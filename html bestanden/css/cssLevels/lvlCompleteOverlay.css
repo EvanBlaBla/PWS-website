@@ -24,7 +24,7 @@
 }
 
 .overlay-content h1 {
-  font-size: 4vh;
+  font-size: 3.5vh;
   margin-bottom: 1vh;
   background: rgba(100, 83, 93, 0);
   border-radius: 2vh;
@@ -45,7 +45,7 @@
 }
 
 .scoreboard p {
-  font-size: 3vh;
+  font-size: 3.5vh;
   font-weight: 700;
   margin: 1vh 0;
   display: flex;
