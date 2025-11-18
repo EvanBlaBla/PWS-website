@@ -48,11 +48,11 @@ jobs:
         <html>
         <head>
             <meta charset="UTF-8">
-            <title>Wiskunde bay - Redirecting...</title>
+            <title>Wiskunde Bay - Redirecting...</title>
             <meta http-equiv="refresh" content="0;url=main-menu.html">
         </head>
         <body>
-            <p>Als je niet automatisch wordt doorgestuurd, <a href="main-menu.html">klik dan hier om naar Wiskunde bay te gaan</a>.</p>
+            <p>Als je niet automatisch wordt doorgestuurd, <a href="main-menu.html">klik dan hier om naar Wiskunde Bay te gaan</a>.</p>
         </body>
         </html>
         EOF

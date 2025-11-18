@@ -325,7 +325,7 @@ function pwsVergelijkingenGelijkstellen1() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
       <p style="margin:0;">C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek? Schrijf in de vorm: </p>
-      <p style="margin:0;">... dagen</p>
+      <p style="margin:0;"git>... dagen</p>
       `;
     //let resultaat1C = '';
 
