@@ -52,7 +52,7 @@ function pwsVergelijkingenGelijkstellen1() {
   } while ((a < 20 || a > 60) || (b < 20 || b > 40) ||a === b);
   const computerAntwoord1A = `yLoek = -${c}t + ${a+b}, yJonas = -${d}t + ${b}`;
   const computerAntwoord1B = `-${d}t + ${b} > -${c}t + ${a+b}`;
-  const computerAntwoord1C = `Na ${a/e} dagen`;
+  const computerAntwoord1C = `${a/e} dagen`;
   
   //console.log(a, b, c, d, e, f, g, computerAntwoord1A, computerAntwoord1B, computerAntwoord1C, vergelijkingenGelijkstellen1Goed);
   //dit waren alle variabelen
@@ -244,10 +244,12 @@ function pwsVergelijkingenGelijkstellen1() {
         alert("Vul eerst een antwoord in voordat je nakijkt!");
         return;
       };
-      let leerlingAntwoord1BCorrect = leerlingAntwoord1B
+
+      let juistAntwoord1B = computerAntwoord1B
       .toLowerCase()
       .replace(/\s+/g, '');
-      let juistAntwoord1B = computerAntwoord1B
+
+      let leerlingAntwoord1BCorrect = leerlingAntwoord1B
       .toLowerCase()
       .replace(/\s+/g, '');
       const correcteAntwoorden1B = [
@@ -258,10 +260,9 @@ function pwsVergelijkingenGelijkstellen1() {
         `${a+b}-${c}t<${b}-${d}t`,
         `${a+b}-${c}t<-${d}t+${b}`,
         `-${c}t+${a+b}<${b}-${d}t`,
-        `-${c}t+${a+b}<-${d}t+${b}`, '§', '#'
+        `-${c}t+${a+b}<-${d}t+${b}`, '§', `#`
       ];
 
-      //let resultaat1B;
       if (correcteAntwoorden1B.includes(leerlingAntwoord1BCorrect)) {
         resultaat1B = 'goed';
       } else {
@@ -356,6 +357,12 @@ function pwsVergelijkingenGelijkstellen1() {
         `meerdan${a/e}dagen`,
         `${a/e}dagen`,
         `t=${a/e}`,
+        `t>${a/e+1}`,
+        `${a/e+1}<t`, 
+        `na${a/e+1}dagen`,
+        `meerdan${a/e+1}dagen`,
+        `${a/e+1}dagen`,
+        `t=${a/e+1}`,
         '§', '#'
       ];
 
@@ -386,7 +393,8 @@ function pwsVergelijkingenGelijkstellen1() {
       -${d}t + ${c}t > ${a+b} - ${b} <br>
       (${c}-${d})t > ${a} <br>
       ${e}t > ${a} <br>
-      ${computerAntwoord1C} <br>`
+      Na t = ${a/e} hebben Jonas en Loek precies even veel geld. Dus bij ${a/e+1} dagen heeft Jonas meer geld dan Loek. <br>
+      Dus na ${computerAntwoord1C} of bij ${a/e+1} dagen<br>`
       
       if (resultaat1C === 'goed' && vraag1CBeantwoord === false) {
         addCoins(3);
