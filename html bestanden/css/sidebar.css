@@ -184,6 +184,10 @@
   background-repeat: no-repeat;
 }
 
+#shop:hover {
+  cursor: pointer;
+}
+
 .shopItem {
   background-color: rgba(50, 50, 50, 0.5);
   border: 2px solid ;
