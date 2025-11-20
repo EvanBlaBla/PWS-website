@@ -360,6 +360,7 @@ function pwsVergelijkingenGelijkstellen1() {
         `t>${a/e+1}`,
         `${a/e+1}<t`, 
         `bij${a/e+1}dagen`,
+        `opdag${a/e+1}`,
         `${a/e+1}dagen`,
         `t=${a/e+1}`,
         '§', '#'
