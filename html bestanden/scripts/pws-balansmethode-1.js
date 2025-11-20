@@ -37,11 +37,12 @@ function balansMethode1 () {
   const c1 = Math.floor(Math.random() * (9 - 2 + 1)) + 2;
   //random getal tussen 2 en 9
   const computerAntwoord1A = `x = ${a1}`;
+  const vraag1A = ` ${c1}x + ${b1} = ${c1 * a1 + b1} `;
 
   vraag1AGenereren();
 
   function vraag1AGenereren() {
-    document.querySelector('.js-opdracht1A').innerHTML = `${c1}x + ${b1} = ${c1 * a1 + b1}`;
+    document.querySelector('.js-opdracht1A').innerHTML = `${vraag1A}`;
 
 
     window.checken1A = function () {
@@ -107,6 +108,7 @@ function balansMethode1 () {
       ${c1}x + ${b1} = ${a1 * c1 + b1} <br>
       ${c1}x = ${a1 * c1} <br> 
       ${computerAntwoord1A} <br>
+
       <button class="js-opnieuw1">Opnieuw</button>`;
       document.querySelector('.js-opnieuw1').hidden = false;
       document.querySelector('.js-opnieuw1').addEventListener('click', () => {
@@ -145,7 +147,6 @@ function balansMethode1 () {
 
         document.querySelector('.js-antwoord1A').value = "";
         document.querySelector('.js-resultaat1A').innerHTML = "";
-         ;
         document.querySelector('.js-resultaat1A').hidden = false;
         const nakijk1A = document.querySelector('.js-nakijken1A');
         nakijk1A.replaceWith(nakijk1A.cloneNode(true));

@@ -30,7 +30,7 @@ window.addEventListener('DOMContentLoaded', () => {
 window.checkAllesGoed = function  () {
   if (functieAnalyseren1Goed && functieAnalyseren2Goed) {
     addCoins(2);
-    addScore(1);
+    addScore(10);
     setTimeout(() => {
       
     }, 2000);

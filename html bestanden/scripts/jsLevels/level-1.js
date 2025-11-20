@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', () => {
 window.checkAllesGoed = function  () {
   if (balansMethode2Goed && balansMethode1Goed && balansMethode3Goed){
     addCoins(3);
-    addScore(1);
+    addScore(10);
     setTimeout(() => {
       
     }, 2000);
