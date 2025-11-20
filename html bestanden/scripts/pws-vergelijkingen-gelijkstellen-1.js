@@ -325,8 +325,8 @@ function pwsVergelijkingenGelijkstellen1() {
   function vraag1CGenereren() {
     document.querySelector('.js-opdracht1C').innerHTML = ` 
       <span class="js-score1C"></span>
-      <p style="margin:0;">C) Na hoeveel dagen(t) heeft Jonas meer geld dan Loek? Schrijf in de vorm: </p>
-      <p style="margin:0;"git>... dagen</p>
+      <p style="margin:0;">C) Op welke dag(t) heeft Jonas meer geld dan Loek? Schrijf in de vorm: </p>
+      <p style="margin:0;"git>Op dag...</p>
       `;
     //let resultaat1C = '';
 
@@ -359,8 +359,7 @@ function pwsVergelijkingenGelijkstellen1() {
         `t=${a/e}`,
         `t>${a/e+1}`,
         `${a/e+1}<t`, 
-        `na${a/e+1}dagen`,
-        `meerdan${a/e+1}dagen`,
+        `bij${a/e+1}dagen`,
         `${a/e+1}dagen`,
         `t=${a/e+1}`,
         '§', '#'
@@ -394,7 +393,7 @@ function pwsVergelijkingenGelijkstellen1() {
       (${c}-${d})t > ${a} <br>
       ${e}t > ${a} <br>
       Na t = ${a/e} hebben Jonas en Loek precies even veel geld. Dus bij ${a/e+1} dagen heeft Jonas meer geld dan Loek. <br>
-      Dus na ${computerAntwoord1C} of bij ${a/e+1} dagen<br>`
+      Dus op dag ${a/e+1}<br>`
       
       if (resultaat1C === 'goed' && vraag1CBeantwoord === false) {
         addCoins(3);
