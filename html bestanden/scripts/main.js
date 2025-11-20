@@ -430,10 +430,10 @@ function closeRondleiding() {
     {id: "btn-1", link:'level-1blns-mthde.html'},
     {id: "btn-2", link:'level-2vergl-gelkst.html'},
     {id: "btn-3", link:'level-3fncts-analysrn.html'},
-    {id: "btn-4", link:'level-4.html'},
-    {id: "btn-5", link:'level-5.html'},
-    {id: "btn-6", link:'level-6.html'},
-    {id: "btn-7", link:'level-7.html'},
+    //{id: "btn-4", link:'level-4.html'},
+    //{id: "btn-5", link:'level-5.html'},
+    //{id: "btn-6", link:'level-6.html'},
+    //{id: "btn-7", link:'level-7.html'},
   ];
   if (btnLinks) {
     btnLinks.forEach(item => {
