@@ -186,6 +186,12 @@ body {
   z-index: 3;
 }
 
+.buttonNaarUitleg,
+.buttonNaarOpdracht,
+.buttonNaarHome,
+.buttonNaarNext:hover {
+  cursor: pointer;
+}
 /*.buttonNaarUitleg { margin-top: 60vh; margin-left: 5.6vw; }
 .buttonNaarOpdracht { margin-top: 70vh; margin-left: 5.6vw; }
 .buttonNaarHome { margin-top: 80vh; margin-left: 2vw; }
